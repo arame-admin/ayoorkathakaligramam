@@ -2,7 +2,7 @@
 
 ## Description
 
-Ayoorkathakaligramam is the official website for the Kathakali Gramam in Ayoorkathakaligramam, Kerala, India. This cultural center is dedicated to preserving and promoting Kathakali, the classical dance-drama form of Kerala. The website serves as a platform to showcase performances, provide information about Kathakali art, and facilitate bookings for cultural events and workshops.
+Ayoorkathakaligramam is the official website for the Kathakali Gramam in Kerala, India. This cultural center is dedicated to preserving and promoting Kathakali, the classical dance-drama form of Kerala. The website serves as a platform to showcase performances, provide information about Kathakali art, and facilitate bookings for cultural events and workshops.
 
 ## Technologies Used
 
