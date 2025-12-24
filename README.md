@@ -13,10 +13,8 @@ Ayoorkathakaligramam is the official website for the Kathakali Gramam in Ayoorka
 ## Features
 
 - Information about Kathakali history and performances
-- Event calendar and booking system
 - Gallery of performances and artists
 - Contact and location details
-- User authentication for members
 
 ## Installation
 
