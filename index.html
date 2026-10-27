@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kathakali Gramam Ayroor — The Divine Language of Gods &amp; Demons</title>
+  <meta name="description" content="Kathakali Gramam Ayroor is a cultural space rooted in Kerala's classical dance-drama. Explore mudras, performances, the Kathakali Mela, learning institutions, and our living heritage.">
+  
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <div class="brand-signature">
+          <div class="monogram-seal">
+            <span class="monogram">K</span>
+          </div>
+          <div class="wordmark">
+            <span class="org-name">Kathakali Gramam</span>
+            <span class="place-name">AYROOR</span>
+          </div>
+        </div>
+        <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close Navigation">
+          <img src="assets/icons/close.svg" alt="Close" width="24" height="24">
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="#hero" class="mobile-nav-link active">Home</a>
+        <a href="#about" class="mobile-nav-link">About Us</a>
+        <a href="#activities" class="mobile-nav-link">Cultural Activities</a>
+        <a href="#mela" class="mobile-nav-link">Kathakali Mela</a>
+        <a href="#mudras" class="mobile-nav-link">The Art of Mudras</a>
+        <a href="#awards" class="mobile-nav-link">Awards &amp; Tradition</a>
+        <a href="#gallery" class="mobile-nav-link">Gallery</a>
+        <a href="#institutions" class="mobile-nav-link">Institutions</a>
+        <a href="#contact" class="mobile-nav-link">Contact Us</a>
+      </nav>
+      <div class="mobile-nav-footer">
+        <span class="location-pill">KERALA, INDIA</span>
+        <p class="mobile-nav-motto">A living art. An enduring soul.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: CINEMATIC OPENING -->
+  <section class="section-hero" id="hero">
+    <div class="hero-bg-container">
+      <picture class="hero-bg-picture">
+        <source media="(max-width: 600px)" srcset="assets/images/mobile-hero-lamps-and-mudras.jpg">
+        <img src="assets/images/hero-lamps-and-mudras.jpg" alt="Kerala Kathakali hands holding classical Mudraakhya with traditional brass nilavilakku oil lamps" class="hero-bg-image">
+      </picture>
+
+      <!-- Ambient Floating Embers (Natural Golden Temple Air) -->
+      <canvas id="heroEmbers" class="hero-embers" aria-hidden="true"></canvas>
+
+      <!-- Cinematic Vignette & Shading -->
+      <div class="cinematic-shade"></div>
+    </div>
+
+    <header class="transparent-navigation">
+      <div class="nav-container">
+        <a href="#hero" class="brand-signature" aria-label="Kathakali Gramam Ayroor Home">
+          <div class="monogram-seal">
+            <span class="monogram">K</span>
+          </div>
+          <div class="wordmark">
+            <span class="org-name">Kathakali Gramam</span>
+            <span class="place-name">AYROOR</span>
+          </div>
+        </a>
+
+        <nav class="primary-navigation" aria-label="Main Navigation">
+          <div class="nav-item">
+            <a href="#hero" class="nav-label active">Home</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#about" class="nav-label">About Us</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#mela" class="nav-label">Kathakali Mela</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#awards" class="nav-label">Awards</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#gallery" class="nav-label">Gallery</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#institutions" class="nav-label">Institutions</a>
+            <div class="active-indicator"></div>
+          </div>
+          <div class="nav-item">
+            <a href="#contact" class="nav-label">Contact Us</a>
+            <div class="active-indicator"></div>
+          </div>
+        </nav>
+
+        <div class="location-note">KERALA, INDIA</div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Navigation">
+          <img src="assets/icons/menu.svg" alt="Menu" width="25" height="25">
+        </button>
+      </div>
+    </header>
+
+    <div class="hero-statement">
+      <p class="hero-overline animate-on-load">KATHAKALI GRAMAM AYROOR</p>
+      <h1 class="hero-headline">
+        <span class="headline-line"><span class="headline-inner">THE DIVINE LANGUAGE</span></span>
+        <span class="headline-line"><span class="headline-inner">OF GODS &amp; DEMONS</span></span>
+      </h1>
+      <p class="hero-subheadline animate-on-load">Immerse yourself in the majestic, silent drama of Kathakali.</p>
+      <div class="hero-action animate-on-load">
+        <a href="#mudras" class="btn btn-outline btn-hero">
+          <span class="btn-text">EXPLORE THE MUDRAS</span>
+          <span class="btn-icon">
+            <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-footnote">
+      <div class="cultural-descriptor animate-on-load">
+        <span>A LIVING TRADITION.</span>
+        <span>AN ETERNAL EXPRESSION.</span>
+      </div>
+
+      <a href="#about" class="scroll-invitation animate-on-load" aria-label="Scroll to discover">
+        <span class="scroll-label">SCROLL TO DISCOVER</span>
+        <span class="scroll-arrow">
+          <img src="assets/icons/arrow-down.svg" alt="" width="14" height="24">
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SECTION 2: ABOUT KATHAKALI GRAMAM AYROOR -->
+  <section class="section-about" id="about">
+    <div class="section-container about-grid">
+      <div class="portrait-composition">
+        <div class="glass-backing"></div>
+        <div class="photo-wrapper">
+          <picture>
+            <source media="(max-width: 600px)" srcset="assets/images/mobile-about-portrait.jpg">
+            <img src="assets/images/about-portrait.jpg" alt="Kathakali performer backstage in green pacha makeup with ornate kireedam crown" class="portrait-photo">
+          </picture>
+        </div>
+        <div class="image-caption">
+          <span class="portrait-caption-text">THE SPIRIT BEHIND THE SPECTACLE</span>
+          <span class="photo-motif">I</span>
+        </div>
+      </div>
+
+      <div class="our-identity">
+        <div class="section-label">
+          <span class="accent-rule"></span>
+          <span class="eyebrow">ABOUT KATHAKALI GRAMAM AYROOR</span>
+        </div>
+        <h2 class="section-heading">A village. An art form.<br>A shared devotion.</h2>
+        <div class="editorial-body">
+          <p class="editorial-copy">Kathakali Gramam Ayroor is a cultural space rooted in the relationship between a community and Kerala’s remarkable classical dance-drama. Here, the stage becomes a meeting place for artists, learners and everyone drawn to the language of Kathakali.</p>
+          <p class="editorial-copy">Our purpose is to nurture that connection: bringing performance closer to everyday life, opening conversations around the art, and encouraging a new generation to listen, learn and participate in a living tradition.</p>
+        </div>
+        <div class="story-action">
+          <a href="#activities" class="btn btn-primary btn-about">
+            <span class="btn-text">Read Our Story</span>
+            <span class="btn-icon">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: CULTURAL ACTIVITIES AND EVENT HIGHLIGHTS -->
+  <section class="section-activities" id="activities">
+    <div class="section-container">
+      <div class="activities-introduction">
+        <div class="activities-title">
+          <div class="section-label">
+            <span class="accent-rule"></span>
+            <span class="eyebrow">CULTURE, IN COMPANY</span>
+          </div>
+          <h2 class="section-heading">Key Cultural Activities &amp; Event Highlights</h2>
+        </div>
+        <div class="activities-context">
+          <p class="editorial-copy">More than a performance. A way to encounter the stories, skills and people who keep the tradition alive.</p>
+        </div>
+      </div>
+
+      <div class="activity-stories">
+        <!-- Story 1 -->
+        <article class="activity-story">
+          <div class="story-image-wrap">
+            <picture>
+              <source media="(max-width: 600px)" srcset="assets/images/mobile-activity-performance.jpg">
+              <img src="assets/images/activity-performance.jpg" alt="Traditional Kathakali performance on stage with oil lamp" class="story-photo">
+            </picture>
+          </div>
+          <span class="category">PERFORMANCE</span>
+          <div class="story-title-row">
+            <h3 class="story-title">The stage comes alive</h3>
+            <span class="story-arrow">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="18" height="18">
+            </span>
+          </div>
+          <p class="editorial-copy">Enter an expressive world of epic storytelling, evocative music and extraordinary stagecraft.</p>
+          <div class="section-divider"></div>
+        </article>
+
+        <!-- Story 2 -->
+        <article class="activity-story">
+          <div class="story-image-wrap">
+            <picture>
+              <source media="(max-width: 600px)" srcset="assets/images/mobile-activity-craft.jpg">
+              <img src="assets/images/activity-craft.jpg" alt="Artisan applying chutti facial frame and traditional makeup" class="story-photo">
+            </picture>
+          </div>
+          <span class="category">CRAFT &amp; CONVERSATION</span>
+          <div class="story-title-row">
+            <h3 class="story-title">Behind the transformation</h3>
+            <span class="story-arrow">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="18" height="18">
+            </span>
+          </div>
+          <p class="editorial-copy">Look closer at the patient artistry of makeup, costume and the making of a character.</p>
+          <div class="section-divider"></div>
+        </article>
+
+        <!-- Story 3 -->
+        <article class="activity-story">
+          <div class="story-image-wrap">
+            <picture>
+              <source media="(max-width: 600px)" srcset="assets/images/mobile-activity-music.jpg">
+              <img src="assets/images/activity-music.jpg" alt="Traditional percussionists playing chenda and maddalam" class="story-photo">
+            </picture>
+          </div>
+          <span class="category">MUSIC &amp; EXPRESSION</span>
+          <div class="story-title-row">
+            <h3 class="story-title">The rhythm of the story</h3>
+            <span class="story-arrow">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="18" height="18">
+            </span>
+          </div>
+          <p class="editorial-copy">Discover how percussion and voice shape the energy, emotion and movement of Kathakali.</p>
+          <div class="section-divider"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: KATHAKALI MELA -->
+  <section class="section-mela" id="mela">
+    <div class="section-container">
+      <div class="mela-section-marker">
+        <div class="section-label">
+          <span class="accent-rule"></span>
+          <span class="eyebrow">THE GATHERING OF AN ART</span>
+        </div>
+        <span class="section-motif">II</span>
+      </div>
+
+      <div class="mela-feature">
+        <div class="mela-photograph">
+          <picture>
+            <source media="(max-width: 600px)" srcset="assets/images/mobile-mela-performance.jpg">
+            <img src="assets/images/mela-performance.jpg" alt="Two Kathakali performers in full green pacha costume and crowns performing at night" class="mela-img">
+          </picture>
+          <div class="photo-label">
+            <span class="photo-label-text">ART • COMMUNITY • CELEBRATION</span>
+          </div>
+        </div>
+
+        <div class="mela-editorial">
+          <span class="feature-label">KATHAKALI MELA</span>
+          <h2 class="section-heading">When a village<br>becomes a stage.</h2>
+          <p class="editorial-copy">A celebration of Kathakali’s power to bring people together. Discover performances, artistic exchange and the shared anticipation of a story unfolding beneath the glow of the lamp.</p>
+          <div class="section-divider"></div>
+          <div class="mela-themes">
+            <p>Classical storytelling</p>
+            <p>Artist encounters</p>
+            <p>A shared cultural experience</p>
+          </div>
+          <div class="mela-action">
+            <a href="#gallery" class="btn btn-outline btn-mela">
+              <span class="btn-text">DISCOVER THE MELA</span>
+              <span class="btn-icon">
+                <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: THE ART OF MUDRAS -->
+  <section class="section-mudras" id="mudras">
+    <div class="section-container mudras-grid">
+      <div class="the-language-of-gesture">
+        <div class="section-label">
+          <span class="accent-rule"></span>
+          <span class="eyebrow">BEYOND THE SPOKEN WORD</span>
+        </div>
+        <h2 class="section-heading">A thousand stories.<br>Not a single word.</h2>
+        <p class="editorial-copy">In Kathakali, a hand can become a flower, a forest or a feeling. Mudras work with the eyes, face and body to give the story its extraordinary expressive vocabulary.</p>
+
+        <div class="expression-disciplines">
+          <div class="discipline">
+            <div class="section-divider"></div>
+            <span class="discipline-name">Gesture</span>
+          </div>
+          <div class="discipline">
+            <div class="section-divider"></div>
+            <span class="discipline-name">Expression</span>
+          </div>
+          <div class="discipline">
+            <div class="section-divider"></div>
+            <span class="discipline-name">Emotion</span>
+          </div>
+        </div>
+
+        <div class="mudras-action">
+          <a href="#gallery" class="btn btn-outline btn-mudras">
+            <span class="btn-text">EXPLORE THE MUDRAS</span>
+            <span class="btn-icon">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="gesture-study">
+        <div class="study-photo-wrap">
+          <picture>
+            <source media="(max-width: 600px)" srcset="assets/images/mobile-mudras-hands.jpg">
+            <img src="assets/images/mudras-hands.jpg" alt="Kathakali performer hands with red fingertips and gold bangles demonstrating classical mudras" class="mudras-photo">
+          </picture>
+        </div>
+        <p class="study-caption">THE HANDS SPEAK. THE EYES GIVE MEANING.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: AWARDS AND LIVING TRADITION -->
+  <section class="section-awards" id="awards">
+    <div class="section-container">
+      <div class="honouring-dedication">
+        <div class="tradition-statement">
+          <div class="section-label">
+            <span class="accent-rule"></span>
+            <span class="eyebrow">AWARDS &amp; TRADITION</span>
+          </div>
+          <h2 class="section-heading">Honouring the hands<br>that carry the flame.</h2>
+        </div>
+        <div class="recognition-context">
+          <p class="editorial-copy">Behind every unforgettable performance is a life of discipline. We honour the artistry of performers, teachers and craftspeople, and the quiet dedication that allows Kathakali to endure.</p>
+          <div class="awards-action">
+            <a href="#institutions" class="btn btn-outline btn-awards">
+              <span class="btn-text">EXPLORE OUR TRADITION</span>
+              <span class="btn-icon">
+                <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tradition-divider"></div>
+
+      <div class="values-of-recognition">
+        <div class="recognition-value">
+          <h3 class="value-title">Artistic excellence</h3>
+          <p class="value-description">A commitment to the depth and integrity of the art.</p>
+        </div>
+        <div class="recognition-value">
+          <h3 class="value-title">The teacher’s legacy</h3>
+          <p class="value-description">Knowledge carried through patient practice and guidance.</p>
+        </div>
+        <div class="recognition-value">
+          <h3 class="value-title">Collective stewardship</h3>
+          <p class="value-description">A tradition sustained by artists and community together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: GALLERY -->
+  <section class="section-gallery" id="gallery">
+    <div class="section-container">
+      <div class="gallery-introduction">
+        <div class="gallery-title">
+          <div class="section-label">
+            <span class="accent-rule"></span>
+            <span class="eyebrow">FRAGMENTS OF THE DIVINE</span>
+          </div>
+          <h2 class="section-heading">Every frame, a world.</h2>
+        </div>
+        <div class="gallery-action">
+          <a href="#contact" class="btn btn-outline btn-gallery">
+            <span class="btn-text">VIEW THE GALLERY</span>
+            <span class="btn-icon">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="editorial-photo-collection">
+        <!-- Feature Left Portrait -->
+        <div class="portrait-feature">
+          <div class="gallery-image">
+            <div class="gallery-photo-wrap">
+              <picture>
+                <source media="(max-width: 600px)" srcset="assets/images/mobile-gallery-portrait.jpg">
+                <img src="assets/images/gallery-portrait.jpg" alt="Kathakali character portrait in exquisite makeup and kireedam" class="gallery-photo">
+              </picture>
+            </div>
+            <span class="photograph-title">THE FACE BECOMES THE CHARACTER</span>
+          </div>
+        </div>
+
+        <!-- Details Right Grid -->
+        <div class="gallery-details">
+          <div class="gallery-image wide">
+            <div class="gallery-photo-wrap">
+              <picture>
+                <source media="(max-width: 600px)" srcset="assets/images/mobile-gallery-wide-art.jpg">
+                <img src="assets/images/gallery-wide-art.jpg" alt="Kathakali dressing room preparation and facial chutti craft" class="gallery-photo">
+              </picture>
+            </div>
+            <span class="photograph-title">THE ART BEFORE THE PERFORMANCE</span>
+          </div>
+
+          <div class="craft-and-ritual">
+            <div class="gallery-image">
+              <div class="gallery-photo-wrap">
+                <picture>
+                  <source media="(max-width: 600px)" srcset="assets/images/mobile-gallery-gesture-grace.jpg">
+                  <img src="assets/images/gallery-gesture-grace.jpg" alt="Subtle Kathakali hand gesture and costume details" class="gallery-photo">
+                </picture>
+              </div>
+              <span class="photograph-title">GESTURE &amp; GRACE</span>
+            </div>
+
+            <div class="gallery-image">
+              <div class="gallery-photo-wrap">
+                <picture>
+                  <source media="(max-width: 600px)" srcset="assets/images/mobile-gallery-first-flame.jpg">
+                  <img src="assets/images/gallery-first-flame.jpg" alt="Close-up macro of traditional bronze oil lamp flames" class="gallery-photo">
+                </picture>
+              </div>
+              <span class="photograph-title">THE FIRST FLAME</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: INSTITUTIONS AND COMMUNITY LEARNING -->
+  <section class="section-institutions" id="institutions">
+    <div class="section-container institutions-grid">
+      <div class="learning-photograph">
+        <div class="learning-photo-wrap">
+          <picture>
+            <source media="(max-width: 600px)" srcset="assets/images/mobile-institutions-learning.jpg">
+            <img src="assets/images/institutions-learning.jpg" alt="Teacher instructing student in traditional Kathakali kalari timber space" class="learning-photo">
+          </picture>
+        </div>
+        <p class="learning-caption">KNOWLEDGE LIVES WHEN IT IS SHARED.</p>
+      </div>
+
+      <div class="learning-invitation">
+        <div class="section-label">
+          <span class="accent-rule"></span>
+          <span class="eyebrow">INSTITUTIONS &amp; COMMUNITY</span>
+        </div>
+        <h2 class="section-heading">The next chapter<br>begins with learning.</h2>
+        <p class="editorial-copy">An art form flourishes when there is room for new curiosity. Explore pathways into Kathakali through guided appreciation, conversations with practitioners and connections with the wider learning community.</p>
+
+        <div class="learning-pathways">
+          <a href="#contact" class="learning-pathway">
+            <div class="section-divider"></div>
+            <div class="pathway-label">
+              <span class="audience">For curious first-time audiences</span>
+              <span class="pathway-arrow">
+                <img src="assets/icons/arrow-up-right.svg" alt="" width="15" height="15">
+              </span>
+            </div>
+          </a>
+
+          <a href="#contact" class="learning-pathway">
+            <div class="section-divider"></div>
+            <div class="pathway-label">
+              <span class="audience">For students and aspiring artists</span>
+              <span class="pathway-arrow">
+                <img src="assets/icons/arrow-up-right.svg" alt="" width="15" height="15">
+              </span>
+            </div>
+          </a>
+
+          <a href="#contact" class="learning-pathway">
+            <div class="section-divider"></div>
+            <div class="pathway-label">
+              <span class="audience">For schools and cultural institutions</span>
+              <span class="pathway-arrow">
+                <img src="assets/icons/arrow-up-right.svg" alt="" width="15" height="15">
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="institutions-action">
+          <a href="#contact" class="btn btn-outline btn-institutions">
+            <span class="btn-text">EXPLORE LEARNING</span>
+            <span class="btn-icon">
+              <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: INVITATION AND FOOTER -->
+  <div class="invitation-and-footer" id="contact">
+    <!-- Contact Invitation -->
+    <section class="contact-invitation">
+      <div class="section-container contact-grid">
+        <div class="invitation-copy">
+          <div class="section-label">
+            <span class="accent-rule"></span>
+            <span class="eyebrow">BECOME PART OF THE STORY</span>
+          </div>
+          <h2 class="section-heading">Come closer<br>to the art.<br>Carry it forward.</h2>
+          <p class="editorial-copy">A question, a learning enquiry or a cultural collaboration — every conversation is a beginning. Connect with Kathakali Gramam Ayroor.</p>
+          <div class="location">
+            <span class="location-icon">
+              <img src="assets/icons/map-pin.svg" alt="" width="16" height="16">
+            </span>
+            <span class="location-label">Ayroor, Kerala, India</span>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3 class="form-title">Start a conversation</h3>
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="contact-identity">
+              <div class="enquiry-field">
+                <label for="userName" class="field-label">YOUR NAME</label>
+                <div class="input-surface">
+                  <input type="text" id="userName" name="name" placeholder="Full name" required>
+                </div>
+              </div>
+              <div class="enquiry-field">
+                <label for="userEmail" class="field-label">EMAIL ADDRESS</label>
+                <div class="input-surface">
+                  <input type="email" id="userEmail" name="email" placeholder="Your email" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="enquiry-topic">
+              <label id="topicLabel" class="field-label">I’M INTERESTED IN</label>
+              <div class="topic-selector-wrapper">
+                <button type="button" class="topic-selector" id="topicSelectorBtn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="topicLabel topicSelectorBtn">
+                  <span class="selected-topic" id="selectedTopicText">Learning &amp; appreciation</span>
+                  <span class="topic-chevron">
+                    <img src="assets/icons/chevron-down.svg" alt="" width="15" height="15">
+                  </span>
+                </button>
+                <ul class="topic-dropdown" id="topicDropdown" role="listbox" aria-label="Topics">
+                  <li role="option" class="topic-option active" data-value="Learning & appreciation" aria-selected="true">Learning &amp; appreciation</li>
+                  <li role="option" class="topic-option" data-value="Kathakali Mela Participation" aria-selected="false">Kathakali Mela Participation</li>
+                  <li role="option" class="topic-option" data-value="Cultural Collaboration" aria-selected="false">Cultural Collaboration</li>
+                  <li role="option" class="topic-option" data-value="Visitor & Travel Enquiries" aria-selected="false">Visitor &amp; Travel Enquiries</li>
+                  <li role="option" class="topic-option" data-value="General Enquiry" aria-selected="false">General Enquiry</li>
+                </ul>
+                <input type="hidden" name="topic" id="selectedTopicInput" value="Learning & appreciation">
+              </div>
+            </div>
+
+            <div class="enquiry-field full-width">
+              <label for="userMessage" class="field-label">YOUR MESSAGE</label>
+              <div class="input-surface textarea-surface">
+                <textarea id="userMessage" name="message" placeholder="Tell us what brings you here…" rows="3" required></textarea>
+              </div>
+            </div>
+
+            <p class="privacy-reassurance">Your details are shared only for the purpose of responding to your enquiry.</p>
+
+            <div class="form-action-row">
+              <button type="submit" class="btn btn-primary btn-submit">
+                <span class="btn-text">SEND ENQUIRY</span>
+                <span class="btn-icon">
+                  <img src="assets/icons/arrow-up-right.svg" alt="" width="16" height="16">
+                </span>
+              </button>
+            </div>
+            <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="section-container">
+        <div class="footer-navigation">
+          <div class="footer-identity">
+            <a href="#hero" class="brand-signature">
+              <div class="monogram-seal">
+                <span class="monogram">K</span>
+              </div>
+              <div class="wordmark">
+                <span class="org-name">Kathakali Gramam</span>
+                <span class="place-name">AYROOR</span>
+              </div>
+            </a>
+            <p class="editorial-copy">Rooted in Ayroor. Connected by art.<br>A shared home for the spirit of Kathakali.</p>
+          </div>
+
+          <div class="footer-link-groups">
+            <div class="explore-links">
+              <span class="group-title">EXPLORE</span>
+              <a href="#hero" class="footer-link">Home</a>
+              <a href="#about" class="footer-link">About Us</a>
+              <a href="#mela" class="footer-link">Kathakali Mela</a>
+              <a href="#awards" class="footer-link">Awards</a>
+            </div>
+
+            <div class="connect-links">
+              <span class="group-title">DISCOVER</span>
+              <a href="#gallery" class="footer-link">Gallery</a>
+              <a href="#institutions" class="footer-link">Institutions</a>
+              <a href="#contact" class="footer-link">Contact Us</a>
+              <a href="#mudras" class="footer-link">The Art of Mudras</a>
+            </div>
+          </div>
+
+          <div class="back-to-beginning">
+            <button class="return-action" id="backToTopBtn" aria-label="Back to top">
+              <img src="assets/icons/arrow-up.svg" alt="" width="18" height="18">
+            </button>
+            <span class="return-label">BACK TO TOP</span>
+          </div>
+        </div>
+
+        <div class="footer-signature" aria-hidden="true">
+          <span>A living art. An enduring soul.</span>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="footer-legal">
+          <span class="copyright">© Kathakali Gramam Ayroor. All rights reserved.</span>
+          <div class="policy-links">
+            <a href="#hero" class="policy-link">Privacy Policy</a>
+            <a href="#hero" class="policy-link">Terms of Use</a>
+          </div>
+          <span class="cultural-closing">WITH REVERENCE, FROM KERALA.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close modal">
+        <img src="assets/icons/close.svg" alt="Close" width="24" height="24">
+      </button>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="" class="lightbox-image" id="lightboxImage">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="js/lenis.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

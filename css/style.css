@@ -1,0 +1,3026 @@
+/* ==========================================================================
+   KATHAKALI GRAMAM AYROOR — FIGMA PIXEL-PERFECT STYLESHEET
+   Source of Truth: Untitled (1).fig
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-bg-primary: #050606;
+  --color-bg-secondary: #101212;
+  --color-bg-tertiary: #151612;
+  --color-bg-black: #000000;
+  --color-bg-dark-card: #080909;
+
+  --color-gold-primary: #c6a66a;
+  --color-gold-light: #e2c994;
+  --color-gold-muted: #bda776;
+  --color-gold-subtle: #d2c49b;
+  --color-gold-watermark: #67634e;
+
+  --color-text-primary: #e9e7e1;
+  --color-text-secondary: #aaafae;
+  --color-text-muted: #7d8582;
+  --color-text-accent: #c6a66a;
+
+  --color-border-dark: #30332f;
+  --color-border-subtle: #777567;
+  --color-border-gold: #c6a66a;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --container-max-width: 1440px;
+  --container-padding: 88px;
+  --container-mobile-padding: 24px;
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-seal: 22px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  line-height: 1.5;
+  width: 100%;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-gold-primary);
+  outline-offset: 3px;
+}
+
+/* Lenis smooth scrolling helper styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Specific button widths matching Figma exactly */
+.btn-hero { width: 198px; }
+.btn-about { width: 158px; }
+.btn-about .btn-text { text-transform: none; }
+.btn-mela { width: 189px; }
+.btn-mudras { width: 198px; }
+.btn-awards { width: 211px; }
+.btn-gallery { width: 181px; }
+.btn-institutions { width: 183px; }
+.btn-submit { width: 159px; }
+
+/* Hero Ambient Embers Canvas */
+.hero-embers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Headline Mask-Reveal Animations */
+.headline-line {
+  display: block;
+  overflow: hidden;
+}
+
+.headline-inner {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.headline-line:nth-child(2) .headline-inner {
+  transition-delay: 0.15s;
+}
+
+body.page-loaded .headline-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hero Entrance Animations */
+.transparent-navigation {
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+}
+
+body.page-loaded .transparent-navigation {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.page-loaded .hero-overline.animate-on-load {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+body.page-loaded .hero-subheadline.animate-on-load {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
+}
+
+body.page-loaded .hero-action.animate-on-load {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+body.page-loaded .mudra-indicator-bar.animate-on-load,
+body.page-loaded .cultural-descriptor.animate-on-load,
+body.page-loaded .scroll-invitation.animate-on-load {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.75s;
+}
+
+/* Ambient Hero slow zoom */
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.05);
+  transition: transform 3.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.page-loaded .hero-bg-image {
+  transform: scale(1.0);
+}
+
+/* Accent rules draw animation */
+.accent-rule {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--color-gold-primary);
+  flex-shrink: 0;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.in-view .accent-rule,
+.accent-rule.drawn {
+  transform: scaleX(1);
+}
+
+/* Awards gold divider draw animation */
+.tradition-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold-primary);
+  margin-bottom: 36px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tradition-divider.drawn {
+  transform: scaleX(1);
+}
+
+/* Mudras disciplines top dividers draw animation */
+.discipline .section-divider {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.discipline.in-view .section-divider {
+  transform: scaleX(1);
+}
+
+/* Pathways dividers draw animation */
+.learning-pathway .section-divider {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.learning-pathway.in-view .section-divider {
+  transform: scaleX(1);
+}
+
+/* Button Shimmer Effect */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth), color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40px;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: transform 0.8s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(380px) rotate(25deg);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+.section-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  position: relative;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 16px;
+}
+
+.accent-rule {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--color-gold-primary);
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 2.1px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  color: var(--color-text-primary);
+}
+
+.editorial-copy {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.85;
+  letter-spacing: 0;
+  color: var(--color-text-secondary);
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border-dark);
+}
+
+/* --------------------------------------------------------------------------
+   4. Brand Signature & Monogram Seal (Header & Footer)
+   -------------------------------------------------------------------------- */
+.brand-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+}
+
+.monogram-seal {
+  width: 42px;
+  height: 48px;
+  border: 1px solid var(--color-gold-primary);
+  border-radius: var(--radius-seal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.brand-signature:hover .monogram-seal {
+  background-color: rgba(198, 166, 106, 0.08);
+}
+
+.monogram {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-gold-primary);
+  transform: translateY(-1px);
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.org-name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.place-name {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 3.8px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons & Action Links
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 22px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  gap: 16px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+/* Outline action */
+.btn-outline {
+  background-color: var(--color-bg-black);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+}
+
+.btn-outline .btn-icon svg,
+.btn-outline .btn-icon img {
+  transition: transform var(--transition-fast);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-gold-primary);
+  background-color: rgba(198, 166, 106, 0.06);
+  color: #ffffff;
+}
+
+.btn-outline:hover .btn-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Primary action */
+.btn-primary {
+  background-color: var(--color-gold-primary);
+  border: 1px solid var(--color-gold-primary);
+  color: var(--color-bg-primary);
+}
+
+.btn-primary .btn-icon svg,
+.btn-primary .btn-icon img {
+  filter: brightness(0);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 4px 20px rgba(198, 166, 106, 0.25);
+}
+
+.btn-primary:hover .btn-icon {
+  transform: translate(2px, -2px);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 1: Cinematic Opening (Hero) — 100vh Single Viewport Fold
+   -------------------------------------------------------------------------- */
+.section-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg-picture,
+.hero-bg-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Mudras Showcase Slider (Smooth Crossfades & Motion)
+   -------------------------------------------------------------------------- */
+.mudras-slides-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mudra-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.mudra-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.mudra-slide picture,
+.mudra-slide .hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Feathered edge blending for detailed close-up mudras & character portraits */
+.detailed-mudra-image,
+.character-hero-image {
+  mask-image: radial-gradient(ellipse at 50% 50%, #000000 48%, rgba(0, 0, 0, 0.75) 68%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000000 48%, rgba(0, 0, 0, 0.75) 68%, transparent 88%);
+}
+
+.character-hero-image {
+  object-position: center 25%;
+}
+
+/* Subtle cinematic breath animation on active mudra slide */
+.mudra-slide .hero-bg-image {
+  transform: scale(1.04);
+  transition: transform 7.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mudra-slide.active .hero-bg-image {
+  transform: scale(1.0);
+}
+
+/* Kathakali Cultural Heritage Badge */
+.kathakali-heritage-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  margin-bottom: clamp(8px, 1.6vh, 16px);
+  background: rgba(18, 20, 20, 0.78);
+  border: 1px solid rgba(198, 166, 106, 0.4);
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.heritage-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold-primary);
+  box-shadow: 0 0 8px var(--color-gold-primary);
+}
+
+.heritage-malayalam {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  line-height: 1;
+  color: var(--color-gold-light);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.heritage-sep {
+  color: rgba(198, 166, 106, 0.4);
+  font-size: 9px;
+}
+
+.heritage-badge {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+body.page-loaded .kathakali-heritage-pill.animate-on-load {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.cinematic-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 6, 6, 0.627) 0%,
+    rgba(5, 6, 6, 0.188) 38%,
+    rgba(9, 10, 10, 0.333) 76%,
+    rgba(9, 10, 10, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Transparent Navigation Bar */
+.transparent-navigation {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: clamp(68px, 9vh, 112px);
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.primary-navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 34px;
+}
+
+.nav-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  padding: 10px 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-label.active,
+.nav-item:hover .nav-label {
+  color: var(--color-gold-primary);
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-item:has(.nav-label.active) .active-indicator,
+.nav-item:hover .active-indicator {
+  background-color: var(--color-gold-primary);
+}
+
+.location-note {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.6px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--color-text-primary);
+}
+
+/* Hero Center Statement (Flexibly centered in single viewport) */
+.hero-statement {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(10px, 2vh, 20px) 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overline {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(8px, 0.9vw, 9px);
+  line-height: 1.6;
+  letter-spacing: 4px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+  margin-bottom: clamp(12px, 2vh, 24px);
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(40px, 5.8vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  background: linear-gradient(180deg, #f1eee6 0%, #c4c5bf 50%, #c6a66a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: clamp(12px, 2.2vh, 24px);
+  text-transform: uppercase;
+}
+
+.hero-subheadline {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  margin-bottom: clamp(18px, 3vh, 36px);
+  max-width: 600px;
+}
+
+.hero-action {
+  display: flex;
+  justify-content: center;
+}
+
+/* Hero Footnote (Anchored gracefully at bottom of 100vh fold) */
+.hero-footnote {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto clamp(16px, 3vh, 34px) auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 0 0 auto;
+}
+
+.cultural-descriptor {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1.8;
+  letter-spacing: 2px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Mudra Showcase Indicator Bar & Navigation
+   -------------------------------------------------------------------------- */
+.mudra-indicator-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 16px;
+  background: rgba(14, 16, 16, 0.76);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(198, 166, 106, 0.3);
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  user-select: none;
+}
+
+.mudra-indicator-bar:hover {
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 0 16px rgba(198, 166, 106, 0.15);
+}
+
+.mudra-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mudra-seq {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  color: var(--color-gold-primary);
+}
+
+.mudra-dot-divider {
+  color: rgba(198, 166, 106, 0.45);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.mudra-title-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.mudra-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mudra-sub {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  transition: opacity 0.3s ease;
+}
+
+.mudra-nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mudra-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.22);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.mudra-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mudra-dot.active {
+  width: 22px;
+  border-radius: 4px;
+  background-color: var(--color-gold-primary);
+  box-shadow: 0 0 10px rgba(198, 166, 106, 0.55);
+}
+
+.mudra-dot-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mudra-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mudra-arrow-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(198, 166, 106, 0.25);
+  background: transparent;
+  color: var(--color-gold-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.mudra-arrow-btn:hover {
+  border-color: var(--color-gold-primary);
+  background: rgba(198, 166, 106, 0.15);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.scroll-invitation {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+  color: var(--color-gold-primary);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.scroll-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  display: flex;
+  align-items: center;
+  animation: bounceDown 2s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION 2: About Kathakali Gramam Ayroor
+   -------------------------------------------------------------------------- */
+.section-about {
+  width: 100%;
+  height: 778px;
+  padding: 112px 0;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-primary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 540px 620px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portrait-composition {
+  position: relative;
+  width: 540px;
+  height: 554px;
+}
+
+.glass-backing {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 516px;
+  height: 500px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(210, 196, 155, 0.035);
+  border: 1px solid rgba(189, 167, 118, 0.188);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 516px;
+  height: 500px;
+  z-index: 2;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.portrait-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.portrait-composition:hover .portrait-photo {
+  transform: scale(1.02);
+}
+
+.image-caption {
+  width: 516px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.portrait-caption-text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.7px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.photo-motif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--color-gold-primary);
+}
+
+.our-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 620px;
+}
+
+.our-identity .section-heading {
+  margin: 0;
+}
+
+.editorial-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-action {
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 3: Cultural Activities & Event Highlights
+   -------------------------------------------------------------------------- */
+.section-activities {
+  width: 100%;
+  height: 818px;
+  padding: 88px 0;
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.activities-introduction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  gap: 48px;
+}
+
+.activities-title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activities-title .section-heading {
+  max-width: 844px;
+}
+
+.activities-context {
+  max-width: 320px;
+}
+
+.activity-stories {
+  display: grid;
+  grid-template-columns: repeat(3, 403px);
+  justify-content: space-between;
+  height: 446px;
+}
+
+.activity-story {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 403px;
+}
+
+.story-image-wrap {
+  width: 403px;
+  height: 270px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.activity-story:hover .story-photo {
+  transform: scale(1.04);
+}
+
+.category {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.8px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.story-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.story-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.activity-story:hover .story-title {
+  color: var(--color-gold-light);
+}
+
+.story-arrow {
+  color: var(--color-gold-primary);
+  transition: transform var(--transition-fast);
+}
+
+.activity-story:hover .story-arrow {
+  transform: translate(3px, -3px);
+}
+
+.activity-story .editorial-copy {
+  margin-bottom: 20px;
+  height: 52px;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 4: Kathakali Mela
+   -------------------------------------------------------------------------- */
+.section-mela {
+  width: 100%;
+  height: 806px;
+  padding: 100px 0;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+}
+
+.mela-section-marker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+  margin-bottom: 32px;
+}
+
+.section-motif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-gold-primary);
+}
+
+.mela-feature {
+  display: grid;
+  grid-template-columns: 735px 529px;
+  height: 550px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+}
+
+.mela-photograph {
+  position: relative;
+  width: 735px;
+  height: 550px;
+}
+
+.mela-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.photo-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  height: 28px;
+  padding: 0 12px;
+  background-color: var(--color-bg-dark-card);
+  border: 1px solid var(--color-gold-primary);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+}
+
+.photo-label-text {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+}
+
+.mela-editorial {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 550px;
+}
+
+.feature-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+}
+
+.mela-editorial .section-heading {
+  font-size: 49px;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+}
+
+.mela-themes {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 2;
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION 5: The Art of Mudras
+   -------------------------------------------------------------------------- */
+.section-mudras {
+  width: 100%;
+  height: 657px;
+  padding: 88px 0;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+}
+
+.mudras-grid {
+  display: grid;
+  grid-template-columns: 604px 560px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.the-language-of-gesture {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.the-language-of-gesture .section-heading {
+  margin: 0;
+}
+
+.expression-disciplines {
+  display: grid;
+  grid-template-columns: repeat(3, 185px);
+  gap: 24px;
+}
+
+.discipline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.discipline-name {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 1;
+  color: var(--color-gold-primary);
+}
+
+.mudras-action {
+  margin-top: 8px;
+}
+
+.gesture-study {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  height: 481px;
+}
+
+.study-photo-wrap {
+  width: 560px;
+  height: 455px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.mudras-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.gesture-study:hover .mudras-photo {
+  transform: scale(1.03);
+}
+
+.study-caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   11. SECTION 6: Awards & Living Tradition
+   -------------------------------------------------------------------------- */
+.section-awards {
+  width: 100%;
+  height: 468px;
+  padding: 88px 0;
+  background-color: var(--color-bg-tertiary);
+  display: flex;
+  align-items: center;
+}
+
+.honouring-dedication {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 158px;
+  margin-bottom: 36px;
+  gap: 48px;
+}
+
+.tradition-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 704px;
+}
+
+.recognition-context {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tradition-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold-primary);
+  margin-bottom: 36px;
+}
+
+.values-of-recognition {
+  display: grid;
+  grid-template-columns: repeat(3, 381px);
+  justify-content: space-between;
+  height: 61px;
+}
+
+.recognition-value {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.value-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--color-gold-light);
+}
+
+.value-description {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   12. SECTION 7: Gallery
+   -------------------------------------------------------------------------- */
+.section-gallery {
+  width: 100%;
+  height: 899px;
+  padding: 104px 0;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+}
+
+.gallery-introduction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 96px;
+  margin-bottom: 40px;
+}
+
+.gallery-title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editorial-photo-collection {
+  display: grid;
+  grid-template-columns: 570px 670px;
+  justify-content: space-between;
+  height: 555px;
+}
+
+.portrait-feature .gallery-image {
+  height: 555px;
+}
+
+.portrait-feature .gallery-photo-wrap {
+  width: 570px;
+  height: 532px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.gallery-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 546px;
+}
+
+.gallery-image.wide .gallery-photo-wrap {
+  width: 670px;
+  height: 236px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.craft-and-ritual {
+  display: grid;
+  grid-template-columns: 323px 323px;
+  justify-content: space-between;
+}
+
+.craft-and-ritual .gallery-photo-wrap {
+  width: 323px;
+  height: 236px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.gallery-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+  cursor: pointer;
+}
+
+.gallery-image:hover .gallery-photo {
+  transform: scale(1.03);
+}
+
+.photograph-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.6px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   13. SECTION 8: Institutions & Community Learning
+   -------------------------------------------------------------------------- */
+.section-institutions {
+  width: 100%;
+  height: 754px;
+  padding: 104px 0;
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.institutions-grid {
+  display: grid;
+  grid-template-columns: 560px 616px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.learning-photograph {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  height: 546px;
+}
+
+.learning-photo-wrap {
+  width: 560px;
+  height: 520px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.learning-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.learning-photograph:hover .learning-photo {
+  transform: scale(1.02);
+}
+
+.learning-caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 1.8px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.learning-invitation {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 616px;
+}
+
+.learning-invitation .section-heading {
+  margin: 0;
+}
+
+.learning-pathways {
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-pathway {
+  display: flex;
+  flex-direction: column;
+  height: 48px;
+}
+
+.pathway-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 47px;
+  transition: color var(--transition-fast);
+}
+
+.audience {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.pathway-arrow {
+  color: var(--color-gold-primary);
+  transition: transform var(--transition-fast);
+}
+
+.learning-pathway:hover .audience {
+  color: var(--color-gold-light);
+}
+
+.learning-pathway:hover .pathway-arrow {
+  transform: translate(3px, -3px);
+}
+
+.institutions-action {
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   14. SECTION 9: Invitation & Footer
+   -------------------------------------------------------------------------- */
+.invitation-and-footer {
+  width: 100%;
+  background-color: var(--color-bg-primary);
+}
+
+/* Contact Invitation */
+.contact-invitation {
+  width: 100%;
+  height: 760px;
+  padding: 104px 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 535px 609px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.invitation-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 535px;
+}
+
+.invitation-copy .section-heading {
+  font-size: 64px;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  margin: 0;
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.location-icon {
+  color: var(--color-gold-primary);
+  display: flex;
+  align-items: center;
+}
+
+.location-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+/* Contact Form Card */
+.contact-form-card {
+  width: 609px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xs);
+  padding: 36px;
+}
+
+.form-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  margin-bottom: 28px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-identity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.enquiry-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 1.6px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+}
+
+.input-surface {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xs);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.input-surface:focus-within {
+  border-color: var(--color-gold-primary);
+  background-color: rgba(198, 166, 106, 0.03);
+}
+
+.input-surface input,
+.input-surface textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+.input-surface input::placeholder,
+.input-surface textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.textarea-surface {
+  height: 96px;
+  padding: 14px 16px;
+  align-items: flex-start;
+}
+
+.textarea-surface textarea {
+  resize: none;
+  height: 100%;
+}
+
+.enquiry-topic {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.topic-selector-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.topic-selector {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xs);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.topic-selector:hover,
+.topic-selector:focus {
+  border-color: var(--color-gold-primary);
+}
+
+.topic-chevron {
+  color: var(--color-gold-primary);
+  transition: transform var(--transition-fast);
+}
+
+.topic-selector[aria-expanded="true"] .topic-chevron {
+  transform: rotate(180deg);
+}
+
+.topic-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xs);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  z-index: 50;
+  display: none;
+  padding: 6px 0;
+}
+
+.topic-dropdown.show {
+  display: block;
+}
+
+.topic-option {
+  padding: 10px 16px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.topic-option:hover,
+.topic-option.active {
+  background-color: rgba(198, 166, 106, 0.12);
+  color: var(--color-gold-light);
+}
+
+.privacy-reassurance {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.form-action-row {
+  display: flex;
+}
+
+.btn-submit {
+  min-width: 159px;
+}
+
+.form-feedback {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  padding: 8px 0;
+  display: none;
+}
+
+.form-feedback.success {
+  display: block;
+  color: var(--color-gold-light);
+}
+
+.form-feedback.error {
+  display: block;
+  color: #e57373;
+}
+
+/* Site Footer */
+.site-footer {
+  width: 100%;
+  height: 667px;
+  padding-top: 64px;
+  padding-bottom: 32px;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 143px;
+  margin-bottom: 48px;
+}
+
+.footer-identity {
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-link-groups {
+  display: flex;
+  gap: 80px;
+}
+
+.explore-links, .connect-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 120px;
+}
+
+.group-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-link {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-gold-light);
+}
+
+.back-to-beginning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.return-action {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-primary);
+  transition: all var(--transition-fast);
+}
+
+.return-action:hover {
+  border-color: var(--color-gold-primary);
+  background-color: rgba(198, 166, 106, 0.08);
+  transform: translateY(-3px);
+}
+
+.return-label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* Footer Signature (Watermark) */
+.footer-signature {
+  font-family: var(--font-serif);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.footer-signature span {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 114px;
+  line-height: 1.1;
+  letter-spacing: -3px;
+  color: var(--color-gold-watermark);
+  user-select: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.site-footer .section-divider {
+  margin-bottom: 32px;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15px;
+}
+
+.copyright {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.policy-links {
+  display: flex;
+  gap: 24px;
+}
+
+.policy-link {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 1;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.policy-link:hover {
+  color: var(--color-gold-light);
+}
+
+.cultural-closing {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 1.7px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   15. Mobile Navigation Drawer & Overlay
+   -------------------------------------------------------------------------- */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  overflow: hidden;
+  transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.mobile-nav-overlay.open {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 85%;
+  height: 100%;
+  background-color: var(--color-bg-secondary);
+  border-left: 1px solid var(--color-border-dark);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+
+.mobile-nav-overlay.open .mobile-nav-panel {
+  transform: translateX(0);
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.mobile-close-btn {
+  color: var(--color-text-primary);
+  padding: 6px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--color-text-primary);
+  padding: 6px 0;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+  color: var(--color-gold-primary);
+}
+
+.mobile-nav-footer {
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.location-pill {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  color: var(--color-gold-primary);
+  text-transform: uppercase;
+}
+
+.mobile-nav-motto {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   16. Gallery Lightbox Modal
+   -------------------------------------------------------------------------- */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+}
+
+.lightbox-modal.open {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 6, 6, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 10;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-dark);
+}
+
+.lightbox-caption {
+  margin-top: 16px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2010;
+  color: var(--color-text-primary);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.lightbox-close:hover {
+  background: rgba(198, 166, 106, 0.2);
+  border-color: var(--color-gold-primary);
+}
+
+/* --------------------------------------------------------------------------
+   17. Responsive Design (Desktop 1440px -> Laptop -> Tablet -> Mobile 390px)
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets & Small Laptops (max-width: 1200px) */
+@media (max-width: 1200px) {
+  :root {
+    --container-padding: 40px;
+  }
+
+  .nav-container {
+    padding: 0 40px;
+  }
+
+  .primary-navigation {
+    gap: 20px;
+  }
+
+  .section-about,
+  .section-activities,
+  .section-mela,
+  .section-mudras,
+  .section-awards,
+  .section-gallery,
+  .section-institutions,
+  .contact-invitation,
+  .site-footer {
+    height: auto;
+    min-height: auto;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .portrait-composition,
+  .photo-wrapper,
+  .glass-backing,
+  .image-caption {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .glass-backing {
+    height: 100%;
+  }
+
+  .our-identity {
+    width: 100%;
+  }
+
+  .mela-feature {
+    grid-template-columns: 1.2fr 1fr;
+    height: auto;
+  }
+
+  .mela-photograph {
+    width: 100%;
+  }
+
+  .mela-editorial {
+    height: auto;
+    gap: 20px;
+  }
+
+  .mudras-grid {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+  }
+
+  .gesture-study,
+  .study-photo-wrap {
+    width: 100%;
+    height: auto;
+  }
+
+  .editorial-photo-collection {
+    grid-template-columns: 1fr 1.1fr;
+    height: auto;
+  }
+
+  .portrait-feature .gallery-photo-wrap,
+  .gallery-image.wide .gallery-photo-wrap,
+  .craft-and-ritual .gallery-photo-wrap {
+    width: 100%;
+  }
+
+  .gallery-details {
+    height: auto;
+  }
+
+  .institutions-grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+  }
+
+  .learning-photograph,
+  .learning-photo-wrap,
+  .learning-invitation {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 48px;
+  }
+
+  .contact-form-card {
+    width: 100%;
+  }
+
+  .footer-signature span {
+    font-size: 90px;
+  }
+}
+
+/* Tablets (max-width: 960px) */
+@media (max-width: 960px) {
+  .primary-navigation,
+  .location-note {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .section-heading {
+    font-size: 44px;
+  }
+
+  .hero-headline {
+    font-size: 60px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .portrait-composition {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .activities-introduction {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .activity-stories {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 40px;
+  }
+
+  .activity-story,
+  .story-image-wrap {
+    width: 100%;
+  }
+
+  .mela-feature {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .mela-photograph {
+    width: 100%;
+    min-height: 380px;
+  }
+
+  .mudras-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .honouring-dedication {
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+  }
+
+  .values-of-recognition {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 32px;
+  }
+
+  .editorial-photo-collection {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .craft-and-ritual {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .craft-and-ritual .gallery-photo-wrap {
+    width: 100%;
+  }
+
+  .institutions-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .footer-navigation {
+    flex-direction: column;
+    height: auto;
+    gap: 48px;
+  }
+
+  .footer-signature span {
+    font-size: 60px;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 16px;
+  }
+}
+
+/* Mobile Source of Truth: 390px Breakpoint (max-width: 600px) */
+@media (max-width: 600px) {
+  :root {
+    --container-padding: var(--container-mobile-padding);
+  }
+
+  .section-container {
+    padding-left: var(--container-mobile-padding);
+    padding-right: var(--container-mobile-padding);
+  }
+
+  /* Section 1: Hero (100vh / 100dvh Single Viewport Fold) */
+  .section-hero {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    min-height: 520px;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+
+  .transparent-navigation {
+    height: clamp(64px, 8.5vh, 88px);
+  }
+
+  .nav-container {
+    padding: 0 var(--container-mobile-padding);
+  }
+
+  .brand-signature {
+    height: 44px;
+  }
+
+  .wordmark .org-name {
+    font-size: 17px;
+  }
+
+  .wordmark .place-name {
+    font-size: 7.5px;
+  }
+
+  .hero-statement {
+    padding: clamp(6px, 1.5vh, 16px) var(--container-mobile-padding);
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-overline {
+    font-size: 8.5px;
+    letter-spacing: 2px;
+    margin-bottom: clamp(8px, 1.6vh, 16px);
+  }
+
+  .hero-headline {
+    font-size: clamp(30px, 8.2vw, 42px);
+    line-height: 1.04;
+    letter-spacing: -0.6px;
+    margin-bottom: clamp(10px, 1.8vh, 20px);
+  }
+
+  .hero-subheadline {
+    font-size: clamp(11.5px, 3.2vw, 13px);
+    line-height: 1.5;
+    margin-bottom: clamp(14px, 2.4vh, 24px);
+    max-width: 320px;
+  }
+
+  .hero-action .btn {
+    height: clamp(40px, 5vh, 46px);
+    padding: 0 16px;
+    font-size: 9px;
+    gap: 10px;
+  }
+
+  .hero-footnote {
+    padding: 0 var(--container-mobile-padding);
+    margin: 0 auto clamp(10px, 2vh, 20px) auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .cultural-descriptor {
+    display: flex;
+    flex-direction: column;
+    font-size: 8px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    text-align: left;
+  }
+
+  .mudra-indicator-bar {
+    padding: 5px 12px;
+    gap: 10px;
+  }
+
+  .mudra-sub {
+    display: none;
+  }
+
+  .mudra-title {
+    font-size: 11.5px;
+  }
+
+  .scroll-invitation {
+    height: 18px;
+    gap: 8px;
+  }
+
+  /* Section 2: About (1221px) */
+  .section-about {
+    height: auto;
+    min-height: 1221px;
+    padding: 72px 0;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .portrait-composition {
+    width: 342px;
+    height: 444px;
+    margin: 0 auto;
+  }
+
+  .glass-backing {
+    width: 328px;
+    height: 390px;
+    left: 14px;
+    top: 24px;
+  }
+
+  .photo-wrapper {
+    width: 328px;
+    height: 390px;
+  }
+
+  .image-caption {
+    width: 328px;
+    margin-top: 14px;
+  }
+
+  .our-identity {
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+  }
+
+  /* Section 3: Activities (1778px) */
+  .section-activities {
+    height: auto;
+    min-height: 1778px;
+    padding: 64px 0;
+  }
+
+  .activities-introduction {
+    margin-bottom: 32px;
+  }
+
+  .activity-stories {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    height: auto;
+  }
+
+  .activity-story {
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .story-image-wrap {
+    width: 342px;
+    height: 245px;
+  }
+
+  /* Section 4: Mela (1014px) */
+  .section-mela {
+    height: auto;
+    min-height: 1014px;
+    padding: 64px 0;
+  }
+
+  .mela-feature {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .mela-photograph {
+    width: 342px;
+    height: 310px;
+    min-height: 310px;
+  }
+
+  .mela-editorial {
+    padding: 28px;
+    height: auto;
+    gap: 20px;
+  }
+
+  .mela-editorial .section-heading {
+    font-size: 40px;
+  }
+
+  /* Section 5: Mudras (933px) */
+  .section-mudras {
+    height: auto;
+    min-height: 933px;
+    padding: 64px 0;
+  }
+
+  .mudras-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .the-language-of-gesture {
+    width: 342px;
+  }
+
+  .gesture-study {
+    width: 342px;
+    height: auto;
+  }
+
+  .study-photo-wrap {
+    width: 342px;
+    height: 330px;
+  }
+
+  .expression-disciplines {
+    grid-template-columns: repeat(3, 98px);
+    gap: 24px;
+  }
+
+  .discipline-name {
+    font-size: 20px;
+  }
+
+  /* Section 6: Awards (762px) */
+  .section-awards {
+    height: auto;
+    min-height: 762px;
+    padding: 64px 0;
+  }
+
+  .honouring-dedication {
+    height: auto;
+  }
+
+  .tradition-statement {
+    max-width: 342px;
+  }
+
+  .values-of-recognition {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 28px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .recognition-value {
+    width: 342px;
+  }
+
+  /* Section 7: Gallery (1196px) */
+  .section-gallery {
+    height: auto;
+    min-height: 1196px;
+    padding: 64px 0;
+  }
+
+  .gallery-introduction {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 24px;
+    width: 342px;
+    margin: 0 auto 32px auto;
+  }
+
+  .editorial-photo-collection {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 28px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .portrait-feature .gallery-image {
+    height: auto;
+  }
+
+  .portrait-feature .gallery-photo-wrap {
+    width: 342px;
+    height: 340px;
+  }
+
+  .gallery-details {
+    height: auto;
+    gap: 28px;
+  }
+
+  .gallery-image.wide .gallery-photo-wrap {
+    width: 342px;
+    height: 230px;
+  }
+
+  .craft-and-ritual {
+    grid-template-columns: 163px 163px;
+    gap: 16px;
+  }
+
+  .craft-and-ritual .gallery-photo-wrap {
+    width: 163px;
+    height: 180px;
+  }
+
+  /* Section 8: Institutions (1046px) */
+  .section-institutions {
+    height: 1046px;
+    padding: 64px 0;
+  }
+
+  .institutions-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 918px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .learning-photograph {
+    width: 342px;
+    height: 356px;
+  }
+
+  .learning-photo-wrap {
+    width: 342px;
+    height: 330px;
+    margin-bottom: 16px;
+  }
+
+  .learning-invitation {
+    width: 342px;
+    height: 522px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  /* Section 9: Contact & Footer (1746px) */
+  .contact-invitation {
+    height: 1082px;
+    padding: 72px 0;
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 938px;
+    width: 342px;
+    margin: 0 auto;
+  }
+
+  .invitation-copy {
+    width: 342px;
+    height: 344px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .invitation-copy .section-heading {
+    font-size: 48px;
+    margin: 0;
+  }
+
+  .contact-form-card {
+    width: 342px;
+    height: 546px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .contact-form {
+    gap: 16px;
+  }
+
+  .contact-identity {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .site-footer {
+    height: 664px;
+    padding-top: 56px;
+    padding-bottom: 28px;
+  }
+
+  .footer-navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 303px;
+    width: 342px;
+    margin: 0 auto 36px auto;
+  }
+
+  .footer-identity {
+    width: 342px;
+    height: 124px;
+    gap: 16px;
+  }
+
+  .footer-link-groups {
+    gap: 32px;
+    justify-content: space-between;
+    width: 342px;
+    height: 143px;
+  }
+
+  .footer-signature {
+    margin-bottom: 36px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-signature span {
+    font-size: 44px;
+    letter-spacing: -1px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 68px;
+    width: 342px;
+    margin: 0 auto;
+  }
+}
