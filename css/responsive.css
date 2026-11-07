@@ -1,0 +1,309 @@
+/**
+ * Responsive Design & Accessibility Media Queries
+ * Specific handling for 360px–767px (mobile), 768px–1024px (tablet), 1025px+ (desktop)
+ * Tested at 390px, 768px, 1024px, 1366px, 1440px, 1920px
+ */
+
+/* Laptops & Standard Desktops (1025px to 1440px) */
+@media (max-width: 1440px) {
+  .hero-main-title {
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
+  }
+}
+
+/* Tablet Landscape & Small Laptops (768px to 1024px) */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 18px 0;
+  }
+  
+  .flank-col {
+    max-width: 28vw;
+    height: 56vh;
+  }
+
+  .flank-giant-title {
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+  }
+
+  .portal-card-outer {
+    width: min(380px, 72vw);
+    height: min(480px, 60vh);
+  }
+
+  .portal-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 24px;
+  }
+
+  .institutions-track {
+    overflow-x: auto;
+    padding-bottom: 24px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .institution-card {
+    scroll-snap-align: start;
+    flex: 0 0 340px;
+  }
+
+  .mela-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand-summary {
+    grid-column: span 2;
+  }
+
+  .gallery-asymmetric-grid {
+    grid-auto-rows: 200px;
+  }
+
+  .gallery-item {
+    grid-column: span 6;
+  }
+
+  .gallery-item--wide {
+    grid-column: span 12;
+  }
+}
+
+/* Mobile Devices (360px to 767px - tested at 390px) */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 14px 0;
+  }
+
+  .header-inner {
+    padding: 0 20px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-emblem-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Modern Hero Mobile Layout */
+  .hero-eyebrow-badge {
+    top: 76px;
+    padding: 5px 14px;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero-monumental-headline {
+    display: none;
+  }
+
+  .hero-master-stage {
+    top: 50%;
+  }
+
+  .hero-master-wrap {
+    height: clamp(360px, 58vh, 520px);
+    max-width: 94vw;
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  }
+
+  .hero-bottom-dock {
+    bottom: 12px;
+    width: 94vw;
+    padding: 12px 14px;
+    border-radius: 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dock-col--brand {
+    display: none;
+  }
+
+  .dock-col--narrative {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .dock-lead-text {
+    display: none;
+  }
+
+  .dock-col--actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-ghost,
+  .dock-col--actions .hero-sound-toggle {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.64rem;
+  }
+
+  .scroll-indicator-line {
+    height: 36px;
+  }
+
+  .portal-expanded-manifesto {
+    padding: 80px 18px 40px;
+  }
+
+  .portal-manifesto-heading {
+    font-size: clamp(1.8rem, 6.8vw, 2.5rem);
+    margin-bottom: 14px;
+  }
+
+  .portal-manifesto-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .portal-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .portal-stat-val {
+    font-size: 1.65rem;
+  }
+
+  .portal-stat-lbl {
+    font-size: 0.62rem;
+  }
+
+  .portal-cta-action .btn-primary-gold {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.72rem;
+  }
+
+  #world-of-kathakali {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .pillars-pinned-container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .pillar-story-slide {
+    position: relative;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    height: auto;
+    min-height: 520px;
+    padding: 60px 20px;
+    margin-bottom: 24px;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  .pillar-slide-content {
+    margin-left: 0;
+  }
+
+  .pillars-step-nav {
+    display: none;
+  }
+
+  .gallery-asymmetric-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+    gap: 16px;
+  }
+
+  .gallery-item,
+  .gallery-item--wide,
+  .gallery-item--tall {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .awards-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .video-play-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .video-play-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand-summary {
+    grid-column: span 1;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lightbox-prev-btn,
+  .lightbox-next-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-prev-btn {
+    left: 12px;
+  }
+
+  .lightbox-next-btn {
+    right: 12px;
+  }
+
+  .lightbox-close-btn {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .expanding-media-wrapper {
+    clip-path: none !important;
+    scale: 1 !important;
+  }
+
+  .pillar-story-slide {
+    clip-path: none !important;
+    transform: none !important;
+  }
+}

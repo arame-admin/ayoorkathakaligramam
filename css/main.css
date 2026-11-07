@@ -1,0 +1,147 @@
+/**
+ * Ayroor Kathakali Gramam - Master Design System & Core Styles
+ * 
+ * Palette:
+ * - Background: #080909
+ * - Dark Green: #073F2A
+ * - Kathakali Green: #087A45
+ * - Antique Gold: #C6A15B
+ * - Vermilion: #B52B24
+ * - Ivory: #F5F0E6
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #080909;
+  --color-bg-darker: #040505;
+  --color-surface: #0f1211;
+  --color-surface-hover: #161b19;
+  --color-dark-green: #073F2A;
+  --color-kathakali-green: #087A45;
+  --color-green-glow: rgba(8, 122, 69, 0.25);
+  --color-gold: #C6A15B;
+  --color-gold-bright: #E4C078;
+  --color-gold-glow: rgba(198, 161, 91, 0.35);
+  --color-gold-dim: rgba(198, 161, 91, 0.15);
+  --color-vermilion: #B52B24;
+  --color-vermilion-glow: rgba(181, 43, 36, 0.3);
+  --color-ivory: #F5F0E6;
+  --color-ivory-dim: rgba(245, 240, 230, 0.72);
+  --color-border-subtle: rgba(198, 161, 91, 0.18);
+  --color-border-hover: rgba(198, 161, 91, 0.45);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ml: 'Noto Sans Malayalam', 'Manrope', sans-serif;
+
+  --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.45s var(--ease-cinematic);
+}
+
+/* CSS Reset & Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--color-bg);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-ivory);
+  line-height: 1.65;
+  font-weight: 400;
+  min-height: 100vh;
+  position: relative;
+}
+
+body.lang-malayalam {
+  font-family: var(--font-ml);
+}
+
+/* Cinematic film grain overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Base Link & Button Styles */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(198, 161, 91, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Container Utility */
+.site-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .site-container {
+    padding: 0 20px;
+  }
+}

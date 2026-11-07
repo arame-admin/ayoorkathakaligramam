@@ -1,0 +1,332 @@
+/**
+ * Navigation Bar & Mobile Navigation Drawer
+ * Section 02 - Ayroor Kathakali Gramam
+ * Minimalist luxury layout with spacious breathing room
+ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 28px 0;
+  transition: padding 0.5s var(--ease-cinematic), background-color 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.header-scrolled {
+  padding: 16px 0;
+  background-color: rgba(8, 9, 9, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+/* Brand Monogram & Name */
+.brand-monogram-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(198, 161, 91, 0.45));
+  transition: transform 0.35s ease, filter 0.35s ease;
+  flex-shrink: 0;
+}
+
+.brand-monogram-wrap:hover .brand-logo-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 18px rgba(198, 161, 91, 0.75));
+}
+
+.brand-monogram {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(198, 161, 91, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.brand-monogram-wrap:hover .brand-monogram {
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 0 16px var(--color-gold-glow);
+  transform: scale(1.05);
+}
+
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--color-ivory);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(198, 161, 91, 0.85);
+  margin-top: 2px;
+}
+
+/* Primary Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(245, 240, 230, 0.75);
+  padding: 8px 0;
+  display: inline-block;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-gold);
+  transition: width 0.35s var(--ease-cinematic);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-ivory);
+}
+
+/* Right Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-location-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(198, 161, 91, 0.8);
+  font-weight: 500;
+}
+
+/* Language Selector */
+.language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 20px;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+
+.lang-btn {
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-ivory-dim);
+  border-radius: 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.lang-btn[data-lang="ml"] {
+  font-family: var(--font-ml);
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+
+.lang-btn.active {
+  background: var(--color-gold);
+  color: #000000;
+  font-weight: 700;
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--color-ivory);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 38px;
+  height: 38px;
+  padding: 6px;
+  z-index: 1010;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-ivory);
+  transition: transform 0.35s ease, opacity 0.35s ease, background-color 0.35s ease;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background-color: var(--color-gold);
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background-color: var(--color-gold);
+}
+
+/* Mobile Nav Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 9, 9, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  z-index: 1005;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s var(--ease-cinematic), visibility 0.4s ease;
+}
+
+.mobile-nav-drawer.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-ivory);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-gold);
+  transform: translateX(8px);
+}
+
+@media (max-width: 1180px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .header-location-tag {
+    display: none;
+  }
+  .header-inner {
+    padding: 0 24px;
+  }
+}
+
+/* Malayalam Specific Navigation Enhancements */
+body.lang-malayalam .header-location-tag {
+  font-family: var(--font-ml);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+body.lang-malayalam .nav-link {
+  font-family: var(--font-ml);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+}
+
+body.lang-malayalam .mobile-nav-link {
+  font-family: var(--font-ml);
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
