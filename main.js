@@ -1420,7 +1420,8 @@
     const cards = Array.from(section.querySelectorAll('.instrument-slide-card'));
     const dots = Array.from(section.querySelectorAll('.instruments-dot'));
     const currentIdxEl = document.getElementById('instrumentsCurrentIdx');
-    const floatingRing = document.getElementById('instrumentsFloatingRing');
+    const ringPrev = document.getElementById('instrumentsRingPrev');
+    const ringNext = document.getElementById('instrumentsRingNext');
     const backdrop = document.getElementById('instrumentsAmbientBackdrop');
     const prevBtn = document.getElementById('instrumentsPrevBtn');
     const nextBtn = document.getElementById('instrumentsNextBtn');
@@ -1479,9 +1480,15 @@
       // Position active card with leading context
       let desiredLeft = 24;
       if (viewportWidth > 860) {
-        desiredLeft = currentIndex === 0 ? 28 : Math.min(240, Math.max(30, (viewportWidth - activeWidth) * 0.38));
+        if (currentIndex === 0) {
+          desiredLeft = 28;
+        } else if (currentIndex === cards.length - 1) {
+          desiredLeft = Math.max(30, viewportWidth - activeWidth - 28);
+        } else {
+          desiredLeft = Math.min(240, Math.max(30, (viewportWidth - activeWidth) * 0.38));
+        }
       } else if (viewportWidth > 540) {
-        desiredLeft = currentIndex === 0 ? 20 : 36;
+        desiredLeft = currentIndex === 0 ? 20 : (currentIndex === cards.length - 1 ? Math.max(20, viewportWidth - activeWidth - 20) : 36);
       } else {
         desiredLeft = currentIndex === 0 ? 12 : 18;
       }
@@ -1494,17 +1501,48 @@
 
       track.style.transform = `translate3d(${targetX}px, 0, 0)`;
 
-      // Position floating ring at the seam between active card and adjacent card
-      if (floatingRing) {
-        const seamX = targetX + cardOffset + activeWidth + 14;
-        floatingRing.style.left = `${seamX}px`;
+      // Position Prev Ring (left seam of active card)
+      if (ringPrev) {
+        if (currentIndex > 0) {
+          ringPrev.classList.remove('is-hidden');
+          const seamLeft = targetX + cardOffset - 14;
+          const clampedLeft = Math.max(38, Math.min(viewportWidth - 38, seamLeft));
+          ringPrev.style.left = `${clampedLeft}px`;
+        } else {
+          ringPrev.classList.add('is-hidden');
+        }
+      }
+
+      // Position Next Ring (right seam of active card, always clamped inside viewport)
+      if (ringNext) {
+        const seamRight = targetX + cardOffset + activeWidth + 14;
+        const clampedRight = Math.max(38, Math.min(viewportWidth - 38, seamRight));
+        ringNext.style.left = `${clampedRight}px`;
 
         const isLast = currentIndex === cards.length - 1;
-        const arrow = floatingRing.querySelector('.ring-arrow');
+        const arrow = ringNext.querySelector('.ring-arrow');
         if (arrow) {
           arrow.style.transform = isLast ? 'rotate(180deg)' : 'rotate(0deg)';
         }
+        ringNext.setAttribute('aria-label', isLast ? 'Return to First Instrument' : 'Next Instrument Slide');
       }
+    }
+
+    let layoutAnimId = null;
+    function animateSliderLayout() {
+      cancelAnimationFrame(layoutAnimId);
+      const startTime = performance.now();
+      const duration = 720; // continuously update throughout CSS width transition
+
+      function tick(now) {
+        updateSliderLayout();
+        if (now - startTime < duration) {
+          layoutAnimId = requestAnimationFrame(tick);
+        } else {
+          updateSliderLayout();
+        }
+      }
+      layoutAnimId = requestAnimationFrame(tick);
     }
 
     function renderSlide(idx, animate = true) {
@@ -1544,11 +1582,12 @@
         backdrop.style.background = ambientGradients[currentIndex];
       }
 
-      // Allow CSS width transitions to apply, then align track
-      requestAnimationFrame(() => {
+      // Smoothly animate track and rings throughout card expansion
+      if (animate) {
+        animateSliderLayout();
+      } else {
         updateSliderLayout();
-        setTimeout(updateSliderLayout, 80);
-      });
+      }
 
       resetAutoplayProgress();
     }
@@ -1685,9 +1724,16 @@
       }
     });
 
-    // Floating Ring click advances slide
-    if (floatingRing) {
-      floatingRing.addEventListener('click', (e) => {
+    // Floating Ring clicks
+    if (ringPrev) {
+      ringPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPrev();
+      });
+    }
+
+    if (ringNext) {
+      ringNext.addEventListener('click', (e) => {
         e.preventDefault();
         goToNext();
       });

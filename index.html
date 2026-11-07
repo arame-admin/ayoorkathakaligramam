@@ -1713,8 +1713,16 @@
 
           </div>
 
-          <!-- Dribbble-Style Floating Action Ring (Interactive next-card trigger) -->
-          <button type="button" class="instruments-floating-ring" id="instrumentsFloatingRing" aria-label="Next Instrument Slide" title="Next Slide">
+          <!-- Dribbble-Style Floating Action Rings (Interactive Prev & Next triggers) -->
+          <button type="button" class="instruments-floating-ring ring-prev is-hidden" id="instrumentsRingPrev" aria-label="Previous Instrument" title="Previous Instrument">
+            <span class="ring-circle" aria-hidden="true"></span>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+
+          <button type="button" class="instruments-floating-ring ring-next" id="instrumentsRingNext" aria-label="Next Instrument" title="Next Instrument">
             <span class="ring-circle" aria-hidden="true"></span>
             <svg class="ring-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>

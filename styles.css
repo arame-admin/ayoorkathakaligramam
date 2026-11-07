@@ -3907,7 +3907,7 @@ button {
 }
 
 /* ==========================================================================
-   DRIBBLE FLOATING ACTION RING (NEXT SLIDE TRIGGER)
+   DRIBBLE FLOATING ACTION RINGS (PREV & NEXT SLIDE TRIGGERS)
    ========================================================================== */
 
 .instruments-floating-ring {
@@ -3916,39 +3916,51 @@ button {
   left: 0;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: 66px;
-  height: 66px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  border: 3.5px solid rgba(255, 255, 255, 0.85);
-  background: rgba(3, 10, 7, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 3.5px solid rgba(255, 255, 255, 0.88);
+  background: rgba(3, 10, 7, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.15);
-  transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.15);
+  transition: opacity 0.35s ease,
+              visibility 0.35s ease,
               transform 0.3s ease,
               border-color 0.3s ease,
               box-shadow 0.3s ease,
               color 0.3s ease;
+  will-change: left, transform;
 }
 
 .instruments-floating-ring:hover {
   transform: translate(-50%, -50%) scale(1.12);
   border-color: var(--color-gold);
   color: var(--color-gold);
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(197, 160, 89, 0.6);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.8), 0 0 24px rgba(197, 160, 89, 0.6);
 }
 
-.instruments-floating-ring .ring-arrow {
-  transition: transform 0.3s ease;
+.instruments-floating-ring.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.instruments-floating-ring:hover .ring-arrow {
+.instruments-floating-ring.ring-prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.instruments-floating-ring.ring-next:hover svg {
   transform: translateX(3px);
+}
+
+.instruments-floating-ring svg {
+  transition: transform 0.3s ease;
 }
 
 /* ==========================================================================
