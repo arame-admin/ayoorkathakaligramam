@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the sacred musical instruments of Kathakali — Chenda, Maddalam, Chengila, Ilathalam, and Idakka. Ayroor Kathakali Gramam, Kerala.">
+  <title>Kathakali Instruments — The Sacred Acoustic Ensemble • Ayroor Kathakali Gramam</title>
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon-16x16.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp">
+  <meta name="theme-color" content="#020504">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Noto Serif Malayalam, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & Heritage Design Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'heritage-bg': '#090908',
+            'heritage-bg-alt': '#11100e',
+            'heritage-surface': '#151310',
+            'heritage-surface-hover': '#1c1915',
+            'heritage-card': '#14120f',
+            'heritage-gold': '#c5a059',
+            'heritage-gold-light': '#dec07e',
+            'heritage-gold-dim': '#7d6435',
+            'heritage-maroon': '#752224',
+            'heritage-maroon-dark': '#4d1517',
+            'heritage-green': '#1f3d2b',
+            'heritage-green-accent': '#2e5c41',
+            'heritage-ivory': '#f5ede1',
+            'heritage-ivory-muted': '#b8aea0',
+            'heritage-ivory-dim': '#7a7266',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            malayalam: ['Noto Serif Malayalam', 'Georgia', 'serif'],
+          },
+          screens: {
+            'xs': '320px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            '3xl': '1920px',
+            '4k': '2560px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Local Tailwind Utilities & Reusable Design System Components -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation/navigation.css">
+  <link rel="stylesheet" href="css/explore.css">
+</head>
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
+
+  <!-- Film grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor elements -->
+  <div id="customCursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="customCursorFollower" class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="siteHeader" class="site-header" role="banner">
+    <div class="header-container">
+      
+      <!-- Brand Identity (Left) -->
+      <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
+        <div class="brand-text-wrap">
+          <span class="brand-title">AYROOR</span>
+          <span class="brand-sub">KATHAKALI GRAMAM</span>
+        </div>
+      </a>
+
+      <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+      <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+        <!-- Rendered dynamically from NAV_CONFIG -->
+      </nav>
+
+      <!-- Header Actions (Right) -->
+      <div class="header-actions">
+        <!-- Bilingual Language Selector -->
+        <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+          <span class="lang-label-wrap"><span class="lang-active">EN</span> / <span>ML</span></span>
+        </button>
+
+        <!-- Signature Architectural Menu Button -->
+        <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+          <span class="arch-menu-btn-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="arch-menu-btn-text" data-arch-menu-text><span data-i18n="common.menu">MENU</span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Architectural Multi-Panel Navigation Canvas (Overlay) -->
+  <div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+    <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail"></aside>
+    <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture"></main>
+    <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase"></aside>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: KATHAKALI INSTRUMENTS
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- Section 1: Hero Banner -->
+    <section class="explore-hero" aria-labelledby="instrumentsHeroHeading">
+      <div class="explore-hero-glow" aria-hidden="true"></div>
+      <div class="explore-hero-container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="explore-breadcrumbs" aria-label="Breadcrumb Trail">
+          <a href="index.html" data-i18n="common.home">Home</a>
+          <span class="crumb-sep">/</span>
+          <span data-i18n="nav.exploreKathakali">Explore Kathakali</span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current" data-i18n="nav.instruments">Instruments</span>
+        </nav>
+
+        <!-- Badge -->
+        <div class="explore-badge">
+          <span class="explore-badge-icon">✦</span>
+          <span data-i18n="instruments.heroBadge">VADHYA KALA • SACRED ACOUSTIC ENSEMBLE</span>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <h1 id="instrumentsHeroHeading" class="explore-hero-title" data-i18n="instruments.heroTitle">Sacred Instruments of Kathakali</h1>
+
+        <p class="explore-hero-lead" data-i18n="instruments.heroLead">
+          The heartbeat, cadence, and dramatic tempest of Kathakali are ignited by Kerala’s classical percussion ensemble. Without a single spoken dialogue from the actors, the singers and percussion masters—wielding the Chenda, Maddalam, Chengila, Ilathalam, and Idakka—narrate the celestial thunder, sorrow, and sublime devotion of the epics.
+        </p>
+
+        <!-- Section Navigation Pills -->
+        <nav class="explore-nav-pills" aria-label="Explore Kathakali Section Pages">
+          <a href="mudras.html" class="explore-nav-pill">
+            <span class="explore-nav-pill-idx">01</span>
+            <span data-i18n="nav.mudras">Kathakali Mudras</span>
+          </a>
+          <a href="characters.html" class="explore-nav-pill">
+            <span class="explore-nav-pill-idx">02</span>
+            <span data-i18n="nav.characters">Kathakali Characters</span>
+          </a>
+          <a href="instruments.html" class="explore-nav-pill is-active">
+            <span class="explore-nav-pill-idx">03</span>
+            <span data-i18n="nav.instruments">Kathakali Instruments</span>
+          </a>
+        </nav>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Filter & Search Toolbar -->
+    <section class="explore-toolbar-section" aria-label="Filter and Search Kathakali Instruments">
+      <div class="explore-toolbar">
+        
+        <!-- Search Input -->
+        <div class="explore-search-wrap">
+          <svg class="explore-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="exploreSearchInput" class="explore-search-input" placeholder="Search instrument, role, tala (e.g. Chenda, Maddalam, Chengila, Tala)..." aria-label="Search Kathakali Instruments">
+          <button type="button" id="exploreSearchClear" class="explore-search-clear" aria-label="Clear search">✕</button>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="explore-filters" role="group" aria-label="Instrument Category Filters">
+          <button type="button" class="filter-btn is-active" data-filter="all"><span data-i18n="instruments.allInstruments">All Instruments</span></button>
+          <button type="button" class="filter-btn" data-filter="percussion"><span data-i18n="instruments.membranophonesDrums">Membranophones / Drums</span></button>
+          <button type="button" class="filter-btn" data-filter="metallic"><span data-i18n="instruments.idiophonesBronze">Idiophones / Bronze</span></button>
+          <button type="button" class="filter-btn" data-filter="sacred"><span data-i18n="instruments.devaVadhyamSacred">Deva Vadhyam / Sacred</span></button>
+        </div>
+
+        <!-- Count Indicator -->
+        <div class="explore-count-wrap">
+          <span data-i18n="instruments.showing5Instruments">Showing <span id="exploreCountNum" class="explore-count-num">5</span> Instruments</span> ഇനങ്ങൾ കാണിക്കുന്നു</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Instruments Collection Grid -->
+    <section class="explore-main-section" aria-label="Kathakali Musical Instruments Collection">
+      <div class="explore-container">
+        
+        <div class="explore-grid" id="instrumentsGrid">
+
+          <!-- 01: Chenda -->
+          <article class="explore-card" 
+                   data-title-en="Chenda" 
+                   data-title-ml="ചെണ്ട" 
+                   data-meaning="The Monarch of Percussion • Thunderous Martial Resonance" 
+                   data-category="percussion" 
+                   data-tags="Lead Percussion, Asura Vadhyam, Jackfruit Wood, Chembada Tala, Panchari" 
+                   data-badge="01 • LEAD PERCUSSION" 
+                   data-desc="The supreme monarch of Kathakali rhythm. Hollowed from aged jackfruit wood (Varikka Plavu) and covered with stretched calf parchment on its left head (Edamthala). Struck with curved cane sticks (Chenda Kol) and bare hand, the Chenda produces dynamic, high-amplitude acoustic reverberations that dominate battles, heroic sequences (Veera), and ferocious anger (Raudra)." 
+                   data-context="Played vertically, strapped over the left shoulder. Silenced only during female (Minukku) or subtle intimate romantic scenes."
+                   data-verse="“സന്ധ്യയ്ക്ക് ചെണ്ട മുഴങ്ങുമ്പോൾ, പമ്പാ മണൽത്തട്ടിൽ ഇതിഹാസ കഥാപാത്രങ്ങൾ ഉണരുന്നു.”"
+                   data-modal-img="assets/images/instruments/chenda.webp">
+            <div class="explore-card-media">
+              <picture>
+                <source srcset="assets/images/instruments/chenda.webp" type="image/webp">
+                <img src="assets/images/instruments/chenda.webp" alt="Traditional Kathakali Chenda percussion drum" class="explore-card-img" loading="eager">
+              </picture>
+              <div class="explore-card-overlay"></div>
+              <span class="explore-card-badge" data-i18n="instruments.card1Badge">01 • ASURA VADHYAM</span>
+              <span class="explore-card-category-tag" data-i18n="instruments.card1Category">Membranophone</span>
+            </div>
+            <div class="explore-card-body">
+              <span class="explore-card-kicker">LEAD PERCUSSION</span>
+              <h2 class="explore-card-title">
+                <span data-i18n="instruments.card1Title">CHENDA</span>
+              </h2>
+              <div class="explore-card-meaning"><span data-i18n="instruments.theThunderousMonarchMartialHeroicFi">The Thunderous Monarch • Martial & Heroic Fire</span></div>
+              <p class="explore-card-desc"><span data-i18n="instruments.cylindricalJackfruitWoodDrumProduci">Cylindrical jackfruit wood drum producing thunderous martial reverberations that command the entire sandbed amphitheater.</span></p>
+              <div class="explore-tag-list">
+                <span class="explore-tag">Asura Vadhyam</span>
+                <span class="explore-tag">Heroic Duel</span>
+                <span class="explore-tag">Chenda Kol</span>
+                <span class="explore-tag">Raudra Rasa</span>
+              </div>
+              <button type="button" class="explore-card-cta" aria-label="Explore Chenda details">
+                <span>View Instrument Profile</span>
+                <span class="explore-card-cta-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 02: Maddalam -->
+          <article class="explore-card" 
+                   data-title-en="Maddalam" 
+                   data-title-ml="മദ്ദളം" 
+                   data-meaning="Sacred Bass Foundation • Deep Devotional Resonance" 
+                   data-category="percussion" 
+                   data-tags="Deva Vadhyam, Bass Foundation, Finger Thimbles, Adantha Tala, Jackfruit Wood" 
+                   data-badge="02 • SACRED DRUM" 
+                   data-desc="Known as the Deva Vadhyam (Instrument of the Gods). A heavy barrel-shaped drum hollowed from seasoned wood, strapped horizontally to the performer's waist. The right head is played with specialized cloth thimbles (Thoppi) hardened with rice-paste, while the left head produces deep, cavernous bass frequencies that anchor the entire performance." 
+                   data-context="Accompanies every scene from curtain-raiser to dusk-to-dawn finale, harmonizing with both martial and romantic emotions."
+                   data-verse="“മദ്ദളത്തിന്റെ ഗാംഭീര്യമാർന്ന നാദം അരങ്ങിന്റെ അന്തസ്സത്തയാണ് — ദേവവാദ്യത്തിന്റെ പവിത്രത.”"
+                   data-modal-img="assets/images/instruments/maddalam.webp">
+            <div class="explore-card-media">
+              <picture>
+                <source srcset="assets/images/instruments/maddalam.webp" type="image/webp">
+                <img src="assets/images/instruments/maddalam.webp" alt="Traditional Kathakali Maddalam barrel drum" class="explore-card-img" loading="lazy">
+              </picture>
+              <div class="explore-card-overlay"></div>
+              <span class="explore-card-badge">02 • DEVA VADHYAM</span>
+              <span class="explore-card-category-tag" data-i18n="instruments.card1Category">Membranophone</span>
+            </div>
+            <div class="explore-card-body">
+              <span class="explore-card-kicker">SACRED BASS FOUNDATION</span>
+              <h2 class="explore-card-title">
+                <span data-i18n="instruments.card2Title">MADDALAM</span>
+              </h2>
+              <div class="explore-card-meaning"><span data-i18n="instruments.theInstrumentOfTheGodsDeep">The Instrument of the Gods • Deep Tonal Gravity</span></div>
+              <p class="explore-card-desc"><span data-i18n="instruments.horizontalBarrelShapedSacredDrumPla">Horizontal barrel-shaped sacred drum played with reinforced finger caps, providing the fundamental acoustic foundation.</span></p>
+              <div class="explore-tag-list">
+                <span class="explore-tag">Deva Vadhyam</span>
+                <span class="explore-tag">Tonal Base</span>
+                <span class="explore-tag">Thoppi Thimbles</span>
+                <span class="explore-tag">Sringara & Veera</span>
+              </div>
+              <button type="button" class="explore-card-cta" aria-label="Explore Maddalam details">
+                <span>View Instrument Profile</span>
+                <span class="explore-card-cta-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 03: Chengila -->
+          <article class="explore-card" 
+                   data-title-en="Chengila" 
+                   data-title-ml="ചെങ്ങില" 
+                   data-meaning="Master Tala Metronome • Command of the Lead Singer" 
+                   data-category="metallic" 
+                   data-tags="Ponnani Lead Singer, Bronze Gong, Master Tempo, Tala Control, Kalasam" 
+                   data-badge="03 • TALA CONDUCTOR" 
+                   data-desc="A thick, resonant bronze disc struck with a short wooden mallet by the lead vocalist (Ponnani). The Chengila functions as the conductor's baton of Kathakali, establishing the fundamental metric cycle (Tala), initiating rhythmic transitions (Kalasams), and guiding both actors and drummers." 
+                   data-context="Held suspended in the left hand and struck with measured, unwavering cadence throughout the all-night recital."
+                   data-verse="“പൊന്നാനിയുടെ കൈയിലെ ചെങ്ങിലയാണ് അരങ്ങിന്റെ സൂത്രധാരൻ; കാലപ്രമാണത്തിന്റെ വഴികാട്ടി.”"
+                   data-modal-img="assets/images/instruments/chengila-and-ilathalam.webp">
+            <div class="explore-card-media">
+              <picture>
+                <source srcset="assets/images/instruments/chengila-and-ilathalam.webp" type="image/webp">
+                <img src="assets/images/instruments/chengila-and-ilathalam.webp" alt="Traditional Chengila bronze gong and Ilathalam cymbals" class="explore-card-img" loading="lazy">
+              </picture>
+              <div class="explore-card-overlay"></div>
+              <span class="explore-card-badge">03 • TALA METRONOME</span>
+              <span class="explore-card-category-tag">Idiophone / Bronze</span>
+            </div>
+            <div class="explore-card-body">
+              <span class="explore-card-kicker">MASTER METRIC GUIDE</span>
+              <h2 class="explore-card-title">
+                <span data-i18n="instruments.card3Title">CHENGILA</span>
+              </h2>
+              <div class="explore-card-meaning"><span data-i18n="instruments.theBronzeGongRhythmicCommandOf">The Bronze Gong • Rhythmic Command of the Lead Vocalist</span></div>
+              <p class="explore-card-desc"><span data-i18n="instruments.heavyBellMetalDiscStruckWith">Heavy bell-metal disc struck with a hardwood stick by the lead singer (Ponnani), dictating the master tempo.</span></p>
+              <div class="explore-tag-list">
+                <span class="explore-tag">Ponnani Singer</span>
+                <span class="explore-tag">Bronze Gong</span>
+                <span class="explore-tag">Tala Keeper</span>
+                <span class="explore-tag">Kalasam</span>
+              </div>
+              <button type="button" class="explore-card-cta" aria-label="Explore Chengila details">
+                <span>View Instrument Profile</span>
+                <span class="explore-card-cta-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 04: Ilathalam -->
+          <article class="explore-card" 
+                   data-title-en="Ilathalam" 
+                   data-title-ml="ഇലത്താളം" 
+                   data-meaning="Dynamic Hand Cymbals • Sharp Synchronous Accentuation" 
+                   data-category="metallic" 
+                   data-tags="Singidi Second Singer, Bell Metal Cymbals, Dynamic Accents, Micro-timing" 
+                   data-badge="04 • RHYTHMIC ACCENT" 
+                   data-desc="A pair of miniature, heavy bell-metal cymbals held by the secondary vocalist (Singidi). Providing crisp, shimmering metallic high frequencies, the Ilathalam locks tightly with the Chenda's rapid strokes and punctuates complex cross-rhythms." 
+                   data-context="Played with dazzling finger modulations ranging from dampening clicks to sustained ringing overtones."
+                   data-verse="“ഇലത്താളത്തിന്റെ മൂർച്ചയുള്ള നാദം ചെണ്ടയുടെ താളത്തെ വരിഞ്ഞുമുറുക്കുന്നു.”"
+                   data-modal-img="assets/images/instruments/chengila-and-ilathalam.webp">
+            <div class="explore-card-media">
+              <picture>
+                <source srcset="assets/images/instruments/chengila-and-ilathalam.webp" type="image/webp">
+                <img src="assets/images/instruments/chengila-and-ilathalam.webp" alt="Traditional Ilathalam cymbals" class="explore-card-img" loading="lazy">
+              </picture>
+              <div class="explore-card-overlay"></div>
+              <span class="explore-card-badge">04 • BELL METAL</span>
+              <span class="explore-card-category-tag">Idiophone / Cymbals</span>
+            </div>
+            <div class="explore-card-body">
+              <span class="explore-card-kicker">METRIC SYNCHRONIZATION</span>
+              <h2 class="explore-card-title">
+                <span data-i18n="instruments.card4Title">ILATHALAM</span>
+              </h2>
+              <div class="explore-card-meaning"><span data-i18n="instruments.theHeavyCymbalsSharpPunctuationSpee">The Heavy Cymbals • Sharp Punctuation & Speed Acceleration</span></div>
+              <p class="explore-card-desc"><span data-i18n="instruments.pairOfHeavyCastBronzeCymbals">Pair of heavy cast-bronze cymbals played by the secondary singer (Singidi), providing high-frequency pulse synchronization.</span></p>
+              <div class="explore-tag-list">
+                <span class="explore-tag">Singidi Singer</span>
+                <span class="explore-tag">Bell Metal</span>
+                <span class="explore-tag">Tala Pulse</span>
+                <span class="explore-tag">Speed Accelerando</span>
+              </div>
+              <button type="button" class="explore-card-cta" aria-label="Explore Ilathalam details">
+                <span>View Instrument Profile</span>
+                <span class="explore-card-cta-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 05: Idakka -->
+          <article class="explore-card" 
+                   data-title-en="Idakka" 
+                   data-title-ml="ഇടയ്ക്ക" 
+                   data-meaning="Sacred Hourglass Drum • Vocal Melody & Feminine Pathos" 
+                   data-category="sacred" 
+                   data-tags="Hourglass Drum, Deva Vadhyam, Minukku Accompaniment, Sopana Sangeetham, Pitch Modulation" 
+                   data-badge="05 • TEMPLE HOURGLASS" 
+                   data-desc="A celestial hourglass-shaped drum capable of producing definite vocal pitches. Suspended from the left shoulder, the master modulates the central ropes with the left palm while gently striking the face with a light curved stick in the right hand. The Idakka produces sublime melodic inflections essential for female roles (Minukku) and tender, lyrical scenes." 
+                   data-context="Mandatory during Sopana Sangeetham invocations and intimate emotional soliloquies."
+                   data-verse="“ഇടയ്ക്ക നാദമുണരുമ്പോൾ, അപ്സരസ്സുകൾ പമ്പാ മണപ്പുറത്തേക്ക് ഇറങ്ങിവരുന്നു.”"
+                   data-modal-img="assets/images/instruments/idakka.webp">
+            <div class="explore-card-media">
+              <picture>
+                <source srcset="assets/images/instruments/idakka.webp" type="image/webp">
+                <img src="assets/images/instruments/idakka.webp" alt="Sacred Idakka hourglass percussion drum" class="explore-card-img" loading="lazy">
+              </picture>
+              <div class="explore-card-overlay"></div>
+              <span class="explore-card-badge">05 • SOPANAM VADHYAM</span>
+              <span class="explore-card-category-tag">Sacred Pitch Drum</span>
+            </div>
+            <div class="explore-card-body">
+              <span class="explore-card-kicker">LYRICAL MELODIC PERCUSSION</span>
+              <h2 class="explore-card-title">
+                <span data-i18n="instruments.card5Title">IDAKKA</span>
+              </h2>
+              <div class="explore-card-meaning"><span data-i18n="instruments.theSacredHourglassModulatedVocalPit">The Sacred Hourglass • Modulated Vocal Pitch & Divine Pathos</span></div>
+              <p class="explore-card-desc"><span data-i18n="instruments.tensionModulatedHourglassDrumCreati">Tension-modulated hourglass drum creating human vocal pitches, indispensable for female characters and temple invocations.</span></p>
+              <div class="explore-tag-list">
+                <span class="explore-tag">Pitch Modulation</span>
+                <span class="explore-tag">Female Roles</span>
+                <span class="explore-tag">Sopanam</span>
+                <span class="explore-tag">Devotional Pathos</span>
+              </div>
+              <button type="button" class="explore-card-cta" aria-label="Explore Idakka details">
+                <span>View Instrument Profile</span>
+                <span class="explore-card-cta-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- No results placeholder -->
+          <div id="exploreNoResults" class="explore-no-results" role="status">
+            <div class="no-results-icon">✦</div>
+            <h3 class="no-results-title">No Instruments Found</h3>
+            <p class="no-results-desc">Try searching with another keyword such as "Chenda", "Maddalam", "Bronze", or select "All Instruments".</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: The Classical Tala System of Kathakali -->
+    <section class="explore-reference-section" aria-labelledby="talaReferenceHeading">
+      <div class="explore-reference-box">
+        <header class="explore-reference-header">
+          <h2 id="talaReferenceHeading" class="explore-reference-title">The Classical Tala (Metric Rhythms) of Kathakali</h2>
+          <p class="explore-reference-desc">
+            Unlike modern tempo systems, Kathakali recitals are structured around cyclical time measures (Tala) passed down across centuries. The master musicians on the Pamba riverbanks govern each movement through five fundamental metric cycles.
+          </p>
+        </header>
+
+        <div class="explore-reference-grid">
+          <div class="reference-card">
+            <div class="reference-card-num">01</div>
+            <h3 class="reference-card-title">Chembada Tala (8 Aksharas)</h3>
+            <p class="reference-card-text">
+              The primary, most versatile metric cycle equivalent to Adi Tala. Accompanies grand entrances, dialogues, romantic Sringara sequences, and general narrative progression.
+            </p>
+          </div>
+
+          <div class="reference-card">
+            <div class="reference-card-num">02</div>
+            <h3 class="reference-card-title">Adantha Tala (14 Aksharas)</h3>
+            <p class="reference-card-text">
+              A profound, majestic slow-tempo cycle. Employed for high-statute royal deliberations, profound philosophical soliloquies, and solemn moments of grief or divine wonder.
+            </p>
+          </div>
+
+          <div class="reference-card">
+            <div class="reference-card-num">03</div>
+            <h3 class="reference-card-title">Panchari & Champa Talas</h3>
+            <p class="reference-card-text">
+              Panchari (6 beats) accelerates martial combat and rapid footwork. Champa (10 beats) is chosen for demonic confrontations, violent duels, and furious challenges.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       DETAIL INSPECTION MODAL (Accessible Dialog)
+       ========================================================================== -->
+  <div id="exploreDetailModal" class="explore-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalDetailTitle">
+    <div class="explore-modal" data-lenis-prevent>
+      <button type="button" class="explore-modal-close" aria-label="Close modal window">✕</button>
+      
+      <!-- Media column -->
+      <div class="explore-modal-media">
+        <img src="assets/images/instruments/chenda.webp" alt="Instrument Detail Illustration" class="explore-modal-img" id="modalDetailImg">
+      </div>
+
+      <!-- Content column -->
+      <div class="explore-modal-content">
+        <div class="explore-modal-meta">
+          <span class="explore-modal-badge" id="modalDetailBadge">PERCUSSION INSTRUMENT</span>
+        </div>
+
+        <h2 class="explore-modal-title" id="modalDetailTitle">Chenda</h2>
+        
+
+        <div class="explore-modal-section-title"><span data-i18n="instruments.acousticRoleIdentity">ACOUSTIC ROLE & IDENTITY</span></div>
+        <div class="explore-card-meaning" id="modalDetailMeaning">The Monarch of Percussion • Martial Resonance</div>
+
+        <div class="explore-modal-section-title">PHYSICAL CONSTRUCTION & CRAFTSMANSHIP</div>
+        <p class="explore-modal-body-text" id="modalDetailDesc">
+          Hollowed from aged jackfruit wood (Varikka Plavu) and covered with stretched calf parchment.
+        </p>
+
+        <div class="explore-modal-section-title">PERFORMANCE CONTEXT & TALA INTERACTION</div>
+        <p class="explore-modal-body-text" id="modalDetailContext">
+          Played vertically, strapped over the left shoulder. Dominates heroic battles and opening Kelikottu.
+        </p>
+
+        <div class="explore-modal-quote" id="modalDetailVerse" style="display: none;"></div>
+
+        <div class="explore-modal-section-title">ASSOCIATED TALAS & RHYTHMS</div>
+        <div class="explore-tag-list" id="modalDetailTags"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
+            <div class="brand-text-wrap">
+              <div class="footer-brand-title">AYROOR</div>
+              <div class="footer-brand-sub">KATHAKALI GRAMAM</div>
+            </div>
+          </div>
+          <p class="footer-brand-desc" data-i18n="common.footerBrandDesc">The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba.</p>
+
+          <!-- Modern Social Media Connect Hub -->
+          <div class="footer-social-wrap">
+            <div class="footer-social-heading">
+              <span data-i18n="common.connectFollow">Connect & Follow</span>
+            </div>
+            <div class="footer-social-icons">
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official YouTube Channel" title="YouTube Live & Webcast">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Instagram" title="Instagram Visuals & Reels">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Facebook Page" title="Facebook Community & News">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <!-- X (Twitter) -->
+              <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official X Profile" title="X (Twitter) Announcements">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me/919446538553" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Enquiries" title="WhatsApp Secretary & General Convener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </a>
+              <!-- Location / Google Maps -->
+              <a href="https://maps.google.com/?q=Ayroor+Kathakali+Gramam+Cherukolpuzha+Kerala" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Locate on Google Maps" title="Pamba Sandbanks Amphitheater">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <div class="footer-nav-title" data-i18n="common.navigation">Navigation</div>
+          <ul class="footer-nav-links">
+            <li><a href="about.html" class="footer-nav-link" data-nav-id="about" data-i18n="nav.aboutUs">About Us</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-nav-id="mela" data-i18n="nav.kathakaliMela">Kathakali Mela</a></li>
+            <li><a href="awards.html" class="footer-nav-link" data-nav-id="awards" data-i18n="nav.awards">Awards</a></li>
+            <li><a href="gallery.html" class="footer-nav-link" data-nav-id="gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="mudras.html" class="footer-nav-link" data-nav-id="kathakali-mudras" data-i18n="nav.mudras">Kathakali Mudras</a></li>
+            <li><a href="characters.html" class="footer-nav-link" data-nav-id="kathakali-characters" data-i18n="nav.characters">Kathakali Characters</a></li>
+            <li><a href="instruments.html" class="footer-nav-link active" data-nav-id="kathakali-instruments" data-i18n="nav.instruments">Kathakali Instruments</a></li>
+            <li><a href="contact.html" class="footer-nav-link" data-nav-id="contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-nav">
+          <div class="footer-nav-title" data-i18n="common.culturalHeritage">Cultural Heritage</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#aboutSection" class="footer-nav-link" data-i18n="common.footerPambaAmphitheater">Pamba Sandbanks Amphitheater</a></li>
+            <li><a href="index.html#cultureSectionHeading" class="footer-nav-link" data-i18n="common.footerAharyaTradition">Aharya Abhinaya Tradition</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-i18n="common.footerAnnualMela">Annual Kathakali Mela</a></li>
+            <li><a href="characters.html" class="footer-nav-link" data-i18n="common.footerVeshamTypology">Classical Vesham Typology</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-i18n="common.footerPercussionEnsemble">Sacred Percussion Ensemble</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Architectural 9-Group Footer Directory (Populated via NAV_CONFIG in navigation.js) -->
+      <div id="footerArchNav"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2026 Ayroor Kathakali Gramam. All Rights Reserved.
+        </div>
+        <div class="footer-social-pill-group">
+          <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
+        </div>
+        <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top of page">
+          <span>BACK TO TOP</span>
+          <span class="back-to-top-icon" aria-hidden="true">↑</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button with Circular Scroll Progress Ring -->
+  <button id="floatingBackToTop" class="floating-back-to-top" aria-label="Back to top of page" title="Back to top">
+    <svg class="btt-progress-ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="progress-ring-track" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+      <circle class="progress-ring-indicator" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+    </svg>
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </span>
+    <span class="btt-tooltip">Back to Top</span>
+  </button>
+
+  <!-- Animation & Smooth Scroll Engines: GSAP, ScrollTrigger & Lenis (Local Vendor) -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
+
+  <!-- Localization & Internationalization (en, ml) -->
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/ml.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <!-- Architectural Navigation Architecture -->
+  <script src="navigation/navigation-config.js"></script>
+  <script src="navigation/navigation.js"></script>
+
+  <!-- Application Configuration & Explore Controller -->
+
+  <script src="config.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

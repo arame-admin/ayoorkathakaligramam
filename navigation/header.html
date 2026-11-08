@@ -1,0 +1,61 @@
+<!-- ==========================================================================
+     AYROOR KATHAKALI GRAMAM — ARCHITECTURAL & CONTEMPORARY NAVIGATION COMPONENT
+     Based on BRD Sitemap & Architecture
+     ========================================================================== -->
+
+<!-- Fixed Horizontal Architectural Header -->
+<header id="siteHeader" class="site-header" role="banner">
+  <div class="header-container">
+    
+    <!-- Left: Brand Identity -->
+    <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
+      <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
+      <div class="brand-text-wrap">
+        <span class="brand-title">AYROOR</span>
+        <span class="brand-sub">KATHAKALI GRAMAM</span>
+      </div>
+    </a>
+
+    <!-- Centre: Primary Desktop Navigation (Populated via NAV_CONFIG in navigation.js) -->
+    <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+      <!-- Generated dynamically from NAV_CONFIG -->
+    </nav>
+
+    <!-- Right: Header Actions (Language Switcher & Architectural Menu Trigger) -->
+    <div class="header-actions">
+      <!-- Bilingual Language Toggle Button -->
+      <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+        <span class="lang-active">EN</span> / <span>മലയാളം</span>
+      </button>
+
+      <!-- Signature Architectural Menu Button -->
+      <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+        <span class="arch-menu-btn-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="arch-menu-btn-text" data-arch-menu-text>MENU / മെനു</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Signature Architectural Multi-Panel Navigation Canvas (Overlay) -->
+<div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+  <!-- Layer 1: Brand Identity Rail -->
+  <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail">
+    <!-- Populated dynamically via navigation.js -->
+  </aside>
+
+  <!-- Layer 2: 8-Group Navigation Architecture -->
+  <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture">
+    <!-- Populated dynamically via navigation.js -->
+  </main>
+
+  <!-- Layer 3: Contextual Visual Panel -->
+  <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase">
+    <!-- Populated dynamically via navigation.js -->
+  </aside>
+</div>

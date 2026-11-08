@@ -8,9 +8,9 @@
 
   <!-- Favicon & Touch Icons (Official Ayroor Kathakali Gramam Logo) -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon-16x16.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp">
   <meta name="theme-color" content="#020504">
 
   <!-- Google Fonts: Cinzel, Cormorant Garamond, Noto Serif Malayalam, Plus Jakarta Sans -->
@@ -18,12 +18,61 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Tailwind CSS & Heritage Design Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'heritage-bg': '#090908',
+            'heritage-bg-alt': '#11100e',
+            'heritage-surface': '#151310',
+            'heritage-surface-hover': '#1c1915',
+            'heritage-card': '#14120f',
+            'heritage-gold': '#c5a059',
+            'heritage-gold-light': '#dec07e',
+            'heritage-gold-dim': '#7d6435',
+            'heritage-maroon': '#752224',
+            'heritage-maroon-dark': '#4d1517',
+            'heritage-green': '#1f3d2b',
+            'heritage-green-accent': '#2e5c41',
+            'heritage-ivory': '#f5ede1',
+            'heritage-ivory-muted': '#b8aea0',
+            'heritage-ivory-dim': '#7a7266',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            malayalam: ['Noto Serif Malayalam', 'Georgia', 'serif'],
+          },
+          screens: {
+            'xs': '320px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            '3xl': '1920px',
+            '4k': '2560px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Local Tailwind Utilities & Reusable Design System Components -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation/navigation.css">
 </head>
 <body>
 
   <!-- Skip link for keyboard accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
 
   <!-- Film grain texture overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
@@ -38,7 +87,7 @@
   <div id="sitePreloader" class="preloader" aria-live="polite">
     <div class="preloader-content">
       <div class="preloader-emblem">
-        <img src="assets/images/ayroor-official-logo.png" alt="Ayroor Kathakali Gramam Official Emblem" class="preloader-logo-img" width="60" height="70">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Official Emblem" class="preloader-logo-img" width="60" height="70">
       </div>
       <h2 class="preloader-title">AYROOR</h2>
       <p class="preloader-sub">KATHAKALI GRAMAM</p>
@@ -50,66 +99,62 @@
   </div>
 
   <!-- ==========================================================================
-       HEADER & NAVIGATION (Multipage structure)
+       HEADER & NAVIGATION (Cinematic Component Architecture)
        ========================================================================== -->
-  <header id="siteHeader" class="site-header">
+  <header id="siteHeader" class="site-header" role="banner">
     <div class="header-container">
+      
+      <!-- Brand Identity (Left) -->
       <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
-        <img src="assets/images/ayroor-official-logo.png" alt="Ayroor Kathakali Gramam Logo" class="brand-logo-img" width="42" height="50">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
         <div class="brand-text-wrap">
           <span class="brand-title">AYROOR</span>
           <span class="brand-sub">KATHAKALI GRAMAM</span>
         </div>
       </a>
 
-      <nav class="primary-nav" aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active" data-nav-id="home">Home</a></li>
-          <li><a href="about.html" class="nav-link" data-nav-id="about">About Us</a></li>
-          <li><a href="mela.html" class="nav-link" data-nav-id="mela">Kathakali Mela</a></li>
-          <li><a href="institutions.html" class="nav-link" data-nav-id="institutions">Institutions</a></li>
-          <li><a href="kathakali.html" class="nav-link" data-nav-id="kathakali">Kathakali</a></li>
-          <li><a href="gallery.html" class="nav-link" data-nav-id="gallery">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link" data-nav-id="contact">Contact</a></li>
-        </ul>
-
-        <button id="langToggleBtn" class="lang-toggle-btn" aria-label="Switch Language to Malayalam or English">
-          <span class="lang-active">EN</span> / <span>മലയാളം</span>
-        </button>
-
-        <button id="mobileNavToggle" class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle Navigation Menu">
-          <span class="burger-bar"></span>
-          <span class="burger-bar"></span>
-          <span class="burger-bar"></span>
-        </button>
+      <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+      <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+        <!-- Rendered dynamically from NAV_CONFIG -->
       </nav>
+
+      <!-- Header Actions (Right) -->
+      <div class="header-actions">
+        <!-- Bilingual Language Selector -->
+        <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+          <span class="lang-label-wrap"><span class="lang-active">EN</span> / <span>ML</span></span>
+        </button>
+
+        <!-- Signature Architectural Menu Button -->
+        <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+          <span class="arch-menu-btn-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="arch-menu-btn-text" data-arch-menu-text><span data-i18n="common.menu">MENU</span></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-brand">
-      <img src="assets/images/ayroor-official-logo.png" alt="Ayroor Kathakali Gramam Logo" class="mobile-drawer-logo" width="42" height="50">
-      <div class="brand-text-wrap">
-        <span class="brand-title">AYROOR</span>
-        <span class="brand-sub">KATHAKALI GRAMAM</span>
-      </div>
-    </div>
-    <ul class="mobile-nav-links">
-      <li><a href="index.html" class="mobile-nav-link active" data-nav-id="home">Home</a></li>
-      <li><a href="about.html" class="mobile-nav-link" data-nav-id="about">About Us</a></li>
-      <li><a href="mela.html" class="mobile-nav-link" data-nav-id="mela">Kathakali Mela</a></li>
-      <li><a href="institutions.html" class="mobile-nav-link" data-nav-id="institutions">Institutions</a></li>
-      <li><a href="kathakali.html" class="mobile-nav-link" data-nav-id="kathakali">Kathakali</a></li>
-      <li><a href="gallery.html" class="mobile-nav-link" data-nav-id="gallery">Gallery</a></li>
-      <li><a href="contact.html" class="mobile-nav-link" data-nav-id="contact">Contact</a></li>
-    </ul>
-    <div class="mobile-drawer-footer">
-      <button id="mobileLangToggleBtn" class="lang-toggle-btn" aria-label="Switch Language in Mobile Menu">
-        <span class="lang-active">EN</span> / <span>മലയാളം</span>
-      </button>
-      <span class="brand-sub">PATHANAMTHITTA, KERALA</span>
-    </div>
+  <!-- Signature Architectural Multi-Panel Navigation Canvas (Overlay) -->
+  <div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+    <!-- Layer 1: Cultural Identity Brand Rail -->
+    <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail">
+      <!-- Populated dynamically via navigation.js -->
+    </aside>
+
+    <!-- Layer 2: 8-Group Navigation Architecture -->
+    <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture">
+      <!-- Populated dynamically via navigation.js -->
+    </main>
+
+    <!-- Layer 3: Contextual Visual Panel -->
+    <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase">
+      <!-- Populated dynamically via navigation.js -->
+    </aside>
   </div>
 
   <!-- ==========================================================================
@@ -152,9 +197,6 @@
                 <span class="hero-headline-line hero-line-1" data-i18n-key="heroTitle1">Where Expressions</span>
                 <span class="hero-headline-line hero-line-accent" data-i18n-key="heroTitleAccent">Become Stories</span>
               </h1>
-              
-              <!-- Malayalam Sub-title Accent -->
-              <div class="hero-headline-ml" data-i18n-key="heroTitleMl" aria-hidden="true">ഭാവങ്ങൾ കഥകളാകുന്ന പുണ്യഭൂമി</div>
 
               <!-- Editorial Narrative Description -->
               <p class="hero-description" id="heroDescription" data-i18n-key="heroDesc">
@@ -163,7 +205,7 @@
 
               <!-- Magnetic Action CTAs -->
               <div class="hero-cta-group">
-                <a href="#mudrasSection" id="heroPrimaryCta" class="hero-btn hero-btn-primary magnetic-btn" data-cursor="link">
+                <a href="mudras.html" id="heroPrimaryCta" class="hero-btn hero-btn-primary magnetic-btn" data-cursor="link">
                   <span class="btn-text" data-i18n-key="heroCtaPrimary">Explore Kathakali</span>
                   <span class="btn-arrow" aria-hidden="true">→</span>
                   <span class="btn-glow" aria-hidden="true"></span>
@@ -280,6 +322,14 @@
                 <h3 class="about-point-title" data-i18n-key="aboutPoint2Title">Living Tradition</h3>
                 <p class="about-point-desc" data-i18n-key="aboutPoint2Desc">A generational continuum where every home resonates with the rhythms of classical Malayalam theatre.</p>
               </div>
+              <div class="about-point-item">
+                <h3 class="about-point-title">
+                  <span data-i18n="home.natyabharathiKalari">Natyabharathi Kalari</span>
+                </h3>
+                <p class="about-point-desc">
+                  <span data-i18n="home.estd1995Training120StudentsAcross">Estd. 1995, training 120+ students across Vesham, Sangeetham, Chenda, Chutti & dance as Kalamandalam feeder. <a href="about.html#centre" style="color: var(--color-gold-light, #dec07e); text-decoration: underline;">Explore Academy →</a></span>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -295,507 +345,87 @@
 
 
     <!-- ========================================================================
-         SECTION 3 — EXPLORE KATHAKALI (MUDRAS SHOWCASE & CULTURAL PILLARS)
+         SECTION 3 — CULTURAL PILLARS OF KATHAKALI
          ======================================================================== -->
-    <section id="mudrasSection" class="content-section section-dark mudras-section" aria-labelledby="mudrasSectionHeading">
+    <section id="cultureSection" class="content-section section-dark culture-section" aria-labelledby="cultureSectionHeading">
       <div class="section-container">
         
-        <header class="mudras-header">
-          <div class="mudras-header-text">
-            <span class="section-overline" data-i18n-key="mudrasOverline">ANGIKA ABHINAYA • HASTHA LAKSHANA DEEPIKA</span>
-            <h2 id="mudrasSectionHeading" class="section-title reveal-mask">
-              <span class="reveal-inner" data-i18n-key="mudrasTitle">The Sacred Mudras of Kathakali</span>
-            </h2>
-            <p class="mudras-lead" data-i18n-key="mudrasLead">
-              In Kathakali, twenty-four root hand gestures form an eloquent sign language codified in the Hastalakshana Deepika. Through graceful combinations of fingers and palms, masters narrate epic sagas without uttering a single spoken word.
-            </p>
-          </div>
-
-          <!-- Slider Controls -->
-          <div class="mudras-controls" aria-label="Slider Controls">
-            <div class="mudras-counter" aria-live="polite">
-              <span id="mudraCurrentNum" class="counter-num active-num">01</span>
-              <span class="counter-sep">/</span>
-              <span class="counter-num counter-total">09</span>
-            </div>
-
-            <div class="mudras-btn-group">
-              <button type="button" id="mudraPrevBtn" class="mudra-nav-btn" aria-label="Previous Mudra" title="Previous Mudra">
-                <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button type="button" id="mudraPlayPauseBtn" class="mudra-nav-btn mudra-play-btn" aria-label="Pause Auto-advance" title="Pause / Play Slideshow">
-                <svg id="mudraPauseIcon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16" rx="1"/>
-                  <rect x="14" y="4" width="4" height="16" rx="1"/>
-                </svg>
-                <svg id="mudraPlayIcon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor" style="display: none;">
-                  <polygon points="6,4 20,12 6,20"/>
-                </svg>
-              </button>
-              <button type="button" id="mudraNextBtn" class="mudra-nav-btn" aria-label="Next Mudra" title="Next Mudra">
-                <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-            </div>
-          </div>
+        <header class="section-header-minimal">
+          <span class="section-overline" data-i18n-key="cultureOverline">CULTURAL PILLARS OF KATHAKALI</span>
+          <h2 id="cultureSectionHeading" class="section-title reveal-mask">
+            <span class="reveal-inner" data-i18n-key="cultureTitle">The Sacred Dimensions of the Art</span>
+          </h2>
+          <p class="about-lead" style="max-width: 820px;" data-i18n-key="cultureLead">
+            Kathakali unfolds through an inseparable synthesis of visual transformation, physical discipline, and sacred melody — nurtured across centuries on the banks of River Pamba.
+          </p>
         </header>
 
-        <!-- Main Slider Carousel -->
-        <div class="mudra-slider" id="mudraSlider" role="region" aria-roledescription="carousel" aria-label="Kathakali Mudras Showcase">
-          <!-- Autoplay Progress Line -->
-          <div class="mudra-slider-progress" aria-hidden="true">
-            <div id="mudraProgressBar" class="mudra-slider-progress-fill"></div>
-          </div>
-
-          <div class="mudra-slider-viewport" id="mudraSliderViewport" tabindex="0">
-            <div class="mudra-slider-track" id="mudraSliderTrack">
-
-              <!-- Slide 1: Pathaka -->
-              <article class="mudra-slide active" role="group" aria-roledescription="slide" aria-label="1 of 9: Pathaka" data-index="0">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/pathaka.webp" type="image/webp">
-                        <img src="assets/images/mudras/pathaka.png" alt="Pathaka Mudra - The Flag" loading="eager" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">01 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 01</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra1Title">PATHAKA</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra1TitleMl">പതാക</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra1Meaning">The Flag / Royal Splendor</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra1Desc">
-                      Formed by bending the ring finger inwards to touch the thumb, while keeping the other fingers erect. In Kathakali, Pathaka represents the Sun, King, Elephant, Lion, Bull, Waves, Fire, Night, and Divine Benediction.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Sun</span>
-                      <span class="mudra-tag">King</span>
-                      <span class="mudra-tag">Elephant</span>
-                      <span class="mudra-tag">Fire</span>
-                      <span class="mudra-tag">Benediction</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 2: Mudraakhyam -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="2 of 9: Mudraakhyam" data-index="1">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Mudraakhyam.webp" type="image/webp">
-                        <img src="assets/images/mudras/Mudraakhyam.png" alt="Mudraakhyam Mudra - The Primal Seal" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">02 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 02</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra2Title">MUDRAAKHYAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra2TitleMl">മുദ്രാഖ്യം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra2Meaning">The Primal Seal / Signet</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra2Desc">
-                      Formed by joining the tips of the index finger and the thumb into a ring with other fingers held straight. Signifies meditation (Dhyana), growth, ocean, sky, silence, and self-knowledge.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Meditation</span>
-                      <span class="mudra-tag">Ocean</span>
-                      <span class="mudra-tag">Cosmic Sky</span>
-                      <span class="mudra-tag">Silence</span>
-                      <span class="mudra-tag">Growth</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 3: Katakam -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="3 of 9: Katakam" data-index="2">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Katakam.webp" type="image/webp">
-                        <img src="assets/images/mudras/Katakam.png" alt="Katakam Mudra - The Link" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">03 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 03</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra3Title">KATAKAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra3TitleMl">കടകം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra3Meaning">The Bracelet / Golden Link</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra3Desc">
-                      Formed with the index, middle, and ring fingers bent to touch the thumb while the little finger stays curved. Represents the sacred crown, mirror, female beauty, holding flowers, arrows, and peace.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Sacred Crown</span>
-                      <span class="mudra-tag">Mirror</span>
-                      <span class="mudra-tag">Flowers</span>
-                      <span class="mudra-tag">Arrow</span>
-                      <span class="mudra-tag">Peace</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 4: Mushti -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="4 of 9: Mushti" data-index="3">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Mushti.webp" type="image/webp">
-                        <img src="assets/images/mudras/Mushti.png" alt="Mushti Mudra - The Fist" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">04 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 04</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra4Title">MUSHTI</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra4TitleMl">മുഷ്ടി</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra4Meaning">The Fist / Martial Vigor</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra4Desc">
-                      Formed by curling all four fingers tightly into the palm with the thumb held firmly over them. Denotes the charioteer, boundless strength, combat, bow grip, courage, and perseverance.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Charioteer</span>
-                      <span class="mudra-tag">Strength</span>
-                      <span class="mudra-tag">Combat</span>
-                      <span class="mudra-tag">Bow Grip</span>
-                      <span class="mudra-tag">Victory</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 5: Kartharimukham -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="5 of 9: Kartharimukham" data-index="4">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Kartharimukham.webp" type="image/webp">
-                        <img src="assets/images/mudras/Kartharimukham.png" alt="Kartharimukham Mudra - Scissor Face" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">05 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 05</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra5Title">KARTHARIMUKHAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra5TitleMl">കർത്തരീമുഖം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra5Meaning">Scissor’s Face</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra5Desc">
-                      Formed by extending the index and little fingers while bending the middle and ring fingers towards the thumb. Depicts separation, palace spires, lightning, gentle creepers, arrows, and children.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Separation</span>
-                      <span class="mudra-tag">Lightning</span>
-                      <span class="mudra-tag">Palace Tower</span>
-                      <span class="mudra-tag">Creeper</span>
-                      <span class="mudra-tag">Child</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 6: Shukathundam -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="6 of 9: Shukathundam" data-index="5">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Shukathundam.webp" type="image/webp">
-                        <img src="assets/images/mudras/Shukathundam.png" alt="Shukathundam Mudra - Parrot's Beak" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">06 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 06</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra6Title">SHUKATHUNDAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra6TitleMl">ശുകതുണ്ഡം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra6Meaning">Parrot’s Beak</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra6Desc">
-                      Formed by bending the index finger like a hooked beak with the thumb pressed to its base while other fingers curl gracefully. Represents arrows, birds, sharp shooting weapons, mysteries, and stealth.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Piercing Arrow</span>
-                      <span class="mudra-tag">Parrot</span>
-                      <span class="mudra-tag">Divine Bird</span>
-                      <span class="mudra-tag">Mystery</span>
-                      <span class="mudra-tag">Weapon</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 7: Kapithakam -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="7 of 9: Kapithakam" data-index="6">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Kapithakam.webp" type="image/webp">
-                        <img src="assets/images/mudras/Kapithakam.png" alt="Kapithakam Mudra - Wood Apple" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">07 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 07</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra7Title">KAPITHAKAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra7TitleMl">കപിത്ഥകം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra7Meaning">Wood Apple / Sacred Ring</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra7Desc">
-                      Formed with the index and ring fingers curved and pressed with the thumb. Used to delineate nets, sacred feathers, lingering doubts, offerings to deities, and graceful birds.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Hunter Net</span>
-                      <span class="mudra-tag">Peacock Feather</span>
-                      <span class="mudra-tag">Sacred Offering</span>
-                      <span class="mudra-tag">Doubt</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 8: Hamsapaksham -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="8 of 9: Hamsapaksham" data-index="7">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Hamsapaksham.webp" type="image/webp">
-                        <img src="assets/images/mudras/Hamsapaksham.png" alt="Hamsapaksham Mudra - Swan's Wing" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">08 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 08</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra8Title">HAMSAPAKSHAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra8TitleMl">ഹംസപക്ഷം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra8Meaning">Swan’s Wing</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra8Desc">
-                      Formed by stretching all fingers straight in a slight upward curve, thumb folded parallel. Represents the swan, celestial beings, gentle night breeze, the full moon, and dialogue addressing ‘You’ or ‘I’.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Swan</span>
-                      <span class="mudra-tag">Full Moon</span>
-                      <span class="mudra-tag">Night Breeze</span>
-                      <span class="mudra-tag">Deities</span>
-                      <span class="mudra-tag">Dialogue</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 9: Sikharam -->
-              <article class="mudra-slide" role="group" aria-roledescription="slide" aria-label="9 of 9: Sikharam" data-index="8">
-                <div class="mudra-slide-inner">
-                  <div class="mudra-visual-col">
-                    <div class="about-visual-frame mudra-frame">
-                      <picture>
-                        <source srcset="assets/images/mudras/Sikharam.webp" type="image/webp">
-                        <img src="assets/images/mudras/Sikharam.png" alt="Sikharam Mudra - The Peak" loading="lazy" width="2752" height="1536">
-                      </picture>
-                      <div class="mudra-badge">09 / 09 • ASAMYUTHA HASTHA</div>
-                    </div>
-                  </div>
-                  <div class="mudra-content-col">
-                    <div class="mudra-index-label">ROOT MUDRA 09</div>
-                    <h3 class="mudra-title">
-                      <span data-i18n-key="mudra9Title">SIKHARAM</span>
-                      <span class="mudra-title-sub" data-i18n-key="mudra9TitleMl">ശിഖരം</span>
-                    </h3>
-                    <div class="mudra-meaning-block">
-                      <span class="mudra-meaning-kicker" data-i18n-key="mudraMeaningLabel">SIGNIFICATION</span>
-                      <span class="mudra-meaning-text" data-i18n-key="mudra9Meaning">The Peak / Pinnacle</span>
-                    </div>
-                    <p class="mudra-desc" data-i18n-key="mudra9Desc">
-                      Formed by holding the fingers closed in a fist while the thumb stands straight up like a pinnacle. Signifies mountain summits, wandering, thirst, the sounding horn, armor, and divine protection.
-                    </p>
-                    <div class="mudra-tags">
-                      <span class="mudra-tag">Mountain Peak</span>
-                      <span class="mudra-tag">Wandering</span>
-                      <span class="mudra-tag">Thirst</span>
-                      <span class="mudra-tag">Sacred Horn</span>
-                      <span class="mudra-tag">Divine Refuge</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
+        <div class="culture-grid">
+          <!-- Pillar 1: Aharya Abhinaya -->
+          <article class="culture-card">
+            <div class="culture-card-media">
+              <img src="assets/images/imgs/kathakali4.webp" alt="Traditional Paccha vesham character illustrating Aharya Abhinaya" loading="lazy" width="2400" height="1792">
             </div>
-          </div>
+            <div class="culture-card-body">
+              <span class="culture-card-num">01 / VISUAL TRANSFORMATION</span>
+              <h3 class="culture-card-title" data-i18n-key="cultureCard1Title">Aharya Abhinaya</h3>
+              <p class="culture-card-subtitle" data-i18n-key="cultureCard1Subtitle">The Sacred Metamorphosis</p>
+              <p class="culture-card-desc" data-i18n-key="cultureCard1Desc">
+                Intricate Chutti rice-paste ridges, mineral pigments, and towering crowns transform the human artist into epic deities and mythological archetypes.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pillar 2: Kalari Rigor -->
+          <article class="culture-card">
+            <div class="culture-card-media">
+              <img src="assets/images/imgs/kathakali2.webp" alt="Intricate expressions and Kalari discipline in Kathakali" loading="lazy" width="1505" height="2000" style="object-position: center 25%;">
+            </div>
+            <div class="culture-card-body">
+              <span class="culture-card-num">02 / PHYSICAL DISCIPLINE</span>
+              <h3 class="culture-card-title" data-i18n-key="cultureCard2Title">Kalari Rigor</h3>
+              <p class="culture-card-subtitle" data-i18n-key="cultureCard2Subtitle">The Discipline of Masters</p>
+              <p class="culture-card-desc" data-i18n-key="cultureCard2Desc">
+                Decades of rigorous guru-sishya pedagogy, intense eye exercises, body conditioning, and rhythmic footwork that demand supreme devotion.
+              </p>
+            </div>
+          </article>
+
+          <!-- Pillar 3: Sopana Sangeetham -->
+          <article class="culture-card">
+            <div class="culture-card-media">
+              <picture>
+                <source srcset="assets/images/imgs/kathakali1.webp" type="image/webp">
+                <img src="assets/images/imgs/kathakali1.webp" alt="Kathakali vocal and dramatic performance embodying Sopana Sangeetham" loading="lazy" width="2016" height="2110" style="object-position: center 28%;">
+              </picture>
+            </div>
+            <div class="culture-card-body">
+              <span class="culture-card-num">03 / SACRED MELODY</span>
+              <h3 class="culture-card-title" data-i18n-key="cultureCard3Title">Sopana Sangeetham</h3>
+              <p class="culture-card-subtitle" data-i18n-key="cultureCard3Subtitle">The Voice of the Temple Steps</p>
+              <p class="culture-card-desc" data-i18n-key="cultureCard3Desc">
+                The devotional singing style of Kerala temples that guides the drama, establishing profound emotional ethos through the lead Ponani and Singidi vocalists.
+              </p>
+            </div>
+          </article>
         </div>
 
-        <!-- Mudra Thumbnails / Tab Ribbon -->
-        <nav class="mudra-ribbon" id="mudraRibbon" aria-label="Jump directly to a Kathakali Mudra">
-          <button type="button" class="mudra-tab-btn active" data-slide-index="0" aria-label="Go to Mudra 1: Pathaka" aria-selected="true">
-            <span class="tab-num">01</span>
-            <span class="tab-name">Pathaka</span>
-            <span class="tab-name-ml">പതാക</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="1" aria-label="Go to Mudra 2: Mudraakhyam" aria-selected="false">
-            <span class="tab-num">02</span>
-            <span class="tab-name">Mudraakhyam</span>
-            <span class="tab-name-ml">മുദ്രാഖ്യം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="2" aria-label="Go to Mudra 3: Katakam" aria-selected="false">
-            <span class="tab-num">03</span>
-            <span class="tab-name">Katakam</span>
-            <span class="tab-name-ml">കടകം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="3" aria-label="Go to Mudra 4: Mushti" aria-selected="false">
-            <span class="tab-num">04</span>
-            <span class="tab-name">Mushti</span>
-            <span class="tab-name-ml">മുഷ്ടി</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="4" aria-label="Go to Mudra 5: Kartharimukham" aria-selected="false">
-            <span class="tab-num">05</span>
-            <span class="tab-name">Kartharimukham</span>
-            <span class="tab-name-ml">കർത്തരീമുഖം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="5" aria-label="Go to Mudra 6: Shukathundam" aria-selected="false">
-            <span class="tab-num">06</span>
-            <span class="tab-name">Shukathundam</span>
-            <span class="tab-name-ml">ശുകതുണ്ഡം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="6" aria-label="Go to Mudra 7: Kapithakam" aria-selected="false">
-            <span class="tab-num">07</span>
-            <span class="tab-name">Kapithakam</span>
-            <span class="tab-name-ml">കപിത്ഥകം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="7" aria-label="Go to Mudra 8: Hamsapaksham" aria-selected="false">
-            <span class="tab-num">08</span>
-            <span class="tab-name">Hamsapaksham</span>
-            <span class="tab-name-ml">ഹംസപക്ഷം</span>
-          </button>
-          <button type="button" class="mudra-tab-btn" data-slide-index="8" aria-label="Go to Mudra 9: Sikharam" aria-selected="false">
-            <span class="tab-num">09</span>
-            <span class="tab-name">Sikharam</span>
-            <span class="tab-name-ml">ശിഖരം</span>
-          </button>
-        </nav>
-
-        <!-- Connected Educational Content: Cultural Pillars of Kathakali -->
-        <div class="kathakali-pillars-wrap" style="margin-top: clamp(4rem, 8vw, 6.5rem); border-top: 1px solid var(--border-gold-subtle); padding-top: clamp(3rem, 6vw, 5rem);">
-          <header class="section-header-minimal">
-            <span class="section-overline" data-i18n-key="cultureOverline">CULTURAL PILLARS OF KATHAKALI</span>
-            <h3 id="cultureSectionHeading" class="section-title reveal-mask">
-              <span class="reveal-inner" data-i18n-key="cultureTitle">The Sacred Dimensions of the Art</span>
-            </h3>
-            <p class="about-lead" style="max-width: 820px;" data-i18n-key="cultureLead">
-              Beyond the eloquence of mudras, Kathakali unfolds through an inseparable synthesis of visual transformation, physical discipline, and sacred melody.
-            </p>
-          </header>
-
-          <div class="culture-grid">
-            <!-- Pillar 1: Aharya Abhinaya -->
-            <article class="culture-card">
-              <div class="culture-card-media">
-                <img src="assets/images/imgs/kathakali4.webp" alt="Traditional Paccha vesham character illustrating Aharya Abhinaya" loading="lazy" width="2400" height="1792">
-              </div>
-              <div class="culture-card-body">
-                <span class="culture-card-num">01 / VISUAL TRANSFORMATION</span>
-                <h4 class="culture-card-title" data-i18n-key="cultureCard1Title">Aharya Abhinaya</h4>
-                <p class="culture-card-subtitle" data-i18n-key="cultureCard1Subtitle">The Sacred Metamorphosis</p>
-                <p class="culture-card-desc" data-i18n-key="cultureCard1Desc">
-                  Intricate Chutti rice-paste ridges, mineral pigments, and towering crowns transform the human artist into epic deities and mythological archetypes.
-                </p>
-              </div>
-            </article>
-
-            <!-- Pillar 2: Kalari Rigor -->
-            <article class="culture-card">
-              <div class="culture-card-media">
-                <img src="assets/images/imgs/kathakali2.webp" alt="Intricate expressions and Kalari discipline in Kathakali" loading="lazy" width="1505" height="2000" style="object-position: center 25%;">
-              </div>
-              <div class="culture-card-body">
-                <span class="culture-card-num">02 / PHYSICAL DISCIPLINE</span>
-                <h4 class="culture-card-title" data-i18n-key="cultureCard2Title">Kalari Rigor</h4>
-                <p class="culture-card-subtitle" data-i18n-key="cultureCard2Subtitle">The Discipline of Masters</p>
-                <p class="culture-card-desc" data-i18n-key="cultureCard2Desc">
-                  Decades of rigorous guru-sishya pedagogy, intense eye exercises, body conditioning, and rhythmic footwork that demand supreme devotion.
-                </p>
-              </div>
-            </article>
-
-            <!-- Pillar 3: Sopana Sangeetham -->
-            <article class="culture-card">
-              <div class="culture-card-media">
-                <picture>
-                  <source srcset="assets/images/imgs/kathakali1.webp" type="image/webp">
-                  <img src="assets/images/imgs/kathakali1.png" alt="Kathakali vocal and dramatic performance embodying Sopana Sangeetham" loading="lazy" width="2016" height="2110" style="object-position: center 28%;">
-                </picture>
-              </div>
-              <div class="culture-card-body">
-                <span class="culture-card-num">03 / SACRED MELODY</span>
-                <h4 class="culture-card-title" data-i18n-key="cultureCard3Title">Sopana Sangeetham</h4>
-                <p class="culture-card-subtitle" data-i18n-key="cultureCard3Subtitle">The Voice of the Temple Steps</p>
-                <p class="culture-card-desc" data-i18n-key="cultureCard3Desc">
-                  The devotional singing style of Kerala temples that guides the drama, establishing profound emotional ethos through the lead Ponani and Singidi vocalists.
-                </p>
-              </div>
-            </article>
+        <!-- Explore Kathakali Gateway Banner -->
+        <div class="explore-gateway-banner" style="margin-top: 3.5rem; background: linear-gradient(135deg, rgba(20, 24, 22, 0.95), rgba(10, 14, 12, 0.98)); border: 1px solid var(--arch-gold-border, rgba(197, 160, 89, 0.3)); border-radius: 8px; padding: clamp(2rem, 4vw, 3rem); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;">
+          <div style="max-width: 600px;">
+            <span style="display: block; font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold, #c5a059); margin-bottom: 0.5rem;">EDUCATIONAL &amp; CULTURAL ARCHIVE</span>
+            <h3 style="font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 1.85rem); color: var(--color-ivory, #f5ede1); margin: 0 0 0.5rem 0; font-weight: 500;">Explore the Living Art of Kathakali</h3>
+            <p style="font-family: var(--font-sans); font-size: 0.88rem; color: var(--color-ivory-dim, rgba(245, 237, 225, 0.7)); margin: 0; line-height: 1.55;">Immerse yourself in our comprehensive educational archives covering authentic Mudras, iconic Characters, and traditional acoustic Instruments.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a href="mudras.html" class="hero-btn hero-btn-secondary" style="padding: 10px 18px; font-size: 0.82rem;">Kathakali Mudras →</a>
+            <a href="characters.html" class="hero-btn hero-btn-secondary" style="padding: 10px 18px; font-size: 0.82rem;"><span data-i18n="home.charactersCta">Characters →</span></a>
+            <a href="instruments.html" class="hero-btn hero-btn-secondary" style="padding: 10px 18px; font-size: 0.82rem;"><span data-i18n="home.instrumentsCta">Instruments →</span></a>
           </div>
         </div>
 
       </div>
     </section>
-
-
 
     <!-- ========================================================================
          SECTION 4 — AYROOR KATHAKALI MELA
@@ -898,39 +528,39 @@
         <!-- 7-Day Navigation Tabs / Pills -->
         <nav class="program-days-pills" id="programDaysPills" aria-label="Select Festival Day">
           <button type="button" class="day-pill-btn active" data-day-index="0" aria-label="Jump to Day 1: Kalyanasougandhikam" aria-selected="true">
-            <span class="pill-day">DAY 01</span>
-            <span class="pill-date">18 JAN</span>
-            <span class="pill-play">കല്യാണസൗഗന്ധികം</span>
+            <span class="pill-day"><span data-i18n="home.day01">DAY 01</span></span>
+            <span class="pill-date"><span data-i18n="home.jan">18 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.kalyanasougandhikam">Kalyanasougandhikam</span></span>
           </button>
           <button type="button" class="day-pill-btn" data-day-index="1" aria-label="Jump to Day 2: Nalacharitham" aria-selected="false">
-            <span class="pill-day">DAY 02</span>
-            <span class="pill-date">19 JAN</span>
-            <span class="pill-play">നളചരിതം</span>
+            <span class="pill-day"><span data-i18n="home.day02">DAY 02</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_2">19 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.nalacharitham">Nalacharitham</span></span>
           </button>
           <button type="button" class="day-pill-btn" data-day-index="2" aria-label="Jump to Day 3: Duryodhana Vadham" aria-selected="false">
-            <span class="pill-day">DAY 03</span>
-            <span class="pill-date">20 JAN</span>
-            <span class="pill-play">ദുര്യോധനവധം</span>
+            <span class="pill-day"><span data-i18n="home.day03">DAY 03</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_3">20 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.duryodhanaVadham">Duryodhana Vadham</span></span>
           </button>
           <button type="button" class="day-pill-btn" data-day-index="3" aria-label="Jump to Day 4: Karnashapatham" aria-selected="false">
-            <span class="pill-day">DAY 04</span>
-            <span class="pill-date">21 JAN</span>
-            <span class="pill-play">കർണ്ണശപഥം</span>
+            <span class="pill-day"><span data-i18n="home.day04">DAY 04</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_4">21 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.karnashapatham">Karnashapatham</span></span>
           </button>
           <button type="button" class="day-pill-btn" data-day-index="4" aria-label="Jump to Day 5: Kiratham" aria-selected="false">
-            <span class="pill-day">DAY 05</span>
-            <span class="pill-date">22 JAN</span>
-            <span class="pill-play">കിരാതം</span>
+            <span class="pill-day"><span data-i18n="home.day05">DAY 05</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_5">22 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.kiratham">Kiratham</span></span>
           </button>
           <button type="button" class="day-pill-btn" data-day-index="5" aria-label="Jump to Day 6: Dakshayagam" aria-selected="false">
-            <span class="pill-day">DAY 06</span>
-            <span class="pill-date">23 JAN</span>
-            <span class="pill-play">ദക്ഷയാഗം</span>
+            <span class="pill-day"><span data-i18n="home.day06">DAY 06</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_6">23 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.dakshayagam">Dakshayagam</span></span>
           </button>
-          <button type="button" class="day-pill-btn" data-day-index="6" aria-label="Jump to Day 7: Lavanasuravadham" aria-selected="false">
-            <span class="pill-day">DAY 07</span>
-            <span class="pill-date">24 JAN</span>
-            <span class="pill-play">സമാപനം & ധനാശി</span>
+          <button type="button" class="day-pill-btn" data-day-index="6" aria-label="Jump to Day 7: Samapanam & Dhanashi" aria-selected="false">
+            <span class="pill-day"><span data-i18n="home.day07">DAY 07</span></span>
+            <span class="pill-date"><span data-i18n="home.jan_7">24 JAN</span></span>
+            <span class="pill-play"><span data-i18n="home.samapanamDhanashi">Samapanam & Dhanashi</span></span>
           </button>
         </nav>
 
@@ -944,7 +574,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Kalyanasougandhikam.webp" type="image/webp">
-                    <img src="assets/images/programs/Kalyanasougandhikam.jpeg" alt="Day 1 - Kalyanasougandhikam Paccha and Vellathadi Vesham" loading="lazy" width="1200" height="675">
+                    <img src="assets/images/programs/Kalyanasougandhikam.webp" alt="Day 1 - Kalyanasougandhikam Paccha and Vellathadi Vesham" loading="lazy" width="1200" height="675">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -952,7 +582,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog1Date">18 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:00 PM – 4:00 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight1">6:00 PM – 4:00 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -961,7 +591,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog1Title">KALYANASOUGANDHIKAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog1TitleMl">കല്യാണസൗഗന്ധികം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1002,7 +631,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog2Date">19 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:30 PM – 5:00 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight2">6:30 PM – 5:00 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1011,7 +640,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog2Title">NALACHARITHAM (DAY 1)</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog2TitleMl">നളചരിതം (ഒന്നാം ദിവസം)</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1045,7 +673,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Duryodhana-Vadham.webp" type="image/webp">
-                    <img src="assets/images/programs/Duryodhana-Vadham.jpeg" alt="Day 3 - Duryodhana Vadham Battle on Pamba Sands" loading="lazy" width="1200" height="675">
+                    <img src="assets/images/programs/Duryodhana-Vadham.webp" alt="Day 3 - Duryodhana Vadham Battle on Pamba Sands" loading="lazy" width="1200" height="675">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -1053,7 +681,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog3Date">20 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:30 PM – 5:30 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight3">6:30 PM – 5:30 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1062,7 +690,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog3Title">DURYODHANA VADHAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog3TitleMl">ദുര്യോധനവധം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1096,7 +723,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Karnashapatham.webp" type="image/webp">
-                    <img src="assets/images/programs/Karnashapatham.jpeg" alt="Day 4 - Karnashapatham Facial Sacrament" loading="lazy" width="447" height="447">
+                    <img src="assets/images/programs/Karnashapatham.webp" alt="Day 4 - Karnashapatham Facial Sacrament" loading="lazy" width="447" height="447">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -1104,7 +731,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog4Date">21 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:30 PM – 4:30 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight4">6:30 PM – 4:30 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1113,7 +740,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog4Title">KARNASHAPATHAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog4TitleMl">കർണ്ണശപഥം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1147,7 +773,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Kiratham.webp" type="image/webp">
-                    <img src="assets/images/programs/Kiratham.jpeg" alt="Day 5 - Kiratham Divine Duel in the Wilderness" loading="lazy" width="529" height="378">
+                    <img src="assets/images/programs/Kiratham.webp" alt="Day 5 - Kiratham Divine Duel in the Wilderness" loading="lazy" width="529" height="378">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -1155,7 +781,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog5Date">22 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:30 PM – 5:00 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight2">6:30 PM – 5:00 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1164,7 +790,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog5Title">KIRATHAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog5TitleMl">കിരാതം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1198,7 +823,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Dakshayagam.webp" type="image/webp">
-                    <img src="assets/images/programs/Dakshayagam.jpeg" alt="Day 6 - Dakshayagam Veerabhadra Wrath" loading="lazy" width="1200" height="800">
+                    <img src="assets/images/programs/Dakshayagam.webp" alt="Day 6 - Dakshayagam Veerabhadra Wrath" loading="lazy" width="1200" height="800">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -1206,7 +831,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog6Date">23 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">6:30 PM – 5:30 AM • ALL-NIGHT</div>
+                  <div class="card-time-pill" data-i18n="home.timeAllNight3">6:30 PM – 5:30 AM • ALL-NIGHT</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1215,7 +840,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog6Title">DAKSHAYAGAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog6TitleMl">ദക്ഷയാഗം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1249,7 +873,7 @@
                 <div class="stacked-card-image-wrap">
                   <picture>
                     <source srcset="assets/images/programs/Lavanasuravadham.webp" type="image/webp">
-                    <img src="assets/images/programs/Lavanasuravadham.jpg" alt="Day 7 - Grand Finale and Consecration at Sunrise" loading="lazy" width="1200" height="675">
+                    <img src="assets/images/programs/Lavanasuravadham.webp" alt="Day 7 - Grand Finale and Consecration at Sunrise" loading="lazy" width="1200" height="675">
                   </picture>
                   <div class="card-gradient-overlay"></div>
                   <div class="card-day-pill">
@@ -1257,7 +881,7 @@
                     <span class="pill-dot">•</span>
                     <span class="pill-dt" data-i18n-key="prog7Date">24 JAN 2027</span>
                   </div>
-                  <div class="card-time-pill">GRAND FINALE • 6:00 PM – SUNRISE</div>
+                  <div class="card-time-pill" data-i18n="home.timeFinale">GRAND FINALE • 6:00 PM – SUNRISE</div>
                 </div>
                 <div class="stacked-card-body">
                   <div class="card-header-meta">
@@ -1266,7 +890,6 @@
                   </div>
                   <div class="card-title-group">
                     <h3 class="card-play-title" data-i18n-key="prog7Title">LAVANASURAVADHAM & SANTHANAGOPALAM</h3>
-                    <span class="card-play-title-ml" data-i18n-key="prog7TitleMl">ലവണാസുരവധം & സന്താനഗോപാലം</span>
                   </div>
                   <div class="card-theme-line">
                     <span class="theme-kicker" data-i18n-key="programThemeLabel">THEME & EPISODE</span>
@@ -1472,252 +1095,7 @@
     </section>
 
     <!-- ========================================================================
-         SECTION 7 — THE SOUND OF KATHAKALI (TRADITIONAL INSTRUMENTS)
-         ======================================================================== -->
-    <section id="instrumentsSection" class="content-section section-dark instruments-section" aria-labelledby="instrumentsSectionHeading" data-active-instrument="0">
-      
-      <!-- Dynamic Ambient Atmosphere Backdrop (changes tone per instrument) -->
-      <div class="instruments-ambient-backdrop" id="instrumentsAmbientBackdrop" aria-hidden="true"></div>
-
-      <div class="section-container instruments-container">
-        
-        <!-- Section Header with Meta Controls -->
-        <header class="section-header-minimal instruments-header">
-          <div class="instruments-header-left">
-            <span class="section-overline" data-i18n-key="instrumentsOverline">TRADITIONAL ACOUSTIC ENSEMBLE</span>
-            <h2 id="instrumentsSectionHeading" class="section-title reveal-mask">
-              <span class="reveal-inner" data-i18n-key="instrumentsTitle">The Sacred Instruments of Kathakali</span>
-            </h2>
-            <p class="section-lead-minimal reveal-fade" data-i18n-key="instrumentsLead">
-              The drama, cadence, and spiritual fervor of Kathakali are ignited by Kerala’s classical percussion ensemble. Explore the legendary instruments that breathe life into every performance.
-            </p>
-          </div>
-
-          <!-- Top Meta Controls: Counter, Navigation Arrows, Autoplay Toggle -->
-          <div class="instruments-top-controls">
-            <div class="instruments-counter" aria-label="Slide Counter">
-              <span class="instruments-current-idx" id="instrumentsCurrentIdx">01</span>
-              <span class="instruments-counter-sep">/</span>
-              <span class="instruments-total-idx">04</span>
-            </div>
-            <div class="instruments-nav-group">
-              <button type="button" class="instruments-nav-btn instruments-prev-btn" id="instrumentsPrevBtn" aria-label="Previous Instrument" data-i18n-aria="instrumentsPrevAria">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-              <button type="button" class="instruments-nav-btn instruments-next-btn" id="instrumentsNextBtn" aria-label="Next Instrument" data-i18n-aria="instrumentsNextAria">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-            </div>
-            <button type="button" class="instruments-autoplay-btn" id="instrumentsAutoplayBtn" aria-label="Pause Carousel" data-i18n-aria="instrumentsPauseAutoplay">
-              <span class="autoplay-dot"></span>
-              <span class="autoplay-label" id="instrumentsAutoplayLabel">AUTO</span>
-            </button>
-          </div>
-        </header>
-
-        <!-- Main Morphing Slider Viewport (Active wide card + Narrow inactive cards) -->
-        <div class="instruments-slider-viewport" id="instrumentsSliderViewport">
-          <div class="instruments-slider-track" id="instrumentsSliderTrack" role="region" aria-roledescription="carousel" aria-label="Sacred Instruments Showcase">
-
-            <!-- Card 0: Chenda -->
-            <article class="instrument-slide-card is-active" data-index="0" data-instrument-id="chenda" role="group" aria-roledescription="slide" aria-label="Chenda" tabindex="0">
-              <div class="slide-media-wrap">
-                <img src="assets/images/instruments/chenda.webp" alt="Traditional Kathakali Chenda percussion drum" class="slide-img" loading="lazy" width="1600" height="1073">
-                <div class="slide-vignette" aria-hidden="true"></div>
-              </div>
-              <div class="slide-badge-wrap">
-                <span class="slide-badge badge-asura" data-role="badge">ASURA VADHYAM</span>
-              </div>
-              <div class="slide-content">
-                <div class="slide-titles">
-                  <h3 class="slide-name">
-                    <span class="slide-name-en">Chenda</span>
-                    <span class="slide-name-ml">ചെണ്ട</span>
-                  </h3>
-                  <p class="slide-tagline" data-role="tagline">The Roar of Classical Drama</p>
-                  <p class="slide-desc-preview" data-role="desc">Dominating heroic (Veera) and ferocious (Raudra) duel sequences, commanding the entire amphitheater with high-amplitude reverberations.</p>
-                </div>
-                <div class="slide-action">
-                  <button type="button" class="slide-read-more-btn" data-action="open-detail" data-target="0" aria-label="Read more about Chenda">
-                    <span class="btn-circle-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </span>
-                    <span class="btn-label" data-i18n-key="instrumentsReadMore">Read more</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 1: Maddalam -->
-            <article class="instrument-slide-card" data-index="1" data-instrument-id="maddalam" role="group" aria-roledescription="slide" aria-label="Maddalam" tabindex="0">
-              <div class="slide-media-wrap">
-                <img src="assets/images/instruments/maddalam.webp" alt="Kathakali Maddalam barrel percussion drum" class="slide-img" loading="lazy" width="1600" height="1073">
-                <div class="slide-vignette" aria-hidden="true"></div>
-              </div>
-              <div class="slide-badge-wrap">
-                <span class="slide-badge badge-deva" data-role="badge">DEVA VADHYAM</span>
-              </div>
-              <div class="slide-content">
-                <div class="slide-titles">
-                  <h3 class="slide-name">
-                    <span class="slide-name-en">Maddalam</span>
-                    <span class="slide-name-ml">മദ്ദളം</span>
-                  </h3>
-                  <p class="slide-tagline" data-role="tagline">The Divine Base Resonance</p>
-                  <p class="slide-desc-preview" data-role="desc">Tied around the waist and struck with both hands using rice-paste finger caps, providing the deep tonal foundation that grounds every abhinaya.</p>
-                </div>
-                <div class="slide-action">
-                  <button type="button" class="slide-read-more-btn" data-action="open-detail" data-target="1" aria-label="Read more about Maddalam">
-                    <span class="btn-circle-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </span>
-                    <span class="btn-label" data-i18n-key="instrumentsReadMore">Read more</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 2: Chengila & Ilathalam -->
-            <article class="instrument-slide-card" data-index="2" data-instrument-id="chengila-ilathalam" role="group" aria-roledescription="slide" aria-label="Chengila & Ilathalam" tabindex="0">
-              <div class="slide-media-wrap">
-                <img src="assets/images/instruments/chengila-and-ilathalam.webp" alt="Chengila gong and Ilathalam bronze cymbals" class="slide-img" loading="lazy" width="1600" height="1073">
-                <div class="slide-vignette" aria-hidden="true"></div>
-              </div>
-              <div class="slide-badge-wrap">
-                <span class="slide-badge badge-ghana" data-role="badge">GHANA VADHYAM</span>
-              </div>
-              <div class="slide-content">
-                <div class="slide-titles">
-                  <h3 class="slide-name">
-                    <span class="slide-name-en">Chengila &amp; Ilathalam</span>
-                    <span class="slide-name-ml">ചെങ്ങില • ഇലത്താളം</span>
-                  </h3>
-                  <p class="slide-tagline" data-role="tagline">The Golden Keepers of Metric Tala</p>
-                  <p class="slide-desc-preview" data-role="desc">The acoustic compass of Kathakali Sangeetham. Ponani singer strikes the bronze gong while Singidi clashes cymbals to govern tempo.</p>
-                </div>
-                <div class="slide-action">
-                  <button type="button" class="slide-read-more-btn" data-action="open-detail" data-target="2" aria-label="Read more about Chengila and Ilathalam">
-                    <span class="btn-circle-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </span>
-                    <span class="btn-label" data-i18n-key="instrumentsReadMore">Read more</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Card 3: Idakka -->
-            <article class="instrument-slide-card" data-index="3" data-instrument-id="idakka" role="group" aria-roledescription="slide" aria-label="Idakka" tabindex="0">
-              <div class="slide-media-wrap">
-                <img src="assets/images/instruments/idakka.webp" alt="Kathakali Idakka hourglass drum" class="slide-img" loading="lazy" width="1600" height="1073">
-                <div class="slide-vignette" aria-hidden="true"></div>
-              </div>
-              <div class="slide-badge-wrap">
-                <span class="slide-badge badge-sopana" data-role="badge">SOPANA VADHYAM</span>
-              </div>
-              <div class="slide-content">
-                <div class="slide-titles">
-                  <h3 class="slide-name">
-                    <span class="slide-name-en">Idakka</span>
-                    <span class="slide-name-ml">ഇടയ്ക്ക</span>
-                  </h3>
-                  <p class="slide-tagline" data-role="tagline">The Sacred Melodic Hourglass</p>
-                  <p class="slide-desc-preview" data-role="desc">The sanctified drum of Sopanam tradition, accompanying female character roles (Sthreevesham) with delicate melodic notes across two octaves.</p>
-                </div>
-                <div class="slide-action">
-                  <button type="button" class="slide-read-more-btn" data-action="open-detail" data-target="3" aria-label="Read more about Idakka">
-                    <span class="btn-circle-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </span>
-                    <span class="btn-label" data-i18n-key="instrumentsReadMore">Read more</span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-          </div>
-
-          <!-- Dribbble-Style Floating Action Rings (Interactive Prev & Next triggers) -->
-          <button type="button" class="instruments-floating-ring ring-prev is-hidden" id="instrumentsRingPrev" aria-label="Previous Instrument" title="Previous Instrument">
-            <span class="ring-circle" aria-hidden="true"></span>
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-          </button>
-
-          <button type="button" class="instruments-floating-ring ring-next" id="instrumentsRingNext" aria-label="Next Instrument" title="Next Instrument">
-            <span class="ring-circle" aria-hidden="true"></span>
-            <svg class="ring-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Bottom Pagination Bar & Drag Hint -->
-        <div class="instruments-bottom-bar">
-          <div class="instruments-dots-wrap" id="instrumentsDotsWrap" role="tablist" aria-label="Carousel pagination">
-            <button type="button" class="instruments-dot is-active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1: Chenda">
-              <span class="dot-inner"></span>
-              <span class="dot-progress"></span>
-            </button>
-            <button type="button" class="instruments-dot" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2: Maddalam">
-              <span class="dot-inner"></span>
-              <span class="dot-progress"></span>
-            </button>
-            <button type="button" class="instruments-dot" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3: Chengila & Ilathalam">
-              <span class="dot-inner"></span>
-              <span class="dot-progress"></span>
-            </button>
-            <button type="button" class="instruments-dot" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4: Idakka">
-              <span class="dot-inner"></span>
-              <span class="dot-progress"></span>
-            </button>
-          </div>
-          <div class="instruments-drag-hint">
-            <span data-i18n-key="instrumentsDragHint">⟵ Drag or Click to Navigate ⟶</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Luxury Instrument Heritage Detail Modal / Drawer -->
-      <div class="instruments-modal-backdrop" id="instrumentsModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="instrumentsModalTitle">
-        <div class="instruments-modal-overlay" id="instrumentsModalOverlay"></div>
-        <div class="instruments-modal-card" id="instrumentsModalCard">
-          <button type="button" class="instruments-modal-close" id="instrumentsModalClose" aria-label="Close details" data-i18n-aria="instrumentsModalCloseAria">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-          <div class="instruments-modal-content" id="instrumentsModalContent">
-            <!-- Dynamically populated from CONFIG.instruments in main.js -->
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========================================================================
-         SECTION 8 — PLAN YOUR VISIT (TRAVEL, LOCATION & VISITOR INFORMATION)
+         SECTION 7 — PLAN YOUR VISIT (TRAVEL, LOCATION & VISITOR INFORMATION)
          ======================================================================== -->
     <section id="visitSection" class="content-section section-dark" aria-labelledby="visitSectionHeading">
       <div class="section-container">
@@ -1801,45 +1179,114 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-brand-header">
-            <img src="assets/images/ayroor-official-logo.png" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
+            <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
             <div class="brand-text-wrap">
               <div class="footer-brand-title">AYROOR</div>
               <div class="footer-brand-sub">KATHAKALI GRAMAM</div>
             </div>
           </div>
-          <p class="footer-brand-desc">
-            The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba.
-          </p>
+          <p class="footer-brand-desc" data-i18n="common.footerBrandDesc">The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba.</p>
+
+          <!-- Modern Social Media Connect Hub -->
+          <div class="footer-social-wrap">
+            <div class="footer-social-heading">
+              <span data-i18n="common.connectFollow">Connect & Follow</span>
+            </div>
+            <div class="footer-social-icons">
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official YouTube Channel" title="YouTube Live & Webcast">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Instagram" title="Instagram Visuals & Reels">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Facebook Page" title="Facebook Community & News">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <!-- X (Twitter) -->
+              <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official X Profile" title="X (Twitter) Announcements">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me/919446538553" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Enquiries" title="WhatsApp Secretary & General Convener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </a>
+              <!-- Location / Google Maps -->
+              <a href="https://maps.google.com/?q=Ayroor+Kathakali+Gramam+Cherukolpuzha+Kerala" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Locate on Google Maps" title="Pamba Sandbanks Amphitheater">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
 
         <nav class="footer-nav" aria-label="Footer Navigation">
-          <div class="footer-nav-title">Navigation</div>
+          <div class="footer-nav-title" data-i18n="common.navigation">Navigation</div>
           <ul class="footer-nav-links">
-            <li><a href="index.html" class="footer-nav-link" data-nav-id="home">Home</a></li>
-            <li><a href="about.html" class="footer-nav-link" data-nav-id="about">About Us</a></li>
-            <li><a href="mela.html" class="footer-nav-link" data-nav-id="mela">Kathakali Mela</a></li>
-            <li><a href="institutions.html" class="footer-nav-link" data-nav-id="institutions">Institutions</a></li>
-            <li><a href="kathakali.html" class="footer-nav-link" data-nav-id="kathakali">Kathakali</a></li>
-            <li><a href="gallery.html" class="footer-nav-link" data-nav-id="gallery">Gallery</a></li>
-            <li><a href="contact.html" class="footer-nav-link" data-nav-id="contact">Contact</a></li>
+            <li><a href="about.html" class="footer-nav-link" data-nav-id="about" data-i18n="nav.aboutUs">About Us</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-nav-id="mela" data-i18n="nav.kathakaliMela">Kathakali Mela</a></li>
+            <li><a href="awards.html" class="footer-nav-link" data-nav-id="awards" data-i18n="nav.awards">Awards</a></li>
+            <li><a href="gallery.html" class="footer-nav-link" data-nav-id="gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="mudras.html" class="footer-nav-link" data-nav-id="kathakali-mudras" data-i18n="nav.mudras">Kathakali Mudras</a></li>
+            <li><a href="characters.html" class="footer-nav-link" data-nav-id="kathakali-characters" data-i18n="nav.characters">Kathakali Characters</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-nav-id="kathakali-instruments" data-i18n="nav.instruments">Kathakali Instruments</a></li>
+            <li><a href="contact.html" class="footer-nav-link" data-nav-id="contact" data-i18n="nav.contact">Contact</a></li>
           </ul>
         </nav>
 
         <div class="footer-nav">
-          <div class="footer-nav-title">Cultural Heritage</div>
+          <div class="footer-nav-title" data-i18n="common.culturalHeritage">Cultural Heritage</div>
           <ul class="footer-nav-links">
-            <li><a href="#aboutSection" class="footer-nav-link">Pamba Sandbanks Amphitheater</a></li>
-            <li><a href="#cultureSectionHeading" class="footer-nav-link">Aharya Abhinaya Tradition</a></li>
-            <li><a href="#melaSection" class="footer-nav-link">Annual Kathakali Mela</a></li>
-            <li><a href="#cultureSectionHeading" class="footer-nav-link">Classical Kalari Pedagogy</a></li>
-            <li><a href="#instrumentsSection" class="footer-nav-link">Traditional Instruments</a></li>
+            <li><a href="#aboutSection" class="footer-nav-link" data-i18n="common.footerPambaAmphitheater">Pamba Sandbanks Amphitheater</a></li>
+            <li><a href="#cultureSectionHeading" class="footer-nav-link" data-i18n="common.footerAharyaTradition">Aharya Abhinaya Tradition</a></li>
+            <li><a href="#melaSection" class="footer-nav-link" data-i18n="common.footerAnnualMela">Annual Kathakali Mela</a></li>
+            <li><a href="#cultureSectionHeading" class="footer-nav-link" data-i18n="common.footerKalariPedagogy">Classical Kalari Pedagogy</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-i18n="common.footerTraditionalInstruments">Traditional Instruments</a></li>
           </ul>
         </div>
       </div>
 
+      <!-- Architectural 8-Group Footer Directory (Populated via NAV_CONFIG in navigation.js) -->
+      <div id="footerArchNav"></div>
+
       <div class="footer-bottom">
         <div class="footer-copyright">
           © 2026 Ayroor Kathakali Gramam. All Rights Reserved.
+        </div>
+        <div class="footer-social-pill-group">
+          <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
         </div>
         <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top of page">
           <span data-i18n-key="backToTopFull">BACK TO TOP</span>
@@ -1869,8 +1316,19 @@
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
+
+  <!-- Localization & Internationalization (en, ml) -->
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/ml.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <!-- Navigation Architecture (Configurable Multipage Hierarchy) -->
+  <script src="navigation/navigation-config.js"></script>
+  <script src="navigation/navigation.js"></script>
 
   <!-- Application Scripts -->
+
   <script src="config.js"></script>
   <script src="main.js"></script>
 </body>

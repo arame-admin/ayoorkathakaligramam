@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="District Kathakali Club Awards Archive (ജില്ലാ കഥകളി ക്ലബ്ബ്) — Comprehensive year-wise chronicle of Natyabharathi Puraskaram and Memorial Citations from 2000 through 2026.">
+  <title>District Kathakali Club Awards Archive (2000 — 2026) • ജില്ലാ കഥകളി ക്ലബ്ബ് അവാർഡുകൾ</title>
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon-16x16.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp">
+  <meta name="theme-color" content="#090908">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Manjari, Noto Sans Malayalam, Noto Serif Malayalam, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & Heritage Design Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'heritage-bg': '#090908',
+            'heritage-bg-alt': '#11100e',
+            'heritage-surface': '#151310',
+            'heritage-surface-hover': '#1c1915',
+            'heritage-card': '#14120f',
+            'heritage-gold': '#c5a059',
+            'heritage-gold-light': '#dec07e',
+            'heritage-gold-dim': '#7d6435',
+            'heritage-maroon': '#752224',
+            'heritage-maroon-dark': '#4d1517',
+            'heritage-green': '#1f3d2b',
+            'heritage-green-accent': '#2e5c41',
+            'heritage-ivory': '#f5ede1',
+            'heritage-ivory-muted': '#b8aea0',
+            'heritage-ivory-dim': '#7a7266',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            malayalam: ['Noto Serif Malayalam', 'Georgia', 'serif'],
+          },
+          screens: {
+            'xs': '320px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            '3xl': '1920px',
+            '4k': '2560px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Local Tailwind Utilities & Reusable Design System Components -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation/navigation.css">
+  <link rel="stylesheet" href="css/explore.css">
+  <link rel="stylesheet" href="css/awards.css">
+
+  <script>
+    (function() {
+      try {
+        var savedLang = localStorage.getItem('ayroor_lang');
+        if (savedLang === 'ml' || savedLang === 'en') {
+          document.documentElement.lang = savedLang;
+          document.documentElement.setAttribute('lang', savedLang);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
+
+  <!-- Film grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor elements -->
+  <div id="customCursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="customCursorFollower" class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="siteHeader" class="site-header" role="banner">
+    <div class="header-container">
+      
+      <!-- Brand Identity (Left) -->
+      <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
+        <div class="brand-text-wrap">
+          <span class="brand-title">AYROOR</span>
+          <span class="brand-sub">KATHAKALI GRAMAM</span>
+        </div>
+      </a>
+
+      <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+      <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+        <!-- Rendered dynamically from NAV_CONFIG -->
+      </nav>
+
+      <!-- Header Actions (Right) -->
+      <div class="header-actions">
+        <!-- Bilingual Language Selector -->
+        <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+          <span class="lang-label-wrap"><span class="lang-active">EN</span> / <span>ML</span></span>
+        </button>
+
+        <!-- Signature Architectural Menu Button -->
+        <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+          <span class="arch-menu-btn-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="arch-menu-btn-text" data-arch-menu-text><span data-i18n="common.menu">MENU</span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Architectural Multi-Panel Navigation Canvas (Overlay) -->
+  <div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+    <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail"></aside>
+    <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture"></main>
+    <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase"></aside>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: DISTRICT KATHAKALI CLUB AWARDS ARCHIVE
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- Section 1: Hero Banner (Temple Sanctum Aesthetic) -->
+    <section class="awards-hero" aria-labelledby="awardsHeroHeading">
+      <div class="awards-hero-glow" aria-hidden="true"></div>
+      <img src="assets/images/ayroor-official-logo.webp" alt="" class="awards-hero-watermark" aria-hidden="true">
+
+      <div class="awards-hero-container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="awards-breadcrumbs" aria-label="Breadcrumb Trail">
+          <a href="index.html"><span data-i18n="common.home">Home</span></a>
+          <span class="crumb-sep">/</span>
+          <span><span data-i18n="nav.recognition">Recognition</span></span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current"><span data-i18n="awards.districtKathakaliClubAwards">District Kathakali Club Awards</span></span>
+        </nav>
+
+        <!-- Kicker Badge with Brass Lamp Symbol -->
+        <div class="awards-kicker-badge">
+          <span class="lamp-icon" aria-hidden="true">🪔</span>
+          <span data-i18n="awards.districtKathakaliClubPathanamthitta">DISTRICT KATHAKALI CLUB • PATHANAMTHITTA</span>
+        </div>
+
+        <!-- Hero Title -->
+        <h1 id="awardsHeroHeading" class="awards-hero-title">
+          <span class="title-primary" data-i18n="awards.yearWiseAwardArchive20002026">Year-wise Award Archive (2000 — 2026)</span>
+        </h1>
+
+        <p class="awards-hero-lead" data-i18n="awards.conferredAnnuallyDuringTheWorldReno">Conferred annually during the world-renowned Kathakali Mela on the sacred sandbanks of River Pamba, the prestigious honors instituted by the District Kathakali Club celebrate peerless lifetime mastery across Vesham, Sangeetham, Maddalam, Chutti, and Classical Literature.</p>
+
+        <!-- KPI Dashboard Summary Strip -->
+        <div class="awards-stats-strip" role="region" aria-label="Awards Archive Statistics">
+          <div class="stat-item">
+            <div class="stat-number" id="kpiTotalLaureates">44</div>
+            <span class="stat-label-en" data-i18n="awards.honoredLaureates">Honored Laureates</span>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">25</div>
+            <span class="stat-label-en" data-i18n="awards.historicYears">Historic Years</span>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <span class="stat-label-en" data-i18n="awards.premierCitations">Premier Citations</span>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">6</div>
+            <span class="stat-label-en" data-i18n="awards.classicalDisciplines">Classical Disciplines</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Sticky Quick-Jump Year Navigation Rail -->
+    <nav class="awards-sticky-nav" aria-label="Year-wise Quick Jump Navigation">
+      <div class="awards-sticky-container">
+
+        <!-- Horizontal Scrollable Year Stream (Desktop/Tablet) -->
+        <div id="yearScrollStream" class="year-scroll-stream" role="toolbar" aria-label="Year Selector Stream" data-lenis-prevent>
+          <!-- Populated dynamically via awards.js -->
+        </div>
+
+        <!-- Quick Dropdown for Mobile Viewports -->
+        <div class="year-dropdown-wrap">
+          <select id="yearSelectDropdown" class="year-select-dropdown" aria-label="Select Year to Jump">
+            <!-- Populated dynamically via awards.js -->
+          </select>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Section 3: Search and Multi-Dimensional Filter Console -->
+    <section class="awards-control-panel" aria-label="Archive Search and Filter Controls">
+      <div class="controls-card">
+        
+        <!-- Top Row: Search Input + Sort Toggle + View Mode Switcher -->
+        <div class="controls-top-row">
+          
+          <!-- Search Input -->
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="search" 
+                   id="awardsSearchInput" 
+                   class="awards-search-input" 
+                   placeholder="Search laureate name (e.g. Kalamandalam Gopi), award, discipline, or year..." 
+                   aria-label="Search awards archive">
+            <button type="button" id="searchClearBtn" class="search-clear-btn" aria-label="Clear search input">✕</button>
+          </div>
+
+          <!-- Tools Group -->
+          <div class="tools-group">
+            
+            <!-- Chronological Sorting Toggle -->
+            <button type="button" id="sortToggleBtn" class="sort-toggle-btn" aria-label="Toggle Chronological Sorting Order">
+              <span aria-hidden="true">⇅</span>
+              <span class="sort-label-en" data-i18n="awards.k2026FromInception">2000 → 2026 (From Inception)</span>
+            </button>
+
+            <!-- View Mode Switcher -->
+            <div class="view-mode-group" role="radiogroup" aria-label="Archive View Layout">
+              <button type="button" class="view-btn is-active" data-view="grid" role="radio" aria-checked="true" title="Year-wise Card Grid View">
+                <span>▦</span>
+                <span data-i18n="awards.yearGrid">Year Grid</span>
+              </button>
+              <button type="button" class="view-btn" data-view="timeline" role="radio" aria-checked="false" title="Chronological Spine Timeline View">
+                <span>⑂</span>
+                <span data-i18n="awards.timeline">Timeline</span>
+              </button>
+              <button type="button" class="view-btn" data-view="table" role="radio" aria-checked="false" title="Compact Archival Ledger View">
+                <span>☰</span>
+                <span data-i18n="awards.ledger">Ledger</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Dynamic Awards Archive (Grid / Timeline / Ledger) -->
+    <div id="awardsArchiveContainer" class="awards-archive-container" role="main" aria-live="polite">
+      <!-- Injected dynamically via awards.js -->
+    </div>
+
+    <!-- Empty Results Fallback -->
+    <div id="awardsNoResults" class="awards-no-results" role="status">
+      <div class="no-results-lamp" aria-hidden="true">🪔</div>
+      <h3 style="font-family: var(--font-temple-heading); color: var(--temple-gold-light); margin-bottom: 8px;">
+        <span data-i18n="awards.noLaureatesFound">No Laureates Found</span>
+      </h3>
+      <p style="color: var(--color-ivory-muted); max-width: 500px; margin: 0 auto 16px;">
+        <span data-i18n="awards.noAwardsMatchYourActiveSearch">No awards match your active search and filter combination. Try clearing your search keyword, changing the selected discipline, or selecting "All Years".</span>
+      </p>
+    </div>
+
+    <!-- Section 5: District Kathakali Club History & Canonical Citations -->
+    <section id="gallery" class="awards-history-section" aria-labelledby="historyHeading">
+      <div class="history-card-box">
+        <header style="max-width: 800px; margin-bottom: 24px;">
+          <span style="font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--temple-gold); font-weight: 700;">
+            <span data-i18n="awards.traditionEndowments">TRADITION & ENDOWMENTS</span>
+          </span>
+          <h2 id="historyHeading" style="font-family: var(--font-temple-heading); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--temple-ivory); margin: 6px 0 10px;">
+            <span data-i18n="awards.theFourPillarsOfRecognition">The Four Pillars of Recognition</span>
+          </h2>
+          <p style="color: var(--color-ivory-muted); font-size: 0.95rem; line-height: 1.65;" data-i18n="awards.institutedUnderTheAuspicesOfThe">Instituted under the auspices of the Pathanamthitta District Kathakali Club, these four canonical citations celebrate the diverse arts that together bring classical Kathakali theatre to life on the river sandbanks.</p>
+        </header>
+
+        <div class="history-grid">
+          
+          <!-- Pillar 1: Natyabharathi Award -->
+          <div class="history-award-pillar">
+            <div class="pillar-icon-seal" aria-hidden="true">👑</div>
+            <div class="pillar-title-en" data-i18n="awards.natyabharathiAward">Natyabharathi Award</div>
+            <p class="pillar-desc" data-i18n="awards.theApexPuraskaramInstitutedIn2000">The apex puraskaram instituted in 2000, presented to living masters for monumental lifetime achievement in Vesham, Sangeetham, Melam, and Chutti. Includes royal silk ponnada, bronze Nataraja statuette, and citation.</p>
+          </div>
+
+          <!-- Pillar 2: Thonnakkal Kochupillai Award -->
+          <div class="history-award-pillar">
+            <div class="pillar-icon-seal" aria-hidden="true">📜</div>
+            <div class="pillar-title-en" data-i18n="awards.thonnakkalKochupillaiAward">Thonnakkal Kochupillai Award</div>
+            <p class="pillar-desc" data-i18n="awards.institutedInReverenceOfTheIllustrio">Instituted in reverence of the illustrious scholar-actor Thonnakkal Kochupillai Panicker. Honors exceptional playwrights, researchers, Sanskrit commentators, and historians who preserve Attakkatha literature.</p>
+          </div>
+
+          <!-- Pillar 3: Thonnakkal Sangeetharatnam Award -->
+          <div class="history-award-pillar">
+            <div class="pillar-icon-seal" aria-hidden="true">🎶</div>
+            <div class="pillar-title-en" data-i18n="awards.thonnakkalSangeetharatnamAward">Thonnakkal Sangeetharatnam Award</div>
+            <p class="pillar-desc" data-i18n="awards.dedicatedToClassicalVocalExcellence">Dedicated to classical vocal excellence and stage acoustics. Bestowed upon brilliant Kathakali and Sopanam vocalists whose raga-bhava interpretations elevate the dramatic pathos of the performance.</p>
+          </div>
+
+          <!-- Pillar 4: O. M. S. Gopalakrishnan Nair Award -->
+          <div class="history-award-pillar">
+            <div class="pillar-icon-seal" aria-hidden="true">🏵️</div>
+            <div class="pillar-title-en" data-i18n="awards.oMSGopalakrishnanNairAward">O. M. S. Gopalakrishnan Nair Award</div>
+            <p class="pillar-desc" data-i18n="awards.commemoratingVisionaryOrganizerAndP">Commemorating visionary organizer and patron O. M. S. Gopalakrishnan Nair. Awarded for exemplary cultural leadership, arts journalism, literary criticism, and community service to the heritage of Kerala.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       CEREMONIAL CITATION MODAL (ROYAL KERALA PONNADA & CERTIFICATE STYLING)
+       ========================================================================== -->
+  <div id="citationModal" class="citation-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="certAwardTitleMl">
+    <div class="citation-modal-box" data-lenis-prevent>
+      <button type="button" class="citation-modal-close-btn" aria-label="Close citation modal">✕</button>
+
+      <!-- Certificate Header -->
+      <div class="cert-header">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem" class="cert-emblem">
+        <div class="cert-club-title-en" data-i18n="awards.districtKathakaliClubPathanamthitta_2">District Kathakali Club • Pathanamthitta</div>
+        <div class="cert-sub-location">
+          <span data-i18n="awards.ayroorKathakaliGramamRiverPambaSand">Ayroor Kathakali Gramam • River Pamba Sandbanks</span>
+        </div>
+      </div>
+
+      <!-- Award Title Header -->
+      <div class="cert-award-kicker">
+        <div class="cert-gold-rule"></div>
+        <span style="font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--temple-gold); font-weight: 700;">
+          <span data-i18n="awards.conferredCitation">CONFERRED CITATION</span>
+        </span>
+        <div class="cert-gold-rule"></div>
+      </div>
+
+      <h2 id="certAwardTitle" data-i18n="awards.natyabharathiAward">Natyabharathi Award</h2>
+
+      <!-- Recipient Certificate Showcase Box -->
+      <div class="cert-recipient-box">
+        <div class="cert-conferred-label">
+          <span data-i18n="awards.honoringTheRecipient">HONORING THE RECIPIENT</span>
+        </div>
+        <h3 id="certRecipient" data-i18n="awards.padmashreeDrKalamandalamGopi">Padmashree Dr. Kalamandalam Gopi</h3>
+        <div id="certDisciplineText" class="cert-discipline-pill"></div>
+      </div>
+
+      <!-- Citation Body -->
+      <div class="cert-citation-body">
+        <p id="certCitationBody" class="cert-citation-body"></p>
+      </div>
+
+      <!-- Certificate Seal & Footer Meta -->
+      <div class="cert-footer-row">
+        <div>
+          <div><strong data-i18n="awards.yearConferredLabel">Year Conferred:</strong> <span id="certYearText">2000</span></div>
+          <div><strong data-i18n="awards.venueLabel">Venue:</strong> <span data-i18n="awards.venueVal">Sree Vidyadhiraja Nagar, Ayroor Sandbanks</span></div>
+        </div>
+        <div class="cert-seal-symbol" aria-hidden="true">
+          <span data-i18n="awards.sealText">KATHAKALI<br>CLUB<br>SEAL</span>
+        </div>
+        <div style="text-align: right;">
+          <div><strong data-i18n="awards.conferredByLabel">Conferred by:</strong> <span data-i18n="awards.conferredByVal">District Kathakali Club</span></div>
+          <div><span data-i18n="awards.brandTitle">Ayroor Kathakali Gramam</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
+            <div class="brand-text-wrap">
+              <div class="footer-brand-title">AYROOR</div>
+              <div class="footer-brand-sub">KATHAKALI GRAMAM</div>
+            </div>
+          </div>
+          <p class="footer-brand-desc" data-i18n="awards.theCulturalSanctuaryOfClassicalKera">
+            The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba. Home to the District Kathakali Club and the annual Kathakali Mela.
+          </p>
+
+          <!-- Modern Social Media Connect Hub -->
+          <div class="footer-social-wrap">
+            <div class="footer-social-heading">
+              <span data-i18n="common.connectFollow">Connect & Follow</span>
+            </div>
+            <div class="footer-social-icons">
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official YouTube Channel" title="YouTube Live & Webcast">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Instagram" title="Instagram Visuals & Reels">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Facebook Page" title="Facebook Community & News">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <!-- X (Twitter) -->
+              <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official X Profile" title="X (Twitter) Announcements">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me/919446538553" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Enquiries" title="WhatsApp Secretary & General Convener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </a>
+              <!-- Location / Google Maps -->
+              <a href="https://maps.google.com/?q=Ayroor+Kathakali+Gramam+Cherukolpuzha+Kerala" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Locate on Google Maps" title="Pamba Sandbanks Amphitheater">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <div class="footer-nav-title" data-i18n="common.navigation">Navigation</div>
+          <ul class="footer-nav-links">
+            <li><a href="about.html" class="footer-nav-link" data-nav-id="about" data-i18n="nav.aboutUs">About Us</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-nav-id="mela" data-i18n="nav.kathakaliMela">Kathakali Mela</a></li>
+            <li><a href="awards.html" class="footer-nav-link active" data-nav-id="awards" data-i18n="nav.awards">Awards</a></li>
+            <li><a href="gallery.html" class="footer-nav-link" data-nav-id="gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="mudras.html" class="footer-nav-link" data-nav-id="kathakali-mudras" data-i18n="nav.mudras">Kathakali Mudras</a></li>
+            <li><a href="characters.html" class="footer-nav-link" data-nav-id="kathakali-characters" data-i18n="nav.characters">Kathakali Characters</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-nav-id="kathakali-instruments" data-i18n="nav.instruments">Kathakali Instruments</a></li>
+            <li><a href="contact.html" class="footer-nav-link" data-nav-id="contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-nav">
+          <div class="footer-nav-title" data-i18n="common.culturalHeritage">Cultural Heritage</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#aboutSection" class="footer-nav-link" data-i18n="common.footerPambaAmphitheater">Pamba Sandbanks Amphitheater</a></li>
+            <li><a href="index.html#cultureSectionHeading" class="footer-nav-link" data-i18n="common.footerAharyaTradition">Aharya Abhinaya Tradition</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-i18n="common.footerAnnualMela">Annual Kathakali Mela</a></li>
+            <li><a href="awards.html" class="footer-nav-link" data-i18n="common.footerClubLaureates">District Kathakali Club Laureates</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-i18n="common.footerPercussionEnsemble">Sacred Percussion Ensemble</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Architectural Footer Directory (Populated via NAV_CONFIG in navigation.js) -->
+      <div id="footerArchNav"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <span data-i18n="awards.k2026DistrictKathakaliClubAyroorKath">© 2026 District Kathakali Club, Ayroor Kathakali Gramam. All Rights Reserved.</span>
+        </div>
+        <div class="footer-social-pill-group">
+          <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
+        </div>
+        <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top of page">
+          <span data-i18n="common.backToTop">BACK TO TOP</span>
+          <span class="back-to-top-icon" aria-hidden="true">↑</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button with Circular Scroll Progress Ring -->
+  <button id="floatingBackToTop" class="floating-back-to-top" aria-label="Back to top of page" title="Back to top">
+    <svg class="btt-progress-ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="progress-ring-track" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+      <circle class="progress-ring-indicator" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+    </svg>
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </span>
+    <span class="btt-tooltip">
+      <span data-i18n="common.backToTop">Back to Top</span>
+    </span>
+  </button>
+
+  <!-- Animation & Smooth Scroll Engines: GSAP, ScrollTrigger & Lenis (Local Vendor) -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
+
+  <!-- Localization & Internationalization (en, ml) -->
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/ml.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <!-- Architectural Navigation Architecture -->
+  <script src="navigation/navigation-config.js"></script>
+  <script src="navigation/navigation.js"></script>
+
+  <!-- Application Configuration & Awards Archive Controller -->
+
+  <script src="config.js"></script>
+  <script src="js/awards.js"></script>
+</body>
+</html>
