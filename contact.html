@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Ayroor Kathakali Gramam — Travel directions, geographic coordinates on River Pamba, visitor guidelines, and official enquiry form.">
+  <title>Contact Us — Plan Your Visit • Ayroor Kathakali Gramam</title>
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon-16x16.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp">
+  <meta name="theme-color" content="#020504">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Noto Serif Malayalam, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & Heritage Design Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'heritage-bg': '#090908',
+            'heritage-bg-alt': '#11100e',
+            'heritage-surface': '#151310',
+            'heritage-surface-hover': '#1c1915',
+            'heritage-card': '#14120f',
+            'heritage-gold': '#c5a059',
+            'heritage-gold-light': '#dec07e',
+            'heritage-gold-dim': '#7d6435',
+            'heritage-maroon': '#752224',
+            'heritage-maroon-dark': '#4d1517',
+            'heritage-green': '#1f3d2b',
+            'heritage-green-accent': '#2e5c41',
+            'heritage-ivory': '#f5ede1',
+            'heritage-ivory-muted': '#b8aea0',
+            'heritage-ivory-dim': '#7a7266',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            malayalam: ['Noto Serif Malayalam', 'Georgia', 'serif'],
+          },
+          screens: {
+            'xs': '320px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            '3xl': '1920px',
+            '4k': '2560px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Local Tailwind Utilities & Reusable Design System Components -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation/navigation.css">
+  <link rel="stylesheet" href="css/explore.css">
+</head>
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
+
+  <!-- Film grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor elements -->
+  <div id="customCursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="customCursorFollower" class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="siteHeader" class="site-header" role="banner">
+    <div class="header-container">
+      
+      <!-- Brand Identity (Left) -->
+      <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
+        <div class="brand-text-wrap">
+          <span class="brand-title">AYROOR</span>
+          <span class="brand-sub">KATHAKALI GRAMAM</span>
+        </div>
+      </a>
+
+      <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+      <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+        <!-- Rendered dynamically from NAV_CONFIG -->
+      </nav>
+
+      <!-- Header Actions (Right) -->
+      <div class="header-actions">
+        <!-- Bilingual Language Selector -->
+        <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+          <span class="lang-label-wrap"><span class="lang-active">EN</span> / <span>ML</span></span>
+        </button>
+
+        <!-- Signature Architectural Menu Button -->
+        <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+          <span class="arch-menu-btn-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="arch-menu-btn-text" data-arch-menu-text><span data-i18n="common.menu">MENU</span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Architectural Multi-Panel Navigation Canvas (Overlay) -->
+  <div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+    <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail"></aside>
+    <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture"></main>
+    <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase"></aside>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: CONTACT & PLAN YOUR VISIT
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- Section 1: Hero Banner -->
+    <section class="explore-hero" aria-labelledby="contactHeroHeading">
+      <div class="explore-hero-glow" aria-hidden="true"></div>
+      <div class="explore-hero-container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="explore-breadcrumbs" aria-label="Breadcrumb Trail">
+          <a href="index.html" data-i18n="common.home">Home</a>
+          <span class="crumb-sep">/</span>
+          <span data-i18n="nav.connect">Connect</span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current" data-i18n="nav.contact">Contact Us</span>
+        </nav>
+
+        <!-- Badge -->
+        <div class="explore-badge">
+          <span class="explore-badge-icon">✦</span>
+          <span data-i18n="contact.heroBadge">PILGRIMAGE & TRAVEL ACCESS • PAMBA RIVER BASIN</span>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <h1 id="contactHeroHeading" class="explore-hero-title" data-i18n="contact.heroTitle">Connect with Ayroor Kathakali Gramam</h1>
+
+        <p class="explore-hero-lead" data-i18n="contact.heroLead">
+          Whether you are a scholar researching classical Hasthalakshana mudras, an art lover planning to attend the all-night Kathakali Mela on the Pamba riverbanks, or an institution seeking resident troupe performances, the Gramam coordination office is at your service.
+        </p>
+
+        <!-- Quick Navigation Anchor Links -->
+        <nav class="explore-nav-pills" aria-label="Contact Subsections">
+          <a href="#enquiry-form" class="explore-nav-pill is-active">
+            <span class="explore-nav-pill-idx">01</span>
+            <span data-i18n="contact.pillSendEnquiry">Send Enquiry</span>
+          </a>
+          <a href="#location-details" class="explore-nav-pill">
+            <span class="explore-nav-pill-idx">02</span>
+            <span data-i18n="contact.pillTransit">Transit & Access</span>
+          </a>
+          <a href="#guidelines" class="explore-nav-pill">
+            <span class="explore-nav-pill-idx">03</span>
+            <span data-i18n="contact.pillGuidelines">Visitor Guidelines</span>
+          </a>
+        </nav>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Contact Form & Office Coordinates Grid -->
+    <section id="enquiry-form" class="content-section" aria-labelledby="enquiryHeading">
+      <div class="section-container">
+        
+        <div class="about-grid">
+          
+          <!-- Left Column: Interactive Enquiry Form -->
+          <div class="about-text-col" style="background: rgba(20, 18, 15, 0.7); border: 1px solid rgba(197, 160, 89, 0.22); padding: 36px; border-radius: 4px;">
+            <header class="section-header-minimal" style="margin-bottom: 24px;">
+              <span class="section-overline">COMMUNICATION DESK</span>
+              <h2 id="enquiryHeading" class="section-title" style="font-size: 1.8rem;">Send an Official Enquiry</h2>
+            </header>
+
+            <form id="contactEnquiryForm" onsubmit="event.preventDefault(); document.getElementById('formSuccessMsg').style.display = 'block'; this.reset();">
+              
+              <div style="margin-bottom: 20px;">
+                <label for="userName" style="display: block; font-family: var(--font-body, sans-serif); font-size: 0.76rem; letter-spacing: 0.12em; color: var(--color-gold-light, #dec07e); text-transform: uppercase; margin-bottom: 6px;">Your Full Name *</label>
+                <input type="text" id="userName" name="name" required placeholder="Enter your full name" style="width: 100%; padding: 12px; background: rgba(10, 9, 8, 0.9); border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-family: var(--font-body, sans-serif); font-size: 0.9rem; outline: none;">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                <div>
+                  <label for="userEmail" style="display: block; font-family: var(--font-body, sans-serif); font-size: 0.76rem; letter-spacing: 0.12em; color: var(--color-gold-light, #dec07e); text-transform: uppercase; margin-bottom: 6px;">Email Address *</label>
+                  <input type="email" id="userEmail" name="email" required placeholder="name@domain.com" style="width: 100%; padding: 12px; background: rgba(10, 9, 8, 0.9); border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-family: var(--font-body, sans-serif); font-size: 0.9rem; outline: none;">
+                </div>
+                <div>
+                  <label for="userPhone" style="display: block; font-family: var(--font-body, sans-serif); font-size: 0.76rem; letter-spacing: 0.12em; color: var(--color-gold-light, #dec07e); text-transform: uppercase; margin-bottom: 6px;">Phone / WhatsApp</label>
+                  <input type="tel" id="userPhone" name="phone" placeholder="+91 XXXXX XXXXX" style="width: 100%; padding: 12px; background: rgba(10, 9, 8, 0.9); border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-family: var(--font-body, sans-serif); font-size: 0.9rem; outline: none;">
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="enquiryTopic" style="display: block; font-family: var(--font-body, sans-serif); font-size: 0.76rem; letter-spacing: 0.12em; color: var(--color-gold-light, #dec07e); text-transform: uppercase; margin-bottom: 6px;">Purpose of Enquiry *</label>
+                <select id="enquiryTopic" name="topic" required style="width: 100%; padding: 12px; background: rgba(10, 9, 8, 0.9); border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-family: var(--font-body, sans-serif); font-size: 0.9rem; outline: none;">
+                  <option value="festival">Festival Attendance & Seating Guidance</option>
+                  <option value="academic">Academic & Research Visits (Kalari / Library)</option>
+                  <option value="troupe">Resident Troupe Booking & Recitals</option>
+                  <option value="media">Media & Press Enquiries</option>
+                  <option value="general">General Village Visit & Logistics</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 24px;">
+                <label for="userMessage" style="display: block; font-family: var(--font-body, sans-serif); font-size: 0.76rem; letter-spacing: 0.12em; color: var(--color-gold-light, #dec07e); text-transform: uppercase; margin-bottom: 6px;">Your Message *</label>
+                <textarea id="userMessage" name="message" rows="4" required placeholder="Tell us how we can assist your visit or research..." style="width: 100%; padding: 12px; background: rgba(10, 9, 8, 0.9); border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-family: var(--font-body, sans-serif); font-size: 0.9rem; outline: none;"></textarea>
+              </div>
+
+              <button type="submit" class="hero-btn hero-btn-primary" style="width: 100%; justify-content: center;">
+                <span>Submit Official Enquiry</span>
+                <span>→</span>
+              </button>
+
+              <div id="formSuccessMsg" style="display: none; margin-top: 18px; padding: 14px; background: rgba(31, 61, 43, 0.8); border: 1px solid rgba(197, 160, 89, 0.4); border-radius: 3px; color: var(--color-ivory, #f5ede1); font-size: 0.88rem; text-align: center;">
+                ✓ Thank you. Your message has been delivered to the Gramam coordination desk. We will respond promptly.
+              </div>
+
+            </form>
+          </div>
+
+          <!-- Right Column: Coordinates & Direct Contacts -->
+          <div class="about-text-col">
+            <header class="section-header-minimal">
+              <span class="section-overline">POSTAL & ADMINISTRATIVE DESK</span>
+              <h2 class="section-title">Gramam Office Address</h2>
+            </header>
+
+            <div class="visit-info-list" style="margin-top: 24px;">
+              
+              <div class="visit-info-item">
+                <div class="visit-info-label">Official Headquarters</div>
+                <div class="visit-info-val">
+                  <strong>Pathanamthitta District Kathakali Club & Natyabharathi</strong><br>
+                  Ayroor Kathakali Gramam, Cherukolpuzha Road,<br>
+                  Pathanamthitta District, Kerala 689611, India.
+                </div>
+              </div>
+
+              <div class="visit-info-item">
+                <div class="visit-info-label">Geographic Coordinates</div>
+                <div class="visit-info-val" style="color: var(--color-gold-light, #dec07e); font-family: var(--font-body, sans-serif);">
+                  LAT 9.3789° N • LON 76.7198° E • PAMBA RIVER BASIN
+                </div>
+              </div>
+
+              <div class="visit-info-item">
+                <div class="visit-info-label">
+                  <span data-i18n="contact.directLeadershipContacts">Direct Leadership Contacts</span>
+                </div>
+                <div class="visit-info-val">
+                  <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px;">
+                    <div><strong>Dr. B. Udayanan</strong> (Secretary & General Convener): <a href="tel:+919446538553" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">+91 9446538553</a></div>
+                    <div><strong>T. Prasad Kailath</strong> (President): <a href="tel:+91944653882" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">+91 944653882</a></div>
+                    <div><strong>Johnson Mathew</strong> (Working President): <a href="tel:+919446950979" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">+91 9446950979</a></div>
+                    <div><strong>G. Jayaram</strong> (Treasurer): <a href="tel:+919495725701" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">+91 9495725701</a></div>
+                    <div><strong>Dilip Kumar</strong> (Organizer): <a href="tel:+919846727132" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">+91 9846727132</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="visit-info-item">
+                <div class="visit-info-label">
+                  <span data-i18n="contact.administrativeCampusEnquiries">Administrative & Campus Enquiries</span>
+                </div>
+                <div class="visit-info-val">
+                  Email: <a href="mailto:info@kathakaligramamayroor.com" style="color: var(--color-gold-light, #dec07e); text-decoration: none;">info@kathakaligramamayroor.com</a><br>
+                  Festival Liaison: Pathanamthitta District Cultural Council<br>
+                  Kalari Admission & Manuscript Archives: Natyabharathi Centre
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Transit, Rail & Air Connectivity (#location-details) -->
+    <section id="location-details" class="content-section section-dark" aria-labelledby="transitHeading">
+      <div class="section-container">
+        
+        <header class="section-header-minimal" style="max-width: 820px; margin-bottom: 48px;">
+          <span class="section-overline">REGIONAL ACCESS & TRANSPORTATION</span>
+          <h2 id="transitHeading" class="section-title">How to Reach Ayroor Kathakali Gramam</h2>
+          <p class="section-lead-minimal">
+            Conveniently situated in Central Travancore, Ayroor is well connected by rail, road, and international airports.
+          </p>
+        </header>
+
+        <div class="explore-reference-grid">
+          
+          <div class="reference-card">
+            <div class="reference-card-num" data-i18n="contact.byRailway">BY RAILWAY</div>
+            <h3 class="reference-card-title" data-i18n="contact.railwayTitle">Railway Access</h3>
+            <p class="reference-card-text" data-i18n="contact.railwayDesc">• <strong>Chengannur Railway Station (CNGR)</strong>: ~26 km (Major southern railway hub with express trains from all major Indian cities).<br><br>• <strong>Tiruvalla Railway Station (TRVL)</strong>: ~30 km.<br>Taxis and KSRTC buses run frequently from both stations to Ayroor via Kozhencherry.</p>
+          </div>
+
+          <div class="reference-card">
+            <div class="reference-card-num" data-i18n="contact.byAir">BY AIR</div>
+            <h3 class="reference-card-title" data-i18n="contact.airportTitle">Airport Connectivity</h3>
+            <p class="reference-card-text" data-i18n="contact.airportDesc">• <strong>Cochin International Airport (COK)</strong>: ~124 km (approx. 3.5 hours drive via MC Road).<br><br>• <strong>Trivandrum International Airport (TRV)</strong>: ~115 km (approx. 3 hours drive via MC Road).</p>
+          </div>
+
+          <div class="reference-card">
+            <div class="reference-card-num" data-i18n="contact.byRoad">BY ROAD</div>
+            <h3 class="reference-card-title" data-i18n="contact.highwayTitle">Highway Routes</h3>
+            <p class="reference-card-text" data-i18n="contact.highwayDesc">Accessible via Main Central (MC) Road (SH 1) branching off at Chengannur or Thiruvalla, and via Main Eastern Highway (SH 8) connecting through Ranni and Kozhencherry.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Visitor Guidelines & Heritage Etiquette (#guidelines) -->
+    <section id="guidelines" class="content-section" aria-labelledby="guidelinesHeading">
+      <div class="section-container">
+        
+        <div class="explore-reference-box">
+          <header class="explore-reference-header">
+            <span class="explore-badge" style="margin-bottom: 12px;">✦ VISITING ETIQUETTE & CODE OF REVERENCE</span>
+            <h2 id="guidelinesHeading" class="explore-reference-title">Preserving the Sanctity of the Sandbeds</h2>
+            <p class="explore-reference-desc">
+              Kathakali is revered as an act of prayer and spiritual dedication. We kindly request all visitors and scholars to honor traditional decorum.
+            </p>
+          </header>
+
+          <div class="explore-reference-grid">
+            <div class="reference-card">
+              <div class="reference-card-num">01</div>
+              <h3 class="reference-card-title" data-i18n="contact.quietDecorumTitle">Quiet Decorum during Invocations</h3>
+              <p class="reference-card-text" data-i18n="contact.quietDecorumDesc">Please maintain respectful silence during the opening Kelikottu, the lighting of the brass oil lamp (Aattavilakku), and the opening Purappadu dance.</p>
+            </div>
+
+            <div class="reference-card">
+              <div class="reference-card-num">02</div>
+              <h3 class="reference-card-title" data-i18n="contact.sandbedEtiquetteTitle">Sandbed Seating Etiquette</h3>
+              <p class="reference-card-text" data-i18n="contact.sandbedEtiquetteDesc">Footwear is prohibited upon the performance stage and in the immediate oil-lamp perimeter. Connoisseurs sit together on the river sandbed.</p>
+            </div>
+
+            <div class="reference-card">
+              <div class="reference-card-num">03</div>
+              <h3 class="reference-card-title" data-i18n="contact.greenRoomPhotographyTitle">Green Room Photography</h3>
+              <p class="reference-card-text" data-i18n="contact.greenRoomPhotographyDesc">Photography in the green room (Aniyara) is permitted only with prior approval from the Gramam coordination desk so as not to disturb the actor's meditation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
+            <div class="brand-text-wrap">
+              <div class="footer-brand-title">AYROOR</div>
+              <div class="footer-brand-sub">KATHAKALI GRAMAM</div>
+            </div>
+          </div>
+          <p class="footer-brand-desc" data-i18n="common.footerBrandDesc">The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba.</p>
+
+          <!-- Modern Social Media Connect Hub -->
+          <div class="footer-social-wrap">
+            <div class="footer-social-heading">
+              <span data-i18n="common.connectFollow">Connect & Follow</span>
+            </div>
+            <div class="footer-social-icons">
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official YouTube Channel" title="YouTube Live & Webcast">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Instagram" title="Instagram Visuals & Reels">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official Facebook Page" title="Facebook Community & News">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <!-- X (Twitter) -->
+              <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Official X Profile" title="X (Twitter) Announcements">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="social-svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+              </a>
+              <!-- WhatsApp -->
+              <a href="https://wa.me/919446538553" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp Enquiries" title="WhatsApp Secretary & General Convener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </a>
+              <!-- Location / Google Maps -->
+              <a href="https://maps.google.com/?q=Ayroor+Kathakali+Gramam+Cherukolpuzha+Kerala" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Locate on Google Maps" title="Pamba Sandbanks Amphitheater">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-svg">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer Navigation">
+          <div class="footer-nav-title" data-i18n="common.navigation">Navigation</div>
+          <ul class="footer-nav-links">
+            <li><a href="about.html" class="footer-nav-link" data-nav-id="about" data-i18n="nav.aboutUs">About Us</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-nav-id="mela" data-i18n="nav.kathakaliMela">Kathakali Mela</a></li>
+            <li><a href="awards.html" class="footer-nav-link" data-nav-id="awards" data-i18n="nav.awards">Awards</a></li>
+            <li><a href="gallery.html" class="footer-nav-link" data-nav-id="gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="mudras.html" class="footer-nav-link" data-nav-id="kathakali-mudras" data-i18n="nav.mudras">Kathakali Mudras</a></li>
+            <li><a href="characters.html" class="footer-nav-link" data-nav-id="kathakali-characters" data-i18n="nav.characters">Kathakali Characters</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-nav-id="kathakali-instruments" data-i18n="nav.instruments">Kathakali Instruments</a></li>
+            <li><a href="contact.html" class="footer-nav-link active" data-nav-id="contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-nav">
+          <div class="footer-nav-title" data-i18n="common.culturalHeritage">Cultural Heritage</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#aboutSection" class="footer-nav-link" data-i18n="common.footerPambaAmphitheater">Pamba Sandbanks Amphitheater</a></li>
+            <li><a href="index.html#cultureSectionHeading" class="footer-nav-link" data-i18n="common.footerAharyaTradition">Aharya Abhinaya Tradition</a></li>
+            <li><a href="mela.html" class="footer-nav-link" data-i18n="common.footerAnnualMela">Annual Kathakali Mela</a></li>
+            <li><a href="mudras.html" class="footer-nav-link" data-i18n="common.footerHasthaLexicon">Codified Hastha Lexicon</a></li>
+            <li><a href="instruments.html" class="footer-nav-link" data-i18n="common.footerPercussionEnsemble">Sacred Percussion Ensemble</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Architectural 6-Group Footer Directory (Populated via NAV_CONFIG in navigation.js) -->
+      <div id="footerArchNav"></div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2026 Ayroor Kathakali Gramam. All Rights Reserved.
+        </div>
+        <div class="footer-social-pill-group">
+          <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
+        </div>
+        <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top of page">
+          <span>BACK TO TOP</span>
+          <span class="back-to-top-icon" aria-hidden="true">↑</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button with Circular Scroll Progress Ring -->
+  <button id="floatingBackToTop" class="floating-back-to-top" aria-label="Back to top of page" title="Back to top">
+    <svg class="btt-progress-ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="progress-ring-track" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+      <circle class="progress-ring-indicator" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+    </svg>
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </span>
+    <span class="btt-tooltip">Back to Top</span>
+  </button>
+
+  <!-- Animation & Smooth Scroll Engines: GSAP, ScrollTrigger & Lenis (Local Vendor) -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
+
+  <!-- Localization & Internationalization (en, ml) -->
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/ml.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <!-- Architectural Navigation Architecture -->
+  <script src="navigation/navigation-config.js"></script>
+  <script src="navigation/navigation.js"></script>
+
+  <!-- Application Configuration & Explore Controller -->
+
+  <script src="config.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

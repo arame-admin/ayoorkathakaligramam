@@ -1,0 +1,842 @@
+/* ==========================================================================
+   AYROOR KATHAKALI GRAMAM — COMMON REUSABLE COMPONENTS & RESPONSIVE ENGINE
+   Design System: Culturally Rooted, Minimal, Cinematic, Tailwind-Integrated
+   Breakpoints: xs (320px), sm (640px), md (768px), lg (1024px), xl (1280px),
+                2xl (1536px), 3xl (1920px), 4k (2560px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. UNIVERSAL DESIGN TOKENS (Shared with Tailwind Configuration)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --color-bg: #090908;
+  --color-bg-alt: #11100e;
+  --color-surface: #151310;
+  --color-surface-hover: #1c1915;
+  --color-card: #14120f;
+
+  /* Traditional Gold & Accents */
+  --color-gold: #c5a059;
+  --color-gold-light: #dec07e;
+  --color-gold-dim: #7d6435;
+  --color-maroon: #752224;
+  --color-maroon-dark: #4d1517;
+  --color-green: #1f3d2b;
+  --color-green-accent: #2e5c41;
+  --color-earth: #2b221b;
+
+  /* Typography Colors */
+  --color-ivory: #f5ede1;
+  --color-ivory-muted: #b8aea0;
+  --color-ivory-dim: #7a7266;
+
+  /* Structural Borders */
+  --border-gold: rgba(197, 160, 89, 0.22);
+  --border-gold-subtle: rgba(197, 160, 89, 0.12);
+  --border-subtle: rgba(245, 237, 225, 0.08);
+  --border-hairline: rgba(245, 237, 225, 0.04);
+
+  /* Typography Fonts */
+  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-malayalam: 'Noto Serif Malayalam', Georgia, serif;
+
+  /* Universal Easing */
+  --ease-primary: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Fluid Layout Widths */
+  --container-max: 1240px;
+  --container-max-wide: 1440px;
+  --container-max-ultrawide: 1680px;
+  --header-height: clamp(68px, 8vw, 84px);
+}
+
+/* --------------------------------------------------------------------------
+   2. UNIVERSAL RESET, VIEWPORT PROTECTION & DEFENSIVE RESPONSIVENESS
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-size: clamp(14.5px, 0.9vw + 11px, 17px);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ivory);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Fixed Header Offset for Native and Smooth Anchor Targets */
+section[id], div[id], article[id] {
+  scroll-margin-top: clamp(74px, 8vw, 88px);
+}
+
+/* Defensive image sizing */
+img, picture, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth break-word on all headings to prevent mobile horizontal blowouts */
+h1, h2, h3, h4, h5, h6, .section-title, .explore-card-title, .album-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Malayalam specific typography rendering */
+:lang(ml), [lang="ml"], .lang-ml, [data-lang="ml"] {
+  font-family: var(--font-malayalam), serif;
+  line-height: 1.75;
+  letter-spacing: normal;
+}
+
+/* --------------------------------------------------------------------------
+   3. REUSABLE COMPONENT: RESPONSIVE CONTAINERS
+   -------------------------------------------------------------------------- */
+.container-responsive {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 36px);
+  padding-right: clamp(16px, 4vw, 36px);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-max-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 40px);
+  padding-right: clamp(16px, 4vw, 40px);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(16px, 4vw, 32px);
+  padding-right: clamp(16px, 4vw, 32px);
+}
+
+/* --------------------------------------------------------------------------
+   4. REUSABLE COMPONENT: SECTION HEADERS
+   -------------------------------------------------------------------------- */
+.section-header-component {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(32px, 6vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-overline-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: clamp(8px, 1.5vw, 14px);
+}
+
+.section-title-component {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.2vw + 0.5rem, 3.2rem);
+  font-weight: 500;
+  line-height: 1.22;
+  color: var(--color-ivory);
+  letter-spacing: 0.02em;
+  margin-bottom: clamp(12px, 2vw, 18px);
+}
+
+.section-desc-component {
+  font-family: var(--font-serif);
+  font-size: clamp(1.02rem, 1.2vw + 0.2rem, 1.35rem);
+  line-height: 1.68;
+  color: var(--color-ivory-muted);
+  max-width: 720px;
+}
+
+/* --------------------------------------------------------------------------
+   5. REUSABLE COMPONENT: BADGES & PILLS
+   -------------------------------------------------------------------------- */
+.badge-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  white-space: nowrap;
+}
+
+.badge-gold-solid {
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border-color: var(--color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   6. REUSABLE COMPONENT: RESPONSIVE CARD GRIDS
+   -------------------------------------------------------------------------- */
+/* Universal Grid that NEVER overflows on 320px screens */
+.grid-responsive-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 2.5vw, 32px);
+  width: 100%;
+}
+
+.grid-responsive-leaders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 3vw, 32px);
+  width: 100%;
+}
+
+.grid-responsive-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(14px, 2vw, 24px);
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   7. REUSABLE COMPONENT: UNIVERSAL TEMPLE CARD
+   -------------------------------------------------------------------------- */
+.card-component {
+  background: linear-gradient(180deg, #171411 0%, #110e0c 100%);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease-primary), border-color 0.35s var(--ease-primary), box-shadow 0.35s var(--ease-primary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-component:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.12);
+}
+
+.card-media-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  background: #0d0c0a;
+}
+
+.card-media-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-primary);
+}
+
+.card-component:hover .card-media-wrap img {
+  transform: scale(1.05);
+}
+
+.card-body-wrap {
+  padding: clamp(18px, 3vw, 26px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   8. REUSABLE COMPONENT: SEARCH & FILTER BARS
+   -------------------------------------------------------------------------- */
+.filter-rail-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.3) transparent;
+  overscroll-behavior-x: contain;
+}
+
+.filter-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 18px;
+  background: rgba(18, 16, 13, 0.8);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-ivory-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s var(--ease-primary);
+  user-select: none;
+}
+
+.filter-btn-pill:hover,
+.filter-btn-pill.is-active,
+.filter-btn-pill[aria-selected="true"] {
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border-color: var(--color-gold);
+}
+
+.search-input-component {
+  width: 100%;
+  min-height: 46px;
+  background: rgba(18, 16, 13, 0.9);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 6px;
+  padding: 10px 16px;
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.25s var(--ease-primary), box-shadow 0.25s var(--ease-primary);
+}
+
+.search-input-component:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   9. REUSABLE COMPONENT: ACCESSIBLE RESPONSIVE MODAL SYSTEM
+   -------------------------------------------------------------------------- */
+.modal-backdrop-component {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 3vw, 28px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease-primary), visibility 0.3s;
+}
+
+.modal-backdrop-component.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-dialog-component {
+  background: #14110e;
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 32px rgba(197, 160, 89, 0.15);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  overscroll-behavior: contain;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s var(--ease-primary);
+}
+
+.modal-backdrop-component.is-open .modal-dialog-component {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn-component {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(18, 16, 13, 0.8);
+  border: 1px solid var(--border-gold-subtle);
+  color: var(--color-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.modal-close-btn-component:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   10. REUSABLE COMPONENT: BUTTONS (WCAG 44px TOUCH COMPLIANT)
+   -------------------------------------------------------------------------- */
+.btn-primary-component {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 10px 24px;
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-primary);
+}
+
+.btn-primary-component:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.25);
+}
+
+.btn-outline-component {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-primary);
+}
+
+.btn-outline-component:hover {
+  background: rgba(197, 160, 89, 0.12);
+  border-color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   11. SPECIFIC BREAKPOINT REPAIR SYSTEM (xs 320px -> 4k 2560px)
+   -------------------------------------------------------------------------- */
+
+/* VERY SMALL SCREENS (320px to 380px: iPhone SE, older phones) */
+@media (max-width: 380px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container-responsive,
+  .section-container,
+  .explore-hero-container,
+  .gallery-albums-container,
+  .gallery-detail-container,
+  .awards-archive-container,
+  .contact-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Force single-column on tiny displays */
+  .grid-responsive-cards,
+  .grid-responsive-leaders,
+  .explore-grid,
+  .year-cards-grid,
+  .gallery-albums-grid,
+  .gallery-photos-grid,
+  .special-rules-grid,
+  .about-grid,
+  .centre-stats-grid,
+  .disciplines-grid,
+  .faculty-grid,
+  .institution-wings-grid,
+  .awards-stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .explore-card,
+  .laureate-card,
+  .album-card,
+  .leader-card,
+  .faculty-card {
+    padding: 16px !important;
+  }
+
+  /* Prevent sticky rail overflow */
+  .filter-rail-container,
+  .year-scroll-stream,
+  .gallery-year-stream {
+    gap: 4px !important;
+  }
+
+  .filter-btn-pill,
+  .year-btn,
+  .gallery-year-pill {
+    padding: 6px 12px !important;
+    font-size: 0.75rem !important;
+    min-height: 36px !important;
+  }
+
+  /* Modals take full screen on tiny devices */
+  .explore-modal,
+  .citation-modal-box,
+  .modal-dialog-component {
+    margin: 8px !important;
+    max-height: 94vh !important;
+  }
+}
+
+/* MOBILE SCREENS (381px to 640px) */
+@media (max-width: 640px) {
+  /* Repair any hardcoded multi-columns */
+  .about-grid,
+  .special-rules-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .explore-modal {
+    flex-direction: column !important;
+    max-height: 92vh !important;
+  }
+
+  .explore-modal-media {
+    max-height: 220px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+  }
+
+  .floating-btt {
+    bottom: 20px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+/* TABLETS (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .explore-grid,
+  .year-cards-grid,
+  .gallery-albums-grid,
+  .faculty-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .gallery-photos-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* VERY LARGE SCREENS & 4K (1440px to 2560px+) */
+@media (min-width: 1440px) {
+  .container-responsive {
+    max-width: 1360px;
+  }
+
+  .explore-grid,
+  .year-cards-grid,
+  .gallery-albums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+}
+
+@media (min-width: 1920px) {
+  .container-responsive {
+    max-width: 1600px;
+  }
+
+  .container-wide {
+    max-width: 1800px;
+  }
+
+  html {
+    font-size: 18px;
+  }
+
+  /* Center hero stages and particles on ultrawide */
+  .hero-pin-stage,
+  .performer-3d-stage {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container-responsive {
+    max-width: 2000px;
+  }
+
+  html {
+    font-size: 20px;
+  }
+}
+
+/* ==========================================================================
+   12. MODERN FOOTER SOCIAL MEDIA HUB COMPONENT
+   ========================================================================== */
+.footer-social-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-social-heading {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-social-heading::after {
+  content: '';
+  height: 1px;
+  width: 40px;
+  background: var(--border-gold-subtle);
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.06);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  color: var(--color-gold-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(197, 160, 89, 0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-primary);
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-3px) scale(1.06);
+  border-color: var(--color-gold);
+  background: rgba(197, 160, 89, 0.16);
+  color: var(--color-ivory);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(197, 160, 89, 0.3);
+}
+
+.social-icon-btn:hover::before {
+  opacity: 1;
+}
+
+.social-svg {
+  width: 19px;
+  height: 19px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s var(--ease-primary);
+}
+
+.social-icon-btn:hover .social-svg {
+  transform: scale(1.1);
+}
+
+/* Footer bottom social links (pill-style) */
+.footer-social-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(197, 160, 89, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.16);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-ivory-muted);
+  text-decoration: none;
+  transition: all 0.25s var(--ease-primary);
+}
+
+.footer-bottom-social-link svg {
+  color: var(--color-gold);
+  transition: transform 0.25s var(--ease-primary);
+}
+
+.footer-bottom-social-link:hover {
+  background: rgba(197, 160, 89, 0.14);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+  transform: translateY(-1px);
+}
+
+.footer-bottom-social-link:hover svg {
+  transform: scale(1.15);
+}
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem !important;
+  }
+  .footer-social-pill-group {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   13. UNIFIED CUSTOM CURSOR (Identical Experience Across All 9 Pages)
+   ========================================================================== */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  margin-left: -4px;
+  background-color: var(--color-gold, #c5a059);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              opacity 0.2s ease;
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin-top: -17px;
+  margin-left: -17px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              opacity 0.2s ease;
+}
+
+.custom-cursor.active,
+.custom-cursor.is-hovering {
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -6px;
+  background-color: var(--color-gold-light, #dec07e);
+}
+
+.custom-cursor-follower.active,
+.custom-cursor-follower.is-hovering {
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-color: var(--color-gold, #c5a059);
+  background-color: rgba(197, 160, 89, 0.08);
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor,
+  .custom-cursor-follower {
+    display: none !important;
+  }
+}

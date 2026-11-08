@@ -24,6 +24,11 @@
   let lenis = null;
 
   function initLenisSmoothScroll() {
+    if (window.lenis) {
+      lenis = window.lenis;
+      return;
+    }
+
     if (typeof Lenis === 'undefined') {
       console.warn('Lenis library not loaded');
       return;
@@ -38,27 +43,29 @@
         smoothWheel: true,
         wheelMultiplier: 1.0,
         touchMultiplier: 1.5,
-        infinite: false
+        infinite: false,
+        autoRaf: false
       });
 
       // Expose globally for verification & programmatic access
       window.lenis = lenis;
 
-      // Synchronize Lenis with GSAP ScrollTrigger
-      if (typeof ScrollTrigger !== 'undefined') {
-        lenis.on('scroll', ScrollTrigger.update);
-      }
-
-      // Continuous high-precision rAF loop
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      // Disable GSAP lag smoothing to ensure synchronized scrub timelines
+      // Synchronize Lenis with GSAP ScrollTrigger via GSAP ticker
       if (typeof gsap !== 'undefined') {
+        if (typeof ScrollTrigger !== 'undefined') {
+          gsap.registerPlugin(ScrollTrigger);
+          lenis.on('scroll', ScrollTrigger.update);
+        }
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
         gsap.ticker.lagSmoothing(0);
+      } else {
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
       }
 
       // Intercept anchor links for ultra-smooth scrolling
@@ -69,7 +76,7 @@
           const targetEl = document.querySelector(targetId);
           if (targetEl) {
             e.preventDefault();
-            lenis.scrollTo(targetEl, { offset: -30, duration: 1.4 });
+            lenis.scrollTo(targetEl, { offset: -76, duration: 1.25 });
           }
         });
       });
@@ -639,6 +646,7 @@
      ========================================================================== */
 
   function setupCustomCursor() {
+    if (window.__ayroorCursorInitialized) return;
     if (!window.matchMedia('(pointer: fine)').matches || state.reducedMotion) {
       return;
     }
@@ -699,6 +707,11 @@
      ========================================================================== */
 
   function setupNavigation() {
+    // If dedicated AyroorNav system is active, it handles header scroll and mobile drawer
+    if (window.AyroorNav) {
+      return;
+    }
+
     const header = document.getElementById('siteHeader');
     const mobileToggle = document.getElementById('mobileNavToggle');
     const mobileDrawer = document.getElementById('mobileDrawer');
@@ -770,10 +783,10 @@
       const maxScroll = Math.max(1, scrollHeight - clientHeight);
 
       if (floatingBtn) {
-        if (scrollY > 300) {
-          floatingBtn.classList.add('visible');
+        if (scrollY > 280) {
+          floatingBtn.classList.add('visible', 'is-visible');
         } else {
-          floatingBtn.classList.remove('visible');
+          floatingBtn.classList.remove('visible', 'is-visible');
         }
 
         if (progressIndicator) {
@@ -832,13 +845,19 @@
     const langToggleBtn = document.getElementById('langToggleBtn');
     const mobileLangToggleBtn = document.getElementById('mobileLangToggleBtn');
 
-    const labelEn = '<span class="' + (lang === 'en' ? 'lang-active' : '') + '">EN</span> / <span class="' + (lang === 'ml' ? 'lang-active' : '') + '">മലയാളം</span>';
-    if (langToggleBtn) langToggleBtn.innerHTML = labelEn;
-    if (mobileLangToggleBtn) mobileLangToggleBtn.innerHTML = labelEn;
+    const labelHtml = (lang === 'ml')
+      ? '<span class="lang-active">മലയാളം</span> / <span>EN</span>'
+      : '<span>മലയാളം</span> / <span class="lang-active">EN</span>';
+    if (langToggleBtn) langToggleBtn.innerHTML = labelHtml;
+    if (mobileLangToggleBtn) mobileLangToggleBtn.innerHTML = labelHtml;
 
     // Update translated elements
+    if (window.AyroorI18n && typeof window.AyroorI18n.updateDomTranslations === 'function') {
+      window.AyroorI18n.updateDomTranslations();
+    }
+
     const translatableElements = document.querySelectorAll('[data-i18n-key]');
-    const dict = CONFIG.i18n[lang] || CONFIG.i18n.en;
+    const dict = (CONFIG.i18n && CONFIG.i18n[lang]) || (CONFIG.i18n && CONFIG.i18n.en) || {};
 
     translatableElements.forEach(el => {
       const key = el.getAttribute('data-i18n-key');
@@ -861,7 +880,15 @@
     if (typeof window.refreshInstrumentsLanguage === 'function') {
       window.refreshInstrumentsLanguage();
     }
+
+    // Refresh dynamic navigation component if initialized
+    if (window.AyroorNav && typeof window.AyroorNav.refresh === 'function') {
+      window.AyroorNav.refresh();
+    }
   }
+
+  // Export applyLanguage to window for navigation system synchronization
+  window.applyLanguage = applyLanguage;
 
   function setupLanguageSwitcher() {
     const langToggleBtn = document.getElementById('langToggleBtn');

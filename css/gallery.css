@@ -1,0 +1,799 @@
+/* ==========================================================================
+   AYROOR KATHAKALI GRAMAM — YEAR-WISE GALLERY ARCHIVE & PAGINATION LIGHTBOX
+   Design Aesthetic: Rich Kerala Temple Art Style (Deep Maroons, Gold Accents,
+   Ivory Parchment, and Clean Bilingual Typography).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO & VIEW SWITCHER
+   -------------------------------------------------------------------------- */
+.gallery-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(97, 21, 27, 0.45);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--temple-gold-light);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-hero-badge .badge-flame {
+  color: #ffb834;
+  filter: drop-shadow(0 0 6px rgba(255, 184, 52, 0.8));
+}
+
+/* --------------------------------------------------------------------------
+   2. STICKY YEAR NAVIGATION RAIL
+   -------------------------------------------------------------------------- */
+.gallery-sticky-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  background: rgba(14, 10, 9, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+}
+
+.gallery-sticky-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.gallery-year-stream {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 2px;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.35) transparent;
+}
+
+.gallery-year-stream::-webkit-scrollbar {
+  height: 4px;
+}
+.gallery-year-stream::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.35);
+  border-radius: 2px;
+}
+
+.gallery-year-pill {
+  background: rgba(37, 5, 8, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  color: var(--color-ivory-muted);
+  font-family: var(--font-temple-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gallery-year-pill:hover {
+  background: rgba(97, 21, 27, 0.5);
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+  transform: translateY(-1px);
+}
+
+.gallery-year-pill.is-active {
+  background: linear-gradient(135deg, #61151b 0%, #3a0a0f 100%);
+  border-color: var(--temple-gold);
+  color: var(--temple-gold-bright);
+  box-shadow: 0 0 14px rgba(197, 160, 89, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.gallery-view-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.gallery-back-albums-btn {
+  background: rgba(97, 21, 27, 0.3);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--temple-gold-light);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gallery-back-albums-btn:hover {
+  background: var(--temple-maroon);
+  color: var(--temple-ivory);
+  border-color: var(--temple-gold);
+}
+
+/* --------------------------------------------------------------------------
+   3. YEAR ALBUMS OVERVIEW GRID (VIEW 1)
+   -------------------------------------------------------------------------- */
+.gallery-section-container {
+  max-width: 1240px;
+  margin: 36px auto 70px;
+  padding: 0 24px;
+}
+
+.gallery-albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 28px;
+}
+
+.album-card {
+  background: linear-gradient(180deg, #181412 0%, #120e0d 100%);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.album-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--temple-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(197, 160, 89, 0.2);
+}
+
+.album-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #090908;
+}
+
+.album-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.album-card:hover .album-card-img {
+  transform: scale(1.06);
+}
+
+.album-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(9, 9, 8, 0.85) 100%);
+}
+
+.album-badge-year {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--temple-maroon);
+  color: var(--temple-gold-bright);
+  border: 1px solid var(--temple-gold);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-temple-heading);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.album-badge-count {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(14, 10, 9, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--temple-ivory);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.album-card-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.album-edition-kicker {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--temple-gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.album-card-title {
+  font-family: var(--font-temple-heading);
+  font-size: 1.22rem;
+  color: var(--temple-ivory);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.album-card-title-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.15rem;
+  color: var(--temple-ivory);
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+.album-card-meta {
+  font-size: 0.82rem;
+  color: var(--color-ivory-dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(197, 160, 89, 0.12);
+}
+
+.album-card-action {
+  color: var(--temple-gold-light);
+  font-size: 0.84rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.album-card:hover .album-card-action {
+  transform: translateX(4px);
+  color: var(--temple-gold-bright);
+}
+
+/* --------------------------------------------------------------------------
+   4. DETAIL PAGE PHOTO GRID (HEADINGS ONLY — NO DESCRIPTIONS)
+   -------------------------------------------------------------------------- */
+.gallery-detail-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.gallery-detail-title-wrap {
+  max-width: 800px;
+}
+
+.gallery-detail-year-tag {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--temple-gold);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.gallery-detail-heading {
+  font-family: var(--font-temple-heading);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  color: var(--temple-ivory);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.gallery-detail-heading-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  color: var(--temple-ivory);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.gallery-detail-venue {
+  font-size: 0.88rem;
+  color: var(--color-ivory-dim);
+  margin-top: 6px;
+}
+
+/* Photo Grid: Headings ONLY */
+.gallery-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.gallery-photo-card {
+  background: linear-gradient(180deg, #181412 0%, #120e0d 100%);
+  border: 1px solid rgba(197, 160, 89, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-photo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--temple-gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(197, 160, 89, 0.25);
+}
+
+.gallery-photo-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #090908;
+}
+
+.gallery-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-photo-card:hover .gallery-photo-img {
+  transform: scale(1.08);
+}
+
+.gallery-photo-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(97, 21, 27, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-photo-card:hover .gallery-photo-hover-overlay {
+  opacity: 1;
+}
+
+.gallery-photo-zoom-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(14, 10, 9, 0.85);
+  border: 1px solid var(--temple-gold);
+  color: var(--temple-gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transform: scale(0.85);
+  transition: transform 0.2s ease;
+}
+
+.gallery-photo-card:hover .gallery-photo-zoom-icon {
+  transform: scale(1);
+}
+
+/* Photo Card Body: HEADING ONLY (NO DESCRIPTIONS) */
+.gallery-photo-body {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #141110;
+  min-height: 56px;
+}
+
+.gallery-photo-title {
+  font-family: var(--font-temple-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+.gallery-photo-title-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+.gallery-photo-expand-badge {
+  color: var(--temple-gold);
+  font-size: 0.75rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.gallery-photo-card:hover .gallery-photo-expand-badge {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. SUPSYSTIC-STYLE GALLERY PAGINATION CONTROLS
+   -------------------------------------------------------------------------- */
+.supsystic-pagination-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 40px auto 20px;
+  padding: 16px;
+}
+
+.pagination-btn {
+  background: rgba(24, 20, 18, 0.85);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  color: var(--color-ivory-dim);
+  font-family: var(--font-temple-heading);
+  font-size: 0.86rem;
+  font-weight: 600;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: rgba(97, 21, 27, 0.5);
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+  transform: translateY(-1px);
+}
+
+.pagination-btn.is-active {
+  background: var(--temple-maroon);
+  border-color: var(--temple-gold);
+  color: var(--temple-gold-bright);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pagination-info-pill {
+  font-size: 0.78rem;
+  color: var(--color-ivory-dim);
+  margin-left: 12px;
+  padding: 6px 12px;
+  background: rgba(20, 17, 16, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   6. SUPSYSTIC-STYLE FULLSCREEN LIGHTBOX WITH THUMBNAIL PAGINATION
+   -------------------------------------------------------------------------- */
+.supsystic-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 4, 3, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.supsystic-lightbox-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Lightbox Top Control Bar */
+.lightbox-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(180deg, rgba(14, 10, 9, 0.95) 0%, rgba(14, 10, 9, 0) 100%);
+  z-index: 10;
+}
+
+.lightbox-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.lightbox-counter-badge {
+  background: var(--temple-maroon);
+  border: 1px solid var(--temple-gold);
+  color: var(--temple-gold-bright);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--font-temple-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lightbox-heading {
+  font-family: var(--font-temple-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.lightbox-heading-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lightbox-action-btn {
+  background: rgba(30, 24, 22, 0.7);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--temple-gold-light);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-action-btn:hover {
+  background: var(--temple-maroon);
+  color: #fff;
+  border-color: var(--temple-gold);
+  transform: scale(1.08);
+}
+
+.lightbox-close-btn {
+  background: rgba(97, 21, 27, 0.6);
+  border-color: var(--temple-gold);
+}
+
+/* Lightbox Stage (Central Image Display) */
+.lightbox-stage {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 60px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lightbox-img-wrap {
+  max-width: 90vw;
+  max-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lightbox-main-img {
+  max-width: 100%;
+  max-height: 72vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(197, 160, 89, 0.2);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lightbox-main-img.is-zoomed {
+  max-height: none;
+  max-width: 130vw;
+  cursor: grab;
+}
+
+/* Nav Arrows */
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(18, 14, 12, 0.8);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  color: var(--temple-gold-bright);
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--temple-maroon);
+  border-color: var(--temple-gold);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+.lightbox-prev-btn {
+  left: 20px;
+}
+
+.lightbox-next-btn {
+  right: 20px;
+}
+
+/* Lightbox Bottom Thumbnail Pagination Strip */
+.lightbox-bottom-strip {
+  background: linear-gradient(0deg, rgba(14, 10, 9, 0.98) 0%, rgba(14, 10, 9, 0) 100%);
+  padding: 12px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.lightbox-thumbs-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 90vw;
+  overflow-x: auto;
+  padding: 6px 12px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.35) transparent;
+}
+
+.lightbox-thumbs-container::-webkit-scrollbar {
+  height: 4px;
+}
+.lightbox-thumbs-container::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.35);
+  border-radius: 2px;
+}
+
+.lightbox-thumb-item {
+  width: 64px;
+  height: 48px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.55;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  background: #090908;
+}
+
+.lightbox-thumb-item:hover {
+  opacity: 0.9;
+  border-color: rgba(197, 160, 89, 0.6);
+  transform: translateY(-2px);
+}
+
+.lightbox-thumb-item.is-active {
+  opacity: 1;
+  border-color: var(--temple-gold);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.5);
+  transform: scale(1.06);
+}
+
+.lightbox-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE DESIGN ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .gallery-albums-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-photos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .lightbox-stage {
+    padding: 10px 20px;
+  }
+
+  .lightbox-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .lightbox-prev-btn { left: 8px; }
+  .lightbox-next-btn { right: 8px; }
+
+  .lightbox-thumb-item {
+    width: 52px;
+    height: 38px;
+  }
+}

@@ -103,7 +103,7 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-.lenis.lenis-smooth iframe {
+.lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
 
@@ -174,41 +174,60 @@ button {
   left: 0;
   width: 8px;
   height: 8px;
-  background-color: var(--color-gold);
+  margin-top: -4px;
+  margin-left: -4px;
+  background-color: var(--color-gold, #c5a059);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-primary), height 0.3s var(--ease-primary), background-color 0.3s var(--ease-primary), opacity 0.3s;
+  z-index: 99999;
   opacity: 0;
+  will-change: transform, opacity;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              opacity 0.2s ease;
 }
 
 .custom-cursor-follower {
   position: fixed;
   top: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  width: 34px;
+  height: 34px;
+  margin-top: -17px;
+  margin-left: -17px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-primary), height 0.3s var(--ease-primary), border-color 0.3s var(--ease-primary), opacity 0.3s;
+  z-index: 99998;
   opacity: 0;
+  will-change: transform, opacity;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              opacity 0.2s ease;
 }
 
-.custom-cursor.active {
+.custom-cursor.active,
+.custom-cursor.is-hovering {
   width: 12px;
   height: 12px;
-  background-color: var(--color-gold-light);
+  margin-top: -6px;
+  margin-left: -6px;
+  background-color: var(--color-gold-light, #dec07e);
 }
 
-.custom-cursor-follower.active {
-  width: 48px;
-  height: 48px;
-  border-color: var(--color-gold);
-  background-color: rgba(197, 160, 89, 0.05);
+.custom-cursor-follower.active,
+.custom-cursor-follower.is-hovering {
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-color: var(--color-gold, #c5a059);
+  background-color: rgba(197, 160, 89, 0.08);
 }
 
 @media (pointer: coarse), (prefers-reduced-motion: reduce) {
@@ -404,34 +423,10 @@ button {
 .nav-link {
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--color-ivory-muted);
   position: relative;
   padding: 0.35rem 0;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 1px;
-  background-color: var(--color-gold);
-  transition: width 0.3s var(--ease-primary);
-}
-
-.nav-link:hover, .nav-link:focus-visible, .nav-link.active {
-  color: var(--color-ivory);
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  color: var(--color-gold-light);
 }
 
 /* Language Selector */
@@ -3273,7 +3268,7 @@ button {
   border: 1px solid rgba(197, 160, 89, 0.35);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 18px rgba(197, 160, 89, 0.15);
   cursor: pointer;
-  z-index: 95;
+  z-index: 990;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -3286,7 +3281,8 @@ button {
               box-shadow 0.3s;
 }
 
-.floating-back-to-top.visible {
+.floating-back-to-top.visible,
+.floating-back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -4341,5 +4337,106 @@ button {
   .hero-scroll-indicator {
     display: none !important;
   }
+}
+
+/* ==========================================================================
+   STRICT DUAL-LANGUAGE SYSTEM (100% ENGLISH vs 100% MALAYALAM)
+   ========================================================================== */
+
+/* 1. When English is active (default or html[lang="en"]) */
+html[lang="en"] [data-lang="ml"],
+html[lang="en"] .only-ml,
+html[lang="en"] .explore-hero-title-ml,
+html[lang="en"] .explore-card-title-ml,
+html[lang="en"] .hero-headline-ml,
+html[lang="en"] .card-play-title-ml,
+html[lang="en"] .pill-play-ml,
+html:not([lang="ml"]) [data-lang="ml"],
+html:not([lang="ml"]) .only-ml,
+html:not([lang="ml"]) .explore-hero-title-ml,
+html:not([lang="ml"]) .explore-card-title-ml,
+html:not([lang="ml"]) .hero-headline-ml,
+html:not([lang="ml"]) .card-play-title-ml,
+html:not([lang="ml"]) .pill-play-ml {
+  display: none !important;
+}
+
+html[lang="en"] [data-lang="en"],
+html[lang="en"] .only-en,
+html[lang="en"] .explore-hero-title-en,
+html[lang="en"] .explore-card-title-en,
+html[lang="en"] .hero-headline-en,
+html[lang="en"] .card-play-title-en,
+html[lang="en"] .pill-play-en,
+html:not([lang="ml"]) [data-lang="en"],
+html:not([lang="ml"]) .only-en,
+html:not([lang="ml"]) .explore-hero-title-en,
+html:not([lang="ml"]) .explore-card-title-en,
+html:not([lang="ml"]) .hero-headline-en,
+html:not([lang="ml"]) .card-play-title-en,
+html:not([lang="ml"]) .pill-play-en {
+  display: inline-block;
+}
+
+/* 2. When Malayalam is active (html[lang="ml"]) */
+html[lang="ml"] [data-lang="en"],
+html[lang="ml"] .only-en,
+html[lang="ml"] .explore-hero-title-en,
+html[lang="ml"] .explore-card-title-en,
+html[lang="ml"] .hero-headline-en,
+html[lang="ml"] .card-play-title-en,
+html[lang="ml"] .pill-play-en {
+  display: none !important;
+}
+
+html[lang="ml"] [data-lang="ml"],
+html[lang="ml"] .only-ml,
+html[lang="ml"] .explore-hero-title-ml,
+html[lang="ml"] .explore-card-title-ml,
+html[lang="ml"] .hero-headline-ml,
+html[lang="ml"] .card-play-title-ml,
+html[lang="ml"] .pill-play-ml {
+  display: inline-block;
+}
+
+/* Block-level elements */
+html[lang="en"] div[data-lang="en"],
+html[lang="en"] p[data-lang="en"],
+html[lang="en"] h1[data-lang="en"],
+html[lang="en"] h2[data-lang="en"],
+html[lang="en"] h3[data-lang="en"],
+html[lang="en"] h4[data-lang="en"],
+html[lang="en"] h5[data-lang="en"],
+html[lang="en"] li[data-lang="en"],
+html[lang="en"] section[data-lang="en"],
+html[lang="en"] header[data-lang="en"],
+html:not([lang="ml"]) div[data-lang="en"],
+html:not([lang="ml"]) p[data-lang="en"],
+html:not([lang="ml"]) h1[data-lang="en"],
+html:not([lang="ml"]) h2[data-lang="en"],
+html:not([lang="ml"]) h3[data-lang="en"],
+html:not([lang="ml"]) h4[data-lang="en"],
+html:not([lang="ml"]) h5[data-lang="en"],
+html:not([lang="ml"]) li[data-lang="en"],
+html:not([lang="ml"]) section[data-lang="en"],
+html:not([lang="ml"]) header[data-lang="en"],
+html[lang="ml"] div[data-lang="ml"],
+html[lang="ml"] p[data-lang="ml"],
+html[lang="ml"] h1[data-lang="ml"],
+html[lang="ml"] h2[data-lang="ml"],
+html[lang="ml"] h3[data-lang="ml"],
+html[lang="ml"] h4[data-lang="ml"],
+html[lang="ml"] h5[data-lang="ml"],
+html[lang="ml"] li[data-lang="ml"],
+html[lang="ml"] section[data-lang="ml"],
+html[lang="ml"] header[data-lang="ml"] {
+  display: block;
+}
+
+/* Inline text spans */
+html[lang="en"] span[data-lang="en"],
+html:not([lang="ml"]) span[data-lang="en"],
+html[lang="ml"] span[data-lang="ml"] {
+  display: inline;
 }
 

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Media Coverage & Press Chronicles of Ayroor Kathakali Gramam — Newspaper articles, national coverage, and cultural chronicles documenting the heritage of Ayroor Kathakali Mela.">
+  <title>Media Coverage — Press Chronicles • Ayroor Kathakali Gramam</title>
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="assets/images/favicon-16x16.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.webp">
+  <meta name="theme-color" content="#020504">
+
+  <!-- Google Fonts: Cinzel, Cormorant Garamond, Noto Serif Malayalam, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & Heritage Design Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'heritage-bg': '#090908',
+            'heritage-bg-alt': '#11100e',
+            'heritage-surface': '#151310',
+            'heritage-surface-hover': '#1c1915',
+            'heritage-card': '#14120f',
+            'heritage-gold': '#c5a059',
+            'heritage-gold-light': '#dec07e',
+            'heritage-gold-dim': '#7d6435',
+            'heritage-maroon': '#752224',
+            'heritage-maroon-dark': '#4d1517',
+            'heritage-green': '#1f3d2b',
+            'heritage-green-accent': '#2e5c41',
+            'heritage-ivory': '#f5ede1',
+            'heritage-ivory-muted': '#b8aea0',
+            'heritage-ivory-dim': '#7a7266',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'Cormorant Garamond', 'Georgia', 'serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            body: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+            malayalam: ['Noto Serif Malayalam', 'Georgia', 'serif'],
+          },
+          screens: {
+            'xs': '320px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+            '3xl': '1920px',
+            '4k': '2560px',
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Local Tailwind Utilities & Reusable Design System Components -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navigation/navigation.css">
+  <link rel="stylesheet" href="css/explore.css">
+  <link rel="stylesheet" href="css/media.css">
+
+  <script>
+    (function() {
+      try {
+        var savedLang = localStorage.getItem('ayroor_lang');
+        if (savedLang === 'ml' || savedLang === 'en') {
+          document.documentElement.lang = savedLang;
+          document.documentElement.setAttribute('lang', savedLang);
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="common.skipToContent">Skip to main content</a>
+
+  <!-- Film grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Custom cursor elements -->
+  <div id="customCursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="customCursorFollower" class="custom-cursor-follower" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="siteHeader" class="site-header" role="banner">
+    <div class="header-container">
+      
+      <!-- Brand Identity (Left) -->
+      <a href="index.html" class="brand-link" aria-label="Ayroor Kathakali Gramam Home">
+        <img src="assets/images/ayroor-official-logo.webp" alt="Official Emblem of Ayroor Kathakali Gramam" class="brand-logo-img" width="42" height="50">
+        <div class="brand-text-wrap">
+          <span class="brand-title">AYROOR</span>
+          <span class="brand-sub">KATHAKALI GRAMAM</span>
+        </div>
+      </a>
+
+      <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+      <nav id="desktopNav" class="primary-nav" aria-label="Primary Navigation">
+        <!-- Rendered dynamically from NAV_CONFIG -->
+      </nav>
+
+      <!-- Header Actions (Right) -->
+      <div class="header-actions">
+        <!-- Bilingual Language Selector -->
+        <button id="langToggleBtn" class="lang-toggle-btn" type="button" aria-label="Switch Language between English and Malayalam">
+          <span class="lang-label-wrap"><span class="lang-active">EN</span> / <span>ML</span></span>
+        </button>
+
+        <!-- Signature Architectural Menu Button -->
+        <button id="archMenuBtn" class="arch-menu-btn" type="button" aria-expanded="false" aria-controls="archNavCanvas" aria-label="Open Architectural Navigation Menu">
+          <span class="arch-menu-btn-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="arch-menu-btn-text" data-arch-menu-text><span data-i18n="common.menu">MENU</span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Architectural Multi-Panel Navigation Canvas (Overlay) -->
+  <div id="archNavCanvas" class="arch-canvas" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Architectural Navigation System">
+    <aside id="archRail" class="arch-rail" aria-label="Cultural Identity Rail"></aside>
+    <main id="archNavPanel" class="arch-nav-panel" aria-label="Navigation Architecture"></main>
+    <aside id="archVisualPanel" class="arch-visual-panel" aria-label="Contextual Visual Showcase"></aside>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: MEDIA COVERAGE & PRESS CHRONICLES
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- Section 1: Hero Banner -->
+    <section class="media-hero" aria-labelledby="mediaHeroHeading">
+      <div class="explore-hero-glow" aria-hidden="true"></div>
+      <div class="media-hero-container">
+        
+        <!-- Breadcrumbs -->
+        <nav class="explore-breadcrumbs" aria-label="Breadcrumb Trail">
+          <a href="index.html"><span data-i18n="common.home">Home</span></a>
+          <span class="crumb-sep">/</span>
+          <a href="gallery.html"><span data-i18n="nav.media">Media & Archives</span></a>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current"><span data-i18n="nav.mediaCoverage">Media Coverage</span></span>
+        </nav>
+
+        <!-- Badge -->
+        <div class="media-hero-badge">
+          <span class="explore-badge-icon">✦</span>
+          <span data-i18n="media.heroBadge">PRESS ARCHIVES • NATIONAL & REGIONAL MEDIA</span>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <h1 id="mediaHeroHeading" class="explore-hero-title">
+          <span data-i18n="media.heroTitle">Media Coverage & Press Chronicles</span>
+        </h1>
+
+        <p class="explore-hero-lead" data-i18n="media.heroLead">
+          Extensive news reports, feature articles, and press chronicles documenting the cultural renaissance of Ayroor Kathakali Gramam, the annual Kathakali Mela, and state-level recognitions across national and Malayalam media.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Sticky Filter Bar & Keyword Search -->
+    <nav class="media-filter-bar" aria-label="Media Category Filters">
+      <div class="media-filter-container">
+        
+        <!-- Filter Pills -->
+        <div class="media-filter-pills" role="toolbar" aria-label="Filter news by category">
+          <button type="button" class="media-pill-btn is-active" data-media-filter="all">
+            <span data-i18n="media.filterAll">All News Articles</span>
+          </button>
+          <button type="button" class="media-pill-btn" data-media-filter="national">
+            <span data-i18n="media.filterNational">National Press</span>
+          </button>
+          <button type="button" class="media-pill-btn" data-media-filter="regional">
+            <span data-i18n="media.filterRegional">Regional Dailies</span>
+          </button>
+          <button type="button" class="media-pill-btn" data-media-filter="honors">
+            <span data-i18n="media.filterHonors">State Honors & Mela</span>
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="media-search-wrap">
+          <span class="media-search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="mediaSearchInput" class="media-search-input" placeholder="Search news, topics..." aria-label="Search media articles">
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Section 3: Articles Grid -->
+    <section class="media-grid-section" aria-label="Press Articles Grid">
+      
+      <!-- Stats / Counter bar -->
+      <div class="media-stats-bar">
+        <span><strong id="mediaCountDisplay">15 / 15</strong> <span data-i18n="media.articlesCount">Press Articles & Clippings</span></span>
+        <span class="hidden sm:inline" data-i18n="media.zoomHint">Click to open full high-resolution newspaper clipping</span>
+      </div>
+
+      <!-- Dynamic Cards Grid -->
+      <div id="mediaGrid" class="media-grid">
+        <!-- Rendered dynamically by js/media.js -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FULLSCREEN LIGHTBOX MODAL (Fancybox / Supsystic Style)
+       ========================================================================== -->
+  <div id="mediaLightbox" class="media-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="mediaLightboxTitle">
+    
+    <!-- Top Header Bar -->
+    <div class="media-lightbox-header">
+      <div class="media-lightbox-meta">
+        <span id="mediaLightboxBadge" class="media-lightbox-badge">The New Indian Express</span>
+        <h3 id="mediaLightboxTitle" class="media-lightbox-title">Article Headline</h3>
+      </div>
+      <div class="media-lightbox-controls">
+        <span id="mediaLightboxCounter" style="color: var(--arch-ivory-dim); font-size: 0.85rem; margin-right: 8px;">1 / 15</span>
+        <button type="button" id="mediaLightboxZoom" class="media-ctrl-btn" title="Toggle Zoom" aria-label="Toggle Zoom">🔍</button>
+        <button type="button" id="mediaLightboxFull" class="media-ctrl-btn" title="Fullscreen" aria-label="Toggle Fullscreen">⛶</button>
+        <button type="button" id="mediaLightboxClose" class="media-ctrl-btn" title="Close" aria-label="Close Lightbox">✕</button>
+      </div>
+    </div>
+
+    <!-- Center Stage with Image & Nav Arrows -->
+    <div class="media-lightbox-body">
+      <button type="button" id="mediaLightboxPrev" class="media-nav-arrow media-nav-prev" aria-label="Previous Article">‹</button>
+      <div id="mediaLightboxImgWrap" class="media-lightbox-img-wrap">
+        <img id="mediaLightboxImg" src="" alt="Full Newspaper Clipping" class="media-lightbox-img">
+      </div>
+      <button type="button" id="mediaLightboxNext" class="media-nav-arrow media-nav-next" aria-label="Next Article">›</button>
+    </div>
+
+    <!-- Bottom Thumbnail Strip -->
+    <div id="mediaLightboxStrip" class="media-lightbox-strip" role="toolbar" aria-label="Thumbnails" data-lenis-prevent>
+      <!-- Rendered dynamically by js/media.js -->
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      
+      <!-- Brand & Mission Column -->
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/images/ayroor-official-logo.webp" alt="Ayroor Kathakali Gramam Logo" class="footer-brand-logo" width="44" height="52">
+            <div class="brand-text-wrap">
+              <div class="footer-brand-title">AYROOR</div>
+              <div class="footer-brand-sub" data-i18n="gallery.kathakaliGramam">KATHAKALI GRAMAM</div>
+            </div>
+          </div>
+          <p class="footer-brand-desc" data-i18n="common.footerBrandDesc">
+            The cultural sanctuary of classical Kerala dance-theatre on the serene banks of the river Pamba. Home to the District Kathakali Club and the annual Kathakali Mela.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="footer-bottom-copy">
+          &copy; 2026 Ayroor Kathakali Gramam. All Rights Reserved. Preserving living temple traditions with cultural dignity.
+        </p>
+        <div class="footer-bottom-social" aria-label="Social Media Links">
+          <a href="https://www.youtube.com/watch?v=nwiLwsgicno" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.instagram.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/ayroorkathakaligramam" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/ayroorkathakali" target="_blank" rel="noopener noreferrer" class="footer-bottom-social-link" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X</span>
+          </a>
+        </div>
+        <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top of page">
+          <span data-i18n="common.backToTop">BACK TO TOP</span>
+          <span class="back-to-top-icon" aria-hidden="true">↑</span>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button with Circular Scroll Progress Ring -->
+  <button id="floatingBackToTop" class="floating-back-to-top" aria-label="Back to top of page" title="Back to top">
+    <svg class="btt-progress-ring" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="progress-ring-track" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+      <circle class="progress-ring-indicator" cx="26" cy="26" r="23" fill="none" stroke-width="2.5" />
+    </svg>
+    <span class="btt-arrow" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </span>
+    <span class="btt-tooltip">
+      <span data-i18n="common.backToTop">Back to Top</span>
+    </span>
+  </button>
+
+  <!-- Animation & Smooth Scroll Engines: GSAP, ScrollTrigger & Lenis (Local Vendor) -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="js/motion.js"></script>
+
+  <!-- Localization & Internationalization (en, ml) -->
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/ml.js"></script>
+  <script src="js/i18n.js"></script>
+
+  <!-- Architectural Navigation Architecture -->
+  <script src="navigation/navigation-config.js"></script>
+  <script src="navigation/navigation.js"></script>
+
+  <!-- Application Configuration & Media Controller -->
+  <script src="config.js"></script>
+  <script src="js/media.js"></script>
+</body>
+</html>

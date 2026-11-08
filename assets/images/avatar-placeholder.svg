@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1a14"/>
+      <stop offset="50%" stop-color="#14110d"/>
+      <stop offset="100%" stop-color="#0c0a08"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#c5a059" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#c5a059" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dec07e"/>
+      <stop offset="50%" stop-color="#c5a059"/>
+      <stop offset="100%" stop-color="#7a5c28"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Base Circle Background -->
+  <circle cx="100" cy="100" r="98" fill="url(#bgGrad)" stroke="url(#goldBorder)" stroke-width="2"/>
+  <circle cx="100" cy="100" r="92" fill="url(#goldGlow)"/>
+  
+  <!-- Inner Ornamental Dashed Ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#c5a059" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+  
+  <!-- Head Silhouette -->
+  <circle cx="100" cy="74" r="32" fill="#dec07e" opacity="0.85"/>
+  
+  <!-- Shoulders & Torso Silhouette -->
+  <path d="M42 165 C42 128, 68 116, 100 116 C132 116, 158 128, 158 165 C158 172, 140 182, 100 182 C60 182, 42 172, 42 165 Z" fill="#dec07e" opacity="0.85"/>
+  
+  <!-- Subtle Kathakali Tilak / Third-Eye Mark Accent -->
+  <path d="M100 52 C98 56, 98 62, 100 66 C102 62, 102 56, 100 52 Z" fill="#61151b" opacity="0.9"/>
+  <circle cx="100" cy="68" r="1.8" fill="#dec07e"/>
+</svg>

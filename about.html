@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Ayroor Kathakali Gramam — India's first village officially named after a classical art form, located on the sacred banks of River Pamba in Pathanamthitta, Kerala."
+    />
+    <title>About Us — History & Custodians • Ayroor Kathakali Gramam</title>
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/webp"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.webp"
+    />
+    <link
+      rel="icon"
+      type="image/webp"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.webp"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-touch-icon.webp"
+    />
+    <meta name="theme-color" content="#020504" />
+
+    <!-- Google Fonts: Cinzel, Cormorant Garamond, Noto Serif Malayalam, Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS & Heritage Design Tokens -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "heritage-bg": "#090908",
+              "heritage-bg-alt": "#11100e",
+              "heritage-surface": "#151310",
+              "heritage-surface-hover": "#1c1915",
+              "heritage-card": "#14120f",
+              "heritage-gold": "#c5a059",
+              "heritage-gold-light": "#dec07e",
+              "heritage-gold-dim": "#7d6435",
+              "heritage-maroon": "#752224",
+              "heritage-maroon-dark": "#4d1517",
+              "heritage-green": "#1f3d2b",
+              "heritage-green-accent": "#2e5c41",
+              "heritage-ivory": "#f5ede1",
+              "heritage-ivory-muted": "#b8aea0",
+              "heritage-ivory-dim": "#7a7266",
+            },
+            fontFamily: {
+              display: ["Cinzel", "Cormorant Garamond", "Georgia", "serif"],
+              serif: ["Cormorant Garamond", "Georgia", "serif"],
+              body: [
+                "Plus Jakarta Sans",
+                "system-ui",
+                "-apple-system",
+                "sans-serif",
+              ],
+              malayalam: ["Noto Serif Malayalam", "Georgia", "serif"],
+            },
+            screens: {
+              xs: "320px",
+              sm: "640px",
+              md: "768px",
+              lg: "1024px",
+              xl: "1280px",
+              "2xl": "1536px",
+              "3xl": "1920px",
+              "4k": "2560px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Local Tailwind Utilities & Reusable Design System Components -->
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="navigation/navigation.css" />
+    <link rel="stylesheet" href="css/explore.css" />
+  </head>
+  <body>
+    <!-- Skip link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link" data-i18n="common.skipToContent"
+      >Skip to main content</a
+    >
+
+    <!-- Film grain texture overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Custom cursor elements -->
+    <div id="customCursor" class="custom-cursor" aria-hidden="true"></div>
+    <div
+      id="customCursorFollower"
+      class="custom-cursor-follower"
+      aria-hidden="true"
+    ></div>
+
+    <!-- ==========================================================================
+       ARCHITECTURAL HEADER & NAVIGATION
+       ========================================================================== -->
+    <header id="siteHeader" class="site-header" role="banner">
+      <div class="header-container">
+        <!-- Brand Identity (Left) -->
+        <a
+          href="index.html"
+          class="brand-link"
+          aria-label="Ayroor Kathakali Gramam Home"
+        >
+          <img
+            src="assets/images/ayroor-official-logo.webp"
+            alt="Official Emblem of Ayroor Kathakali Gramam"
+            class="brand-logo-img"
+            width="42"
+            height="50"
+          />
+          <div class="brand-text-wrap">
+            <span class="brand-title">AYROOR</span>
+            <span class="brand-sub">KATHAKALI GRAMAM</span>
+          </div>
+        </a>
+
+        <!-- Primary Desktop Navigation (Centre - Populated via NAV_CONFIG in navigation.js) -->
+        <nav
+          id="desktopNav"
+          class="primary-nav"
+          aria-label="Primary Navigation"
+        >
+          <!-- Rendered dynamically from NAV_CONFIG -->
+        </nav>
+
+        <!-- Header Actions (Right) -->
+        <div class="header-actions">
+          <!-- Bilingual Language Selector -->
+          <button
+            id="langToggleBtn"
+            class="lang-toggle-btn"
+            type="button"
+            aria-label="Switch Language between English and Malayalam"
+          >
+            <span class="lang-label-wrap"
+              ><span class="lang-active">EN</span> / <span>ML</span></span
+            >
+          </button>
+
+          <!-- Signature Architectural Menu Button -->
+          <button
+            id="archMenuBtn"
+            class="arch-menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="archNavCanvas"
+            aria-label="Open Architectural Navigation Menu"
+          >
+            <span class="arch-menu-btn-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="arch-menu-btn-text" data-arch-menu-text
+              ><span data-i18n="common.menu">MENU</span></span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Architectural Multi-Panel Navigation Canvas (Overlay) -->
+    <div
+      id="archNavCanvas"
+      class="arch-canvas"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Architectural Navigation System"
+    >
+      <aside
+        id="archRail"
+        class="arch-rail"
+        aria-label="Cultural Identity Rail"
+      ></aside>
+      <main
+        id="archNavPanel"
+        class="arch-nav-panel"
+        aria-label="Navigation Architecture"
+      ></main>
+      <aside
+        id="archVisualPanel"
+        class="arch-visual-panel"
+        aria-label="Contextual Visual Showcase"
+      ></aside>
+    </div>
+
+    <!-- ==========================================================================
+       MAIN CONTENT: ABOUT US
+       ========================================================================== -->
+    <main id="main-content">
+      <!-- Section 1: Hero Banner -->
+      <section class="explore-hero" aria-labelledby="aboutHeroHeading">
+        <div class="explore-hero-glow" aria-hidden="true"></div>
+        <div class="explore-hero-container">
+          <!-- Breadcrumbs -->
+          <nav class="explore-breadcrumbs" aria-label="Breadcrumb Trail">
+            <a href="index.html" data-i18n="common.home">Home</a>
+            <span class="crumb-sep">/</span>
+            <span data-i18n="nav.organization">Organization</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-current" data-i18n="nav.aboutUs">About Us</span>
+          </nav>
+
+          <!-- Badge -->
+          <div class="explore-badge">
+            <span class="explore-badge-icon">✦</span>
+            <span data-i18n="about.heroBadge"
+              >HISTORIC DESIGNATION • INDIA'S FIRST ART VILLAGE</span
+            >
+          </div>
+
+          <!-- Title & Subtitle -->
+          <h1
+            id="aboutHeroHeading"
+            class="explore-hero-title"
+            data-i18n="about.heroTitle"
+          >
+            The Heritage of Ayroor Kathakali Gramam
+          </h1>
+
+          <p class="explore-hero-lead" data-i18n="about.heroLead">
+            Nestled on the serene, sacred banks of River Pamba in Pathanamthitta
+            district, Central Kerala, Ayroor holds the singular distinction of
+            being the first village in India officially named after a classical
+            performing art form. With over 70% of its populace versed in
+            Kathakali literacy, this riverside sanctuary preserves an unbroken,
+            living continuum of temple theatre tradition.
+          </p>
+
+          <!-- Quick Navigation Anchor Links -->
+          <nav class="explore-nav-pills" aria-label="About Page Subsections">
+            <a href="#history" class="explore-nav-pill is-active">
+              <span class="explore-nav-pill-idx">01</span>
+              <span
+                ><span data-i18n="about.villageHistory"
+                  >Village History</span
+                ></span
+              >
+            </a>
+            <a href="#literacy" class="explore-nav-pill">
+              <span class="explore-nav-pill-idx">02</span>
+              <span
+                ><span data-i18n="about.kathakaliLiteracy"
+                  >Kathakali Literacy</span
+                ></span
+              >
+            </a>
+            <a href="#office-bearers" class="explore-nav-pill">
+              <span class="explore-nav-pill-idx">03</span>
+              <span
+                ><span data-i18n="nav.officeBearers">Office Bearers</span></span
+              >
+            </a>
+            <a href="#centre" class="explore-nav-pill">
+              <span class="explore-nav-pill-idx">04</span>
+              <span
+                ><span data-i18n="about.natyabharathiCentre"
+                  >Natyabharathi Centre</span
+                ></span
+              >
+            </a>
+            <a href="#institutions" class="explore-nav-pill">
+              <span class="explore-nav-pill-idx">05</span>
+              <span
+                ><span data-i18n="about.institutionsWings"
+                  >Institutions & Wings</span
+                ></span
+              >
+            </a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Section 2: Historic Renaming & Village Origins -->
+      <section
+        id="history"
+        class="content-section"
+        aria-labelledby="historyHeading"
+      >
+        <div class="section-container">
+          <div class="about-grid">
+            <div class="about-text-col">
+              <header class="section-header-minimal">
+                <span class="section-overline">
+                  <span data-i18n="about.communityMovementOfficialSanction"
+                    >COMMUNITY MOVEMENT & OFFICIAL SANCTION</span
+                  >
+                </span>
+                <h2 id="historyHeading" class="section-title">
+                  <span data-i18n="about.theJourneyToKathakaliGramam"
+                    >The Journey to Kathakali Gramam</span
+                  >
+                </h2>
+              </header>
+
+              <p
+                class="about-lead"
+                data-i18n="about.theTransformationOfAyroorIntoA"
+              >
+                The transformation of Ayroor into a global cultural landmark was
+                not an overnight government decree, but a grassroots renaissance
+                spearheaded by connoisseurs, teachers, and villagers spanning
+                over three decades.
+              </p>
+
+              <p
+                class="about-body"
+                data-i18n="about.theMovementTookFormalRootIn"
+              >
+                The movement took formal root in <strong>1987</strong> with the
+                establishment of the Kathakali Appreciation Forum, which
+                subsequently expanded into the
+                <strong>Pathanamthitta District Kathakali Club in 1995</strong>.
+                Following a decade of sustained cultural activism and
+                legislative resolutions, the village received formal approval
+                from the Union Ministry of Home Affairs and the Surveyor General
+                of India, renaming the revenue village as
+                <strong>Ayroor Kathakali Gramam</strong>.
+              </p>
+
+              <div class="about-points">
+                <div class="about-point-item">
+                  <h3 class="about-point-title">
+                    <span data-i18n="about.appreciationForum"
+                      >1987 Appreciation Forum</span
+                    >
+                  </h3>
+                  <p
+                    class="about-point-desc"
+                    data-i18n="about.conceivedByVillageEldersAndTeachers"
+                  >
+                    Conceived by village elders and teachers to make classical
+                    Kathakali accessible to everyday citizens and school
+                    children.
+                  </p>
+                </div>
+                <div class="about-point-item">
+                  <h3 class="about-point-title">
+                    <span data-i18n="about.nationalRecognition"
+                      >National Recognition</span
+                    >
+                  </h3>
+                  <p
+                    class="about-point-desc"
+                    data-i18n="about.officialRevenueGazetteRecognitionMa"
+                  >
+                    Official revenue gazette recognition making it India's only
+                    village formally carrying a classical art form in its
+                    geographical name.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-visual-frame">
+              <img
+                src="assets/images/imgs/watermark-removed-k2.webp"
+                alt="Ayroor Kathakali Gramam on the sacred banks of River Pamba"
+                loading="lazy"
+                width="1200"
+                height="750"
+              />
+              <div class="about-caption">
+                Sacred River Pamba • Sandbank Cradle of Kathakali
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Extraordinary Kathakali Literacy -->
+      <section
+        id="literacy"
+        class="content-section section-dark"
+        aria-labelledby="literacyHeading"
+      >
+        <div class="section-container">
+          <header
+            class="section-header-minimal"
+            style="max-width: 800px; margin-bottom: 48px"
+          >
+            <span class="section-overline"
+              >CULTURAL PEDAGOGY • UNIQUE SOCIAL CONSCIOUSNESS</span
+            >
+            <h2 id="literacyHeading" class="section-title">
+              70% Kathakali Literacy Rate
+            </h2>
+            <p class="section-lead-minimal">
+              In Ayroor, Kathakali is not a bourgeois museum relic; it is an
+              everyday language understood across generations, farmers,
+              schoolteachers, and children alike.
+            </p>
+          </header>
+
+          <div class="explore-reference-grid" style="margin-top: 0">
+            <div class="reference-card">
+              <div class="reference-card-num">01</div>
+              <h3
+                class="reference-card-title"
+                data-i18n="about.schoolKalariClubsTitle"
+              >
+                School Kalari Clubs
+              </h3>
+              <p
+                class="reference-card-text"
+                data-i18n="about.schoolKalariClubsDesc"
+              >
+                Every educational institution across the village incorporates
+                Kathakali clubs where students are initiated into hand gestures
+                (Mudras), eye movements (Netra Abhinaya), and basic rhythm talas
+                from primary grades.
+              </p>
+            </div>
+
+            <div class="reference-card">
+              <div class="reference-card-num">02</div>
+              <h3
+                class="reference-card-title"
+                data-i18n="about.communityConnoisseurshipTitle"
+              >
+                Community Connoisseurship
+              </h3>
+              <p
+                class="reference-card-text"
+                data-i18n="about.communityConnoisseurshipDesc"
+              >
+                Over 70% of the local population can distinguish between
+                classical Aattakathas, decipher Sanskrit and Malayalam verses,
+                and evaluate subtle differences between Paccha and Kathi
+                performances without printed guides.
+              </p>
+            </div>
+
+            <div class="reference-card">
+              <div class="reference-card-num">03</div>
+              <h3
+                class="reference-card-title"
+                data-i18n="about.innovativeProductionsTitle"
+              >
+                Innovative Productions
+              </h3>
+              <p class="reference-card-text">
+                <span data-i18n="about.theGramamHasGainedWorldwideAcclaim"
+                  >The Gramam has gained worldwide acclaim for pioneering
+                  inclusive adaptations, staging biblical parables such as
+                  <em>The Prodigal Son</em> and world classics like
+                  <em>Don Quixote</em> in classical Kathakali format.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Office Bearers & Apex Leadership -->
+      <section
+        id="office-bearers"
+        class="content-section"
+        aria-labelledby="officeHeading"
+      >
+        <div class="section-container">
+          <header class="section-header-minimal" style="margin-bottom: 48px">
+            <span class="section-overline">
+              <span data-i18n="about.pathanamthittaDistrictKathakaliClub"
+                >PATHANAMTHITTA DISTRICT KATHAKALI CLUB & NATYABHARATHI</span
+              >
+            </span>
+            <h2 id="officeHeading" class="section-title">
+              <span data-i18n="about.apexOfficeBearersCustodians"
+                >Apex Office Bearers & Custodians</span
+              >
+            </h2>
+            <p
+              class="section-lead-minimal"
+              data-i18n="about.theVisionaryTrusteesCulturalPatrons"
+            >
+              The visionary trustees, cultural patrons, and master coordinators
+              who steer the village mission, manage the annual festival, and
+              nurture the traditional kalari institutions.
+            </p>
+          </header>
+
+          <div class="explore-grid">
+            <!-- 1. President: T. Prasad Kailath -->
+            <article class="explore-card leader-card">
+              <div class="explore-card-media leader-media-frame">
+                <img
+                  src="assets/images/avatar-placeholder.svg"
+                  alt="T Prasad Kailath Avatar"
+                  class="leader-avatar-img"
+                  loading="lazy"
+                />
+                <span class="explore-card-badge">
+                  <span data-i18n="about.president">PRESIDENT</span>
+                </span>
+              </div>
+              <div class="explore-card-body">
+                <span class="explore-card-kicker">
+                  <span data-i18n="about.executiveLeadership"
+                    >EXECUTIVE LEADERSHIP</span
+                  >
+                </span>
+                <h3 class="explore-card-title">
+                  <span data-i18n="about.bearer1Name">T. Prasad Kailath</span>
+                </h3>
+                <div class="explore-card-meaning">
+                  <span data-i18n="about.presidentPathanamthittaKathakaliClu"
+                    >President • Pathanamthitta Kathakali Club</span
+                  >
+                </div>
+                <div class="leader-info-row leader-org-line">
+                  <span class="leader-info-icon">🏛️</span>
+                  <span>Pathanamthitta District Kathakali Club</span>
+                </div>
+                <div class="leader-info-row leader-location-line">
+                  <span class="leader-info-icon">📍</span>
+                  <span
+                    >Ayroor Kathakali Gramam, Pathanamthitta (Dist),
+                    Kerala</span
+                  >
+                </div>
+                <p class="explore-card-desc">
+                  <span data-i18n="about.leadingTheApexGoverningCouncilPresi"
+                    >Leading the apex governing council, presiding over club
+                    conventions, guiding cultural policy, and spearheading
+                    heritage development.</span
+                  >
+                </p>
+                <div class="leader-contact-wrap">
+                  <a
+                    href="tel:+91944653882"
+                    class="leader-phone-link"
+                    aria-label="Call T Prasad Kailath"
+                  >
+                    <svg
+                      class="leader-phone-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                    <span>+91 944653882</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Working President: Johnson Mathew -->
+            <article class="explore-card leader-card">
+              <div class="explore-card-media leader-media-frame">
+                <img
+                  src="assets/images/avatar-placeholder.svg"
+                  alt="Johnson Mathew Avatar"
+                  class="leader-avatar-img"
+                  loading="lazy"
+                />
+                <span class="explore-card-badge">
+                  <span data-i18n="about.workingPresident"
+                    >WORKING PRESIDENT</span
+                  >
+                </span>
+              </div>
+              <div class="explore-card-body">
+                <span class="explore-card-kicker">
+                  <span data-i18n="about.operationalPresidency"
+                    >OPERATIONAL PRESIDENCY</span
+                  >
+                </span>
+                <h3 class="explore-card-title">
+                  <span data-i18n="about.bearer2Name">Johnson Mathew</span>
+                </h3>
+                <div class="explore-card-meaning">
+                  <span data-i18n="about.workingPresidentPathanamthittaKatha"
+                    >Working President • Pathanamthitta Kathakali Club</span
+                  >
+                </div>
+                <div class="leader-info-row leader-org-line">
+                  <span class="leader-info-icon">🏛️</span>
+                  <span>Pathanamthitta District Kathakali Club</span>
+                </div>
+                <div class="leader-info-row leader-location-line">
+                  <span class="leader-info-icon">📍</span>
+                  <span
+                    >Ayroor Kathakali Gramam, Pathanamthitta (Dist),
+                    Kerala</span
+                  >
+                </div>
+                <p class="explore-card-desc">
+                  <span data-i18n="about.supervisingOperationalExecutionOfTh"
+                    >Supervising operational execution of the annual festival,
+                    volunteer mobilisation, and sandbed amphitheater
+                    infrastructure on River Pamba.</span
+                  >
+                </p>
+                <div class="leader-contact-wrap">
+                  <a
+                    href="tel:+919446950979"
+                    class="leader-phone-link"
+                    aria-label="Call Johnson Mathew"
+                  >
+                    <svg
+                      class="leader-phone-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                    <span>+91 9446950979</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Secretary & General Convener: Dr. B. Udayanan -->
+            <article class="explore-card leader-card">
+              <div class="explore-card-media leader-media-frame">
+                <img
+                  src="assets/images/avatar-placeholder.svg"
+                  alt="Dr B Udayanan Avatar"
+                  class="leader-avatar-img"
+                  loading="lazy"
+                />
+                <span class="explore-card-badge">
+                  <span data-i18n="about.secretaryGenConvener"
+                    >SECRETARY & GEN. CONVENER</span
+                  >
+                </span>
+              </div>
+              <div class="explore-card-body">
+                <span class="explore-card-kicker">
+                  <span data-i18n="about.chiefCoordination"
+                    >CHIEF COORDINATION</span
+                  >
+                </span>
+                <h3 class="explore-card-title">
+                  <span data-i18n="about.bearer3Name">Dr. B. Udayanan</span>
+                </h3>
+                <div class="explore-card-meaning">
+                  <span data-i18n="about.secretaryGeneralConvenerPathanamthi"
+                    >Secretary & General Convener • Pathanamthitta Kathakali
+                    Club</span
+                  >
+                </div>
+                <div class="leader-info-row leader-org-line">
+                  <span class="leader-info-icon">🏛️</span>
+                  <span>Pathanamthitta District Kathakali Club</span>
+                </div>
+                <div class="leader-info-row leader-location-line">
+                  <span class="leader-info-icon">📍</span>
+                  <span
+                    >Ayroor Kathakali Gramam, Pathanamthitta (Dist),
+                    Kerala</span
+                  >
+                </div>
+                <p class="explore-card-desc">
+                  <span data-i18n="about.theAdministrativeLinchpinOrchestrat"
+                    >The administrative linchpin orchestrating festival
+                    schedules, academic symposiums, national Kathakali troupe
+                    bookings, and official communications.</span
+                  >
+                </p>
+                <div class="leader-contact-wrap">
+                  <a
+                    href="tel:+919446538553"
+                    class="leader-phone-link"
+                    aria-label="Call Dr B Udayanan"
+                  >
+                    <svg
+                      class="leader-phone-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                    <span>+91 9446538553</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Treasurer: G. Jayaram -->
+            <article class="explore-card leader-card">
+              <div class="explore-card-media leader-media-frame">
+                <img
+                  src="assets/images/avatar-placeholder.svg"
+                  alt="G Jayaram Avatar"
+                  class="leader-avatar-img"
+                  loading="lazy"
+                />
+                <span class="explore-card-badge">
+                  <span data-i18n="about.treasurer">TREASURER</span>
+                </span>
+              </div>
+              <div class="explore-card-body">
+                <span class="explore-card-kicker">
+                  <span data-i18n="about.financialGovernance"
+                    >FINANCIAL GOVERNANCE</span
+                  >
+                </span>
+                <h3 class="explore-card-title">
+                  <span data-i18n="about.bearer4Name">G. Jayaram</span>
+                </h3>
+                <div class="explore-card-meaning">
+                  <span data-i18n="about.treasurerPathanamthittaKathakaliClu"
+                    >Treasurer • Pathanamthitta Kathakali Club</span
+                  >
+                </div>
+                <div class="leader-info-row leader-org-line">
+                  <span class="leader-info-icon">🏛️</span>
+                  <span>Pathanamthitta District Kathakali Club</span>
+                </div>
+                <div class="leader-info-row leader-location-line">
+                  <span class="leader-info-icon">📍</span>
+                  <span
+                    >Ayroor Kathakali Gramam, Pathanamthitta (Dist),
+                    Kerala</span
+                  >
+                </div>
+                <p class="explore-card-desc">
+                  <span data-i18n="about.managingTrustEndowmentsFestivalAcco"
+                    >Managing trust endowments, festival accounts, patron
+                    donations, and pedagogical scholarships for young Kathakali
+                    students.</span
+                  >
+                </p>
+                <div class="leader-contact-wrap">
+                  <a
+                    href="tel:+919495725701"
+                    class="leader-phone-link"
+                    aria-label="Call G Jayaram"
+                  >
+                    <svg
+                      class="leader-phone-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                    <span>+91 9495725701</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Organizer: Dilip Kumar -->
+            <article class="explore-card leader-card">
+              <div class="explore-card-media leader-media-frame">
+                <img
+                  src="assets/images/avatar-placeholder.svg"
+                  alt="Dilip Kumar Avatar"
+                  class="leader-avatar-img"
+                  loading="lazy"
+                />
+                <span class="explore-card-badge">
+                  <span data-i18n="about.organizer">ORGANIZER</span>
+                </span>
+              </div>
+              <div class="explore-card-body">
+                <span class="explore-card-kicker">
+                  <span data-i18n="about.eventOperations"
+                    >EVENT OPERATIONS</span
+                  >
+                </span>
+                <h3 class="explore-card-title">
+                  <span data-i18n="about.bearer5Name">Dilip Kumar</span>
+                </h3>
+                <div class="explore-card-meaning">
+                  <span data-i18n="about.organizerPathanamthittaKathakaliClu"
+                    >Organizer • Pathanamthitta Kathakali Club</span
+                  >
+                </div>
+                <div class="leader-info-row leader-org-line">
+                  <span class="leader-info-icon">🏛️</span>
+                  <span>Pathanamthitta District Kathakali Club</span>
+                </div>
+                <div class="leader-info-row leader-location-line">
+                  <span class="leader-info-icon">📍</span>
+                  <span
+                    >Ayroor Kathakali Gramam, Pathanamthitta (Dist),
+                    Kerala</span
+                  >
+                </div>
+                <p class="explore-card-desc">
+                  <span data-i18n="about.managingStagecraftLogisticsAcoustic"
+                    >Managing stagecraft logistics, acoustics, floodlighting on
+                    the riverbanks, volunteer squads, and hospitality
+                    arrangements for visiting artists.</span
+                  >
+                </p>
+                <div class="leader-contact-wrap">
+                  <a
+                    href="tel:+919846727132"
+                    class="leader-phone-link"
+                    aria-label="Call Dilip Kumar"
+                  >
+                    <svg
+                      class="leader-phone-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
+                    </svg>
+                    <span>+91 9846727132</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Steering Committee & Permanent Patrons Summary Box -->
+          <div
+            class="steering-committee-box"
+            style="
+              margin-top: 48px;
+              padding: 28px 32px;
+              background: rgba(18, 16, 13, 0.7);
+              border: 1px solid rgba(197, 160, 89, 0.22);
+              border-radius: 4px;
+            "
+          >
+            <div class="explore-badge" style="margin-bottom: 12px">
+              <span class="explore-badge-icon">✦</span>
+              <span data-i18n="about.steeringCommitteePermanentPatrons"
+                >STEERING COMMITTEE & PERMANENT PATRONS</span
+              >
+            </div>
+            <h3
+              style="
+                font-family: var(--font-display, &quot;Cinzel&quot;, serif);
+                font-size: 1.25rem;
+                color: var(--color-ivory, #f5ede1);
+                margin-bottom: 12px;
+              "
+            >
+              <span data-i18n="about.apexAdvisoryBoardSteeringCommittee"
+                >Apex Advisory Board & Steering Committee</span
+              >
+            </h3>
+            <p
+              style="
+                font-family: var(
+                  --font-serif,
+                  &quot;Cormorant Garamond&quot;,
+                  serif
+                );
+                font-size: 1.05rem;
+                color: var(--color-ivory-muted, #b8aea0);
+                line-height: 1.6;
+                margin-bottom: 14px;
+              "
+              data-i18n="about.permanentPatronsAdvTNUpendra"
+            >
+              <strong>Permanent Patrons:</strong> Adv. T. N. Upendra Natha
+              Kurup, V. N. Unni, and P. S. Nair.<br />
+              <strong>Steering Committee:</strong> Johnson Mathew, Prof. Maloor
+              Muraleedharan, Dr. B. Udayanan, P. P. Ramachandran Pillai, N. R.
+              Sivadas, Dinil Divakar, R. Hemkumar, M. S. Sanal Kumaran Potti, N.
+              G. Reghu Anandan Nair, P. S. Vijayan, and Suresh Kaniparambil.
+            </p>
+            <div
+              style="
+                font-size: 0.82rem;
+                color: var(--color-gold-dim, #7d6435);
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+              "
+            >
+              <span data-i18n="about.pathanamthittaDistrictKathakaliClub_2"
+                >Pathanamthitta District Kathakali Club • Constituted by 900+
+                registered members</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+         Section 5: Natyabharathi Kathakali Centre (#centre)
+         ======================================================================== -->
+      <section
+        id="centre"
+        class="content-section"
+        aria-labelledby="centreHeading"
+      >
+        <div class="section-container">
+          <header class="section-header-minimal" style="margin-bottom: 40px">
+            <span class="section-overline">
+              <span data-i18n="about.academyOfClassicalPerformingArtsEst"
+                >ACADEMY OF CLASSICAL PERFORMING ARTS • ESTD. 1995</span
+              >
+            </span>
+            <h2 id="centreHeading" class="section-title">
+              <span data-i18n="about.natyabharathiKathakaliCentre"
+                >Natyabharathi Kathakali Centre</span
+              >
+            </h2>
+            <p
+              class="section-lead-minimal"
+              data-i18n="about.establishedIn1995UnderTheDirect"
+            >
+              Established in 1995 under the direct tutelage of the
+              Pathanamthitta District Kathakali Club, Natyabharathi Kathakali
+              Centre is a singular cultural academy in Central Travancore.
+              Nestled on the sacred sandbanks of River Pamba at
+              Ayroor-Cherukolpuzha, the academy imparts intensive daily Kalari
+              training to more than 120 young students across five core
+              disciplines.
+            </p>
+          </header>
+
+          <!-- Key Academy Statistics Cards -->
+          <div class="centre-stats-grid">
+            <div class="centre-stat-card">
+              <div class="centre-stat-val">1995</div>
+              <div class="centre-stat-label">
+                <span data-i18n="about.yearEstablished">Year Established</span>
+              </div>
+            </div>
+            <div class="centre-stat-card">
+              <div class="centre-stat-val">120+</div>
+              <div class="centre-stat-label">
+                <span data-i18n="about.activeStudents">Active Students</span>
+              </div>
+            </div>
+            <div class="centre-stat-card">
+              <div class="centre-stat-val">5 Streams</div>
+              <div class="centre-stat-label">
+                <span data-i18n="about.classicalDisciplines"
+                  >Classical Disciplines</span
+                >
+              </div>
+            </div>
+            <div class="centre-stat-card">
+              <div class="centre-stat-val">Kalamandalam</div>
+              <div class="centre-stat-label">
+                <span data-i18n="about.higherFeederHub">Higher Feeder Hub</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Disciplines Section -->
+          <div style="margin-top: 48px">
+            <header class="section-header-minimal" style="margin-bottom: 24px">
+              <span class="section-overline">
+                <span data-i18n="about.kalariCurriculum"
+                  >KALARI CURRICULUM</span
+                >
+              </span>
+              <h3 class="section-title" style="font-size: 1.6rem">
+                <span data-i18n="about.coreClassicalDisciplinesTaught"
+                  >Core Classical Disciplines Taught</span
+                >
+              </h3>
+            </header>
+
+            <div class="disciplines-grid">
+              <!-- Discipline 1: Vesham -->
+              <div class="discipline-card">
+                <div class="discipline-icon-wrap">🎭</div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline1Title"
+                >
+                  Kathakali Vesham
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.intensiveTrainingInAngikaAbhinayaMe"
+                >
+                  Intensive training in Angika Abhinaya, Meyyurappu (body
+                  flexibility), Chuzhippu, Navarasa expressions, Netra Sadhakam
+                  (eye movement exercises), 24 root Mudras, and stage
+                  choreography across Paccha, Kathi, Minukku, Kari, and Thadi
+                  characters.
+                </p>
+              </div>
+
+              <!-- Discipline 2: Sangeetham -->
+              <div class="discipline-card">
+                <div class="discipline-icon-wrap">🪕</div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline2Title"
+                >
+                  Kathakali Sangeetham
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.specializedClassicalVocalInstructio"
+                >
+                  Specialized classical vocal instruction rooted in traditional
+                  Sopana Sangeetham and Carnatic ragas. Students master Ponnani
+                  (lead vocal) with Chengila, Singidi (accompanying vocal) with
+                  Ilathalam, and raga-bhava theatrical delivery.
+                </p>
+              </div>
+
+              <!-- Discipline 3: Chenda -->
+              <div class="discipline-card">
+                <div class="discipline-icon-wrap">🥁</div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline3Title"
+                >
+                  Kathakali Chenda
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.masteryOfKeralaSAsuraVadyam"
+                >
+                  Mastery of Kerala's Asura Vadyam percussion. Rigorous training
+                  in wrist dexterity, stick work, classical Talas (Chembada,
+                  Adantha, Champa, Panchari, Thriputa), and dramatic stage
+                  accompaniment for heroic and wrathful characters.
+                </p>
+              </div>
+
+              <!-- Discipline 4: Chutti & Aharyam -->
+              <div class="discipline-card">
+                <div class="discipline-icon-wrap">🎨</div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline4Title"
+                >
+                  Kathakali Chutti & Aharyam
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.theSacredRitualArtOfGreen"
+                >
+                  The sacred ritual art of green-room costuming and facial
+                  makeup: applying lime and rice-paste ridges (Chutti), grinding
+                  natural mineral pigments (Manayola, Chayilyam), Kireedam
+                  crafting, and royal Aharyam costume drapery.
+                </p>
+              </div>
+
+              <!-- Discipline 5: Classical Dance -->
+              <div class="discipline-card">
+                <div class="discipline-icon-wrap">💃</div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline5Title"
+                >
+                  Mohiniyattam & Classical Dance
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.lyricalLasyaTrainingFocusingOnGrace"
+                >
+                  Lyrical Lasya training focusing on graceful torso swaying
+                  (Andolika), delicate Mudra gestures, rhythmic Adavus, and
+                  authentic choreographies preserving Kerala's traditional
+                  classical dance heritage under Kalamandalam faculty.
+                </p>
+              </div>
+
+              <!-- Discipline 6: Kalamandalam Higher Pathway -->
+              <div
+                class="discipline-card"
+                style="
+                  border-color: rgba(197, 160, 89, 0.4);
+                  background: rgba(30, 24, 18, 0.85);
+                "
+              >
+                <div
+                  class="discipline-icon-wrap"
+                  style="background: rgba(197, 160, 89, 0.2)"
+                >
+                  🎓
+                </div>
+                <h4
+                  class="discipline-card-title"
+                  data-i18n="about.discipline6Title"
+                >
+                  Kalamandalam Feeder Channel
+                </h4>
+                <p
+                  class="discipline-card-desc"
+                  data-i18n="about.studentsWhoSuccessfullyCompleteThei"
+                >
+                  Students who successfully complete their foundation course at
+                  Natyabharathi are systematically recommended and enrolled at
+                  Kerala Kalamandalam Deemed University for collegiate diplomas,
+                  bachelor's, and postgraduate degrees in performing arts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+         Section 6: Institutional Wings & Affiliated Initiatives (#institutions)
+         ======================================================================== -->
+      <section
+        id="institutions"
+        class="content-section section-dark"
+        aria-labelledby="instHeading"
+      >
+        <div class="section-container">
+          <header class="section-header-minimal" style="margin-bottom: 40px">
+            <span class="section-overline">
+              <span data-i18n="about.affiliatedWingsArchivesSacredTheatr"
+                >AFFILIATED WINGS, ARCHIVES & SACRED THEATRE</span
+              >
+            </span>
+            <h2 id="instHeading" class="section-title">
+              <span data-i18n="about.institutionsOfAyroorKathakaliGramam"
+                >Institutions of Ayroor Kathakali Gramam</span
+              >
+            </h2>
+            <p
+              class="section-lead-minimal"
+              data-i18n="about.beyondDailyClassroomTrainingTheCult"
+            >
+              Beyond daily classroom training, the cultural ecosystem of Ayroor
+              encompasses the first regional off-campus of Kerala Kalamandalam,
+              a specialized classical library, an internationally touring
+              resident troupe, and the historic initiative of an open-air
+              Natyashastra Koothambalam on the banks of River Pamba.
+            </p>
+          </header>
+
+          <!-- 4-Pillar Institutional Wings Grid -->
+          <div class="institution-wings-grid">
+            <!-- Pillar 1: Kerala Kalamandalam First Off-Campus -->
+            <article class="institution-wing-card">
+              <div class="institution-wing-badge">
+                <span>✦</span>
+                <span data-i18n="about.firstDeemedUniversityOffCampusEstd"
+                  >FIRST DEEMED UNIVERSITY OFF-CAMPUS • ESTD. 2014</span
+                >
+              </div>
+              <h3 class="institution-wing-title" data-i18n="about.wing1Title">
+                Kerala Kalamandalam Off-Campus Centre
+              </h3>
+              <p
+                class="institution-wing-desc"
+                data-i18n="about.inauguratedDuringTheValedictorySess"
+              >
+                Inaugurated during the valedictory session of Kathakali Mela
+                2014 by Minister for Cultural Affairs Sri K. C. Joseph in the
+                august presence of Sri P. N. Suresh (Vice-Chancellor), this
+                institution holds the distinction of being adjudged as the
+                <strong
+                  >very first off-campus training sub-centre of Kerala
+                  Kalamandalam Deemed University for Art and Culture</strong
+                >. Over 100 students undergo professional instruction in
+                Kathakali Vesham, Chenda, and Mohiniyattam under deputed
+                Kalamandalam Gurus.
+              </p>
+              <div class="institution-meta-list">
+                <div class="institution-meta-item">
+                  <span>📜</span>
+                  <span data-i18n="about.certificationArtAppreciationCertifi"
+                    ><strong>Certification:</strong> 'Art Appreciation
+                    Certificate' conferred directly by Kerala Kalamandalam
+                    Deemed University</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>👥</span>
+                  <span data-i18n="about.eligibilityOpenToYouthAged12"
+                    ><strong>Eligibility:</strong> Open to youth aged 12–20
+                    irrespective of gender • Subsidized tuition fee of
+                    ₹750/month</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>📰</span>
+                  <span data-i18n="about.admissionsAnnualStatewideNotificati"
+                    ><strong>Admissions:</strong> Annual statewide notifications
+                    published in April; classes commence end of April</span
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Pillar 2: Natyabharathi Classical Library -->
+            <article class="institution-wing-card">
+              <div class="institution-wing-badge">
+                <span>✦</span>
+                <span data-i18n="about.keralaGrandhasalaSangamAffiliatedEs"
+                  >KERALA GRANDHASALA SANGAM AFFILIATED • ESTD. 2010</span
+                >
+              </div>
+              <h3 class="institution-wing-title" data-i18n="about.wing2Title">
+                Natyabharathi Classical Library
+              </h3>
+              <p
+                class="institution-wing-desc"
+                data-i18n="about.startedIn2010UnderTheAuspices"
+              >
+                Started in 2010 under the auspices of the Pathanamthitta
+                District Kathakali Club and affiliated with the Kerala
+                Grandhasala Sangam, this specialized reference library is an
+                invaluable boon to art historians and doctoral research fellows.
+                The library houses an extraordinary repository of classical
+                Kathakali literature, hand-inscribed Aattakathas, rare palm-leaf
+                manuscripts, Tala treatises, and performance commentaries.
+              </p>
+              <div class="institution-meta-list">
+                <div class="institution-meta-item">
+                  <span>📚</span>
+                  <span data-i18n="about.holdingsComprehensiveKathakaliComme"
+                    ><strong>Holdings:</strong> Comprehensive Kathakali
+                    commentaries, Sanskrit aesthetics, and Aattakatha
+                    manuscripts</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>🏛️</span>
+                  <span data-i18n="about.governancePPRamachandranPillaiPresi"
+                    ><strong>Governance:</strong> P. P. Ramachandran Pillai
+                    (President) • M. R. Venu (Secretary) • Jaya Kumari
+                    (Librarian)</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>🔍</span>
+                  <span data-i18n="about.scholarAccessOpenForUniversityResea"
+                    ><strong>Scholar Access:</strong> Open for university
+                    research fellows, scholars, and visiting international
+                    cultural delegates</span
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Pillar 3: The Resident Kathakali Troupe -->
+            <article class="institution-wing-card" id="troupe">
+              <div class="institution-wing-badge">
+                <span>✦</span>
+                <span data-i18n="about.professionalArtistsExperimentalProd"
+                  >20 PROFESSIONAL ARTISTS • EXPERIMENTAL PRODUCTIONS</span
+                >
+              </div>
+              <h3 class="institution-wing-title" data-i18n="about.wing3Title">
+                Ayroor Resident Kathakali Troupe
+              </h3>
+              <p
+                class="institution-wing-desc"
+                data-i18n="about.thePathanamthittaDistrictKathakaliC"
+              >
+                The Pathanamthitta District Kathakali Club maintains its own
+                elite performing troupe of 20 accomplished artists across
+                Vesham, vocal music, Chenda, Maddalam, and Chutti. Beyond
+                traditional temple festivals, the troupe regularly conducts
+                workshops and curriculum-aligned lecture-demonstrations in
+                schools and universities. The troupe has gained international
+                renown for revolutionary adaptations codified and rehearsed
+                (*cholliyattam*) at Natyabharathi:
+              </p>
+              <div class="institution-meta-list">
+                <div class="institution-meta-item">
+                  <span>📖</span>
+                  <span data-i18n="about.biblicalAattakathasGroundbreakingKa"
+                    ><strong>Biblical Aattakathas:</strong> Groundbreaking
+                    Kathakali adaptations of
+                    <em>Abrahaminte Bali</em> (Sacrifice of Abraham) and
+                    <em>Mudiyanaya Puthran</em> (The Prodigal Son)</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>✍️</span>
+                  <span data-i18n="about.poetryChoreographyClassicalKathakal"
+                    ><strong>Poetry Choreography:</strong> Classical Kathakali
+                    staging of modern poems <em>Kurathi</em> and
+                    <em>Kattalan</em> by legendary poet late Kadammanitta
+                    Ramakrishnan</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>🎭</span>
+                  <span data-i18n="about.troupeManagementKalamandalamArunTro"
+                    ><strong>Troupe Management:</strong> Kalamandalam Arun
+                    (Troupe Manager) • Crew: Aranmula Omanakuttan, Ayroor
+                    Pradeep</span
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Pillar 4: The Monumental Pamba Koothambalam Project -->
+            <article class="institution-wing-card" id="koothambalam">
+              <div class="institution-wing-badge">
+                <span>✦</span>
+                <span data-i18n="about.bharataSNatyashastra2CroreSecular"
+                  >BHARATA'S NATYASHASTRA • ₹2 CRORE SECULAR THEATRE</span
+                >
+              </div>
+              <h3 class="institution-wing-title" data-i18n="about.wing4Title">
+                The Monumental Pamba Koothambalam
+              </h3>
+              <p
+                class="institution-wing-desc"
+                data-i18n="about.aKoothambalamIsASacredTraditional"
+              >
+                A Koothambalam is a sacred traditional theatre designed for
+                staging ancient dramatic art forms like Koodiyattam, Koothu, and
+                Kathakali. In all of Kerala, there exist only fourteen
+                traditional Koothambalams (twelve inside temple compounds and
+                only two outside). In a historic cultural departure, the
+                Pathanamthitta District Kathakali Club resolved to build a
+                full-fledged, traditional Koothambalam
+                <strong
+                  >outside the traditional temple confines, directly on the
+                  banks of River Pamba</strong
+                >
+                at Ayroor Kathakali Gramam.
+              </p>
+              <div class="institution-meta-list">
+                <div class="institution-meta-item">
+                  <span>📐</span>
+                  <span data-i18n="about.architecturalFidelityStrictlyAdheri"
+                    ><strong>Architectural Fidelity:</strong> Strictly adhering
+                    to the sacred dimensions, acoustic resonance, and pillar
+                    geometry codified in Sage Bharata's
+                    <em>Natyashastra</em></span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>🌍</span>
+                  <span data-i18n="about.secularDemocratizationBuiltAwayFrom"
+                    ><strong>Secular Democratization:</strong> Built away from
+                    temple restrictions so art connoisseurs and scholars
+                    worldwide, regardless of religion or caste, can experience
+                    classical theatre</span
+                  >
+                </div>
+                <div class="institution-meta-item">
+                  <span>🤝</span>
+                  <span data-i18n="about.patronAppealProjectedOutlayOf2"
+                    ><strong>Patron Appeal:</strong> Projected outlay of ₹2
+                    Crore; donations welcomed via the Koothambalam Construction
+                    Fund</span
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Troupe & Institution Booking Action Box -->
+          <div
+            style="
+              margin-top: 48px;
+              padding: 32px 36px;
+              background: rgba(18, 16, 13, 0.75);
+              border: 1px solid rgba(197, 160, 89, 0.25);
+              border-radius: 4px;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: center;
+              gap: 20px;
+            "
+          >
+            <div>
+              <h4
+                style="
+                  font-family: var(--font-display, &quot;Cinzel&quot;, serif);
+                  font-size: 1.25rem;
+                  color: var(--color-ivory, #f5ede1);
+                  margin: 0 0 6px;
+                "
+              >
+                <span data-i18n="about.inquireForTroupeBookingsLectureDemo"
+                  >Inquire for Troupe Bookings, Lecture-Demonstrations & Kalari
+                  Enrolment</span
+                >
+              </h4>
+              <p
+                style="
+                  font-family: var(
+                    --font-serif,
+                    &quot;Cormorant Garamond&quot;,
+                    serif
+                  );
+                  font-size: 1.05rem;
+                  color: var(--color-ivory-muted, #b8aea0);
+                  margin: 0;
+                "
+              >
+                <span data-i18n="about.connectWithTheOfficialCoordinationO"
+                  >Connect with the official coordination office of
+                  Pathanamthitta District Kathakali Club & Natyabharathi
+                  Centre.</span
+                >
+              </p>
+            </div>
+            <a
+              href="contact.html"
+              class="hero-btn hero-btn-primary"
+              style="white-space: nowrap"
+            >
+              <span data-i18n="about.contactCoordinationOffice"
+                >Contact Coordination Office</span
+              >
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-brand-header">
+              <img
+                src="assets/images/ayroor-official-logo.webp"
+                alt="Ayroor Kathakali Gramam Logo"
+                class="footer-brand-logo"
+                width="44"
+                height="52"
+              />
+              <div class="brand-text-wrap">
+                <div class="footer-brand-title">AYROOR</div>
+                <div class="footer-brand-sub">KATHAKALI GRAMAM</div>
+              </div>
+            </div>
+            <p class="footer-brand-desc" data-i18n="common.footerBrandDesc">
+              The cultural sanctuary of classical Kerala dance-theatre on the
+              serene banks of the river Pamba.
+            </p>
+
+            <!-- Modern Social Media Connect Hub -->
+            <div class="footer-social-wrap">
+              <div class="footer-social-heading">
+                <span data-i18n="common.connectFollow">Connect & Follow</span>
+              </div>
+              <div class="footer-social-icons">
+                <!-- YouTube -->
+                <a
+                  href="https://www.youtube.com/watch?v=nwiLwsgicno"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="Official YouTube Channel"
+                  title="YouTube Live & Webcast"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="social-svg"
+                  >
+                    <path
+                      d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                    ></path>
+                    <polygon
+                      points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"
+                      fill="currentColor"
+                    ></polygon>
+                  </svg>
+                </a>
+                <!-- Instagram -->
+                <a
+                  href="https://www.instagram.com/ayroorkathakaligramam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="Official Instagram"
+                  title="Instagram Visuals & Reels"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="social-svg"
+                  >
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      ry="5"
+                    ></rect>
+                    <path
+                      d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                    ></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+                <!-- Facebook -->
+                <a
+                  href="https://www.facebook.com/ayroorkathakaligramam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="Official Facebook Page"
+                  title="Facebook Community & News"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="social-svg"
+                  >
+                    <path
+                      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    ></path>
+                  </svg>
+                </a>
+                <!-- X (Twitter) -->
+                <a
+                  href="https://x.com/ayroorkathakali"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="Official X Profile"
+                  title="X (Twitter) Announcements"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="social-svg"
+                  >
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    ></path>
+                  </svg>
+                </a>
+                <!-- WhatsApp -->
+                <a
+                  href="https://wa.me/919446538553"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="WhatsApp Enquiries"
+                  title="WhatsApp Secretary & General Convener"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="social-svg"
+                  >
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                    ></path>
+                  </svg>
+                </a>
+                <!-- Location / Google Maps -->
+                <a
+                  href="https://maps.google.com/?q=Ayroor+Kathakali+Gramam+Cherukolpuzha+Kerala"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon-btn"
+                  aria-label="Locate on Google Maps"
+                  title="Pamba Sandbanks Amphitheater"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="social-svg"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer Navigation">
+            <div class="footer-nav-title" data-i18n="common.navigation">
+              Navigation
+            </div>
+            <ul class="footer-nav-links">
+              <li>
+                <a
+                  href="about.html"
+                  class="footer-nav-link active"
+                  data-nav-id="about"
+                  data-i18n="nav.aboutUs"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mela.html"
+                  class="footer-nav-link"
+                  data-nav-id="mela"
+                  data-i18n="nav.kathakaliMela"
+                  >Kathakali Mela</a
+                >
+              </li>
+              <li>
+                <a
+                  href="awards.html"
+                  class="footer-nav-link"
+                  data-nav-id="awards"
+                  data-i18n="nav.awards"
+                  >Awards</a
+                >
+              </li>
+              <li>
+                <a
+                  href="gallery.html"
+                  class="footer-nav-link"
+                  data-nav-id="gallery"
+                  data-i18n="nav.gallery"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mudras.html"
+                  class="footer-nav-link"
+                  data-nav-id="kathakali-mudras"
+                  data-i18n="nav.mudras"
+                  >Kathakali Mudras</a
+                >
+              </li>
+              <li>
+                <a
+                  href="characters.html"
+                  class="footer-nav-link"
+                  data-nav-id="kathakali-characters"
+                  data-i18n="nav.characters"
+                  >Kathakali Characters</a
+                >
+              </li>
+              <li>
+                <a
+                  href="instruments.html"
+                  class="footer-nav-link"
+                  data-nav-id="kathakali-instruments"
+                  data-i18n="nav.instruments"
+                  >Kathakali Instruments</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="footer-nav-link"
+                  data-nav-id="contact"
+                  data-i18n="nav.contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="footer-nav">
+            <div class="footer-nav-title" data-i18n="common.culturalHeritage">
+              Cultural Heritage
+            </div>
+            <ul class="footer-nav-links">
+              <li>
+                <a
+                  href="index.html#aboutSection"
+                  class="footer-nav-link"
+                  data-i18n="common.footerPambaAmphitheater"
+                  >Pamba Sandbanks Amphitheater</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#cultureSectionHeading"
+                  class="footer-nav-link"
+                  data-i18n="common.footerAharyaTradition"
+                  >Aharya Abhinaya Tradition</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mela.html"
+                  class="footer-nav-link"
+                  data-i18n="common.footerAnnualMela"
+                  >Annual Kathakali Mela</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mudras.html"
+                  class="footer-nav-link"
+                  data-i18n="common.footerHasthaLexicon"
+                  >Codified Hastha Lexicon</a
+                >
+              </li>
+              <li>
+                <a
+                  href="instruments.html"
+                  class="footer-nav-link"
+                  data-i18n="common.footerPercussionEnsemble"
+                  >Sacred Percussion Ensemble</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Architectural 6-Group Footer Directory (Populated via NAV_CONFIG in navigation.js) -->
+        <div id="footerArchNav"></div>
+
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            © 2026 Ayroor Kathakali Gramam. All Rights Reserved.
+          </div>
+          <div class="footer-social-pill-group">
+            <a
+              href="https://www.youtube.com/watch?v=nwiLwsgicno"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-bottom-social-link"
+              title="YouTube"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="14"
+                height="14"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"
+                />
+              </svg>
+              <span>YouTube</span>
+            </a>
+            <a
+              href="https://www.instagram.com/ayroorkathakaligramam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-bottom-social-link"
+              title="Instagram"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://www.facebook.com/ayroorkathakaligramam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-bottom-social-link"
+              title="Facebook"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="14"
+                height="14"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a
+              href="https://x.com/ayroorkathakali"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-bottom-social-link"
+              title="X"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="13"
+                height="13"
+              >
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+              <span>X</span>
+            </a>
+          </div>
+          <button
+            id="backToTopBtn"
+            class="back-to-top-btn"
+            aria-label="Back to top of page"
+          >
+            <span>BACK TO TOP</span>
+            <span class="back-to-top-icon" aria-hidden="true">↑</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Back to Top Button with Circular Scroll Progress Ring -->
+    <button
+      id="floatingBackToTop"
+      class="floating-back-to-top"
+      aria-label="Back to top of page"
+      title="Back to top"
+    >
+      <svg
+        class="btt-progress-ring"
+        width="52"
+        height="52"
+        viewBox="0 0 52 52"
+        aria-hidden="true"
+      >
+        <circle
+          class="progress-ring-track"
+          cx="26"
+          cy="26"
+          r="23"
+          fill="none"
+          stroke-width="2.5"
+        />
+        <circle
+          class="progress-ring-indicator"
+          cx="26"
+          cy="26"
+          r="23"
+          fill="none"
+          stroke-width="2.5"
+        />
+      </svg>
+      <span class="btt-arrow" aria-hidden="true">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </span>
+      <span class="btt-tooltip">Back to Top</span>
+    </button>
+
+    <!-- Animation & Smooth Scroll Engines: GSAP, ScrollTrigger & Lenis (Local Vendor) -->
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/vendor/ScrollTrigger.min.js"></script>
+    <script src="assets/vendor/lenis.min.js"></script>
+    <script src="js/motion.js"></script>
+
+    <!-- Localization & Internationalization (en, ml) -->
+    <script src="js/locales/en.js"></script>
+    <script src="js/locales/ml.js"></script>
+    <script src="js/i18n.js"></script>
+
+    <!-- Architectural Navigation Architecture -->
+    <script src="navigation/navigation-config.js"></script>
+    <script src="navigation/navigation.js"></script>
+
+    <!-- Application Configuration & Explore Controller -->
+
+    <script src="config.js"></script>
+    <script src="js/explore.js"></script>
+  </body>
+</html>

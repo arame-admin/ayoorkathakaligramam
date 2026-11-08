@@ -1,0 +1,1481 @@
+/* ==========================================================================
+   DISTRICT KATHAKALI CLUB — AWARDS & HONORS ARCHIVE STYLESHEET
+   Design Aesthetic: Rich Kerala Temple Art Style (Deep Maroons, Gold Accents,
+   Ivory/Cream Parchment, and Clean Bilingual Typography).
+   ========================================================================== */
+
+:root {
+  /* Temple Art Palette */
+  --temple-maroon-deep: #250508;
+  --temple-maroon-dark: #3a0a0f;
+  --temple-maroon: #61151b;
+  --temple-maroon-light: #822027;
+  --temple-maroon-glow: rgba(97, 21, 27, 0.45);
+
+  --temple-gold: #c5a059;
+  --temple-gold-light: #dec07e;
+  --temple-gold-bright: #f3d699;
+  --temple-gold-dark: #82632b;
+  --temple-gold-glow: rgba(197, 160, 89, 0.32);
+
+  --temple-ivory: #fcf9f2;
+  --temple-cream: #f4ecdc;
+  --temple-parchment: #ece2ce;
+  --temple-parchment-dark: #ded2ba;
+  
+  --temple-dark-surface: #141110;
+  --temple-dark-card: #181412;
+  --temple-dark-border: rgba(197, 160, 89, 0.22);
+  --temple-dark-border-subtle: rgba(197, 160, 89, 0.12);
+
+  /* Specific Award Category Hues */
+  --award-natya-bg: #4d0e13;
+  --award-natya-border: #c5a059;
+  --award-kochu-bg: #13332a;
+  --award-kochu-border: #4eb693;
+  --award-sangeetha-bg: #1c2548;
+  --award-sangeetha-border: #748be2;
+  --award-oms-bg: #422915;
+  --award-oms-border: #e09f58;
+
+  /* Fonts */
+  --font-temple-heading: 'Cinzel', Georgia, serif;
+  --font-temple-serif: 'Cormorant Garamond', serif;
+  --font-temple-ml-heading: 'Noto Serif Malayalam', Georgia, serif;
+  --font-temple-ml-body: 'Manjari', 'Noto Sans Malayalam', sans-serif;
+  --font-temple-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Kasavu (Kerala Zari Border) effect */
+  --kasavu-border: 1px solid rgba(197, 160, 89, 0.35);
+  --kasavu-double: 0 0 0 1px rgba(197, 160, 89, 0.4), 0 0 0 3px rgba(97, 21, 27, 0.6), 0 0 0 4px rgba(197, 160, 89, 0.25);
+}
+
+/* Base Adjustments */
+body {
+  background-color: #090908;
+  color: #f5ede1;
+  font-family: var(--font-temple-body);
+}
+
+/* ==========================================================================
+   1. AWARDS HERO BANNER (KERALA TEMPLE SANCTUM AESTHETIC)
+   ========================================================================== */
+.awards-hero {
+  position: relative;
+  padding: 130px 24px 60px;
+  background: radial-gradient(circle at 50% 20%, rgba(97, 21, 27, 0.35) 0%, rgba(14, 10, 9, 0.95) 75%, #090908 100%);
+  border-bottom: 1px solid var(--temple-dark-border);
+  overflow: hidden;
+}
+
+.awards-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, transparent 0%, #c5a059 20%, #f3d699 50%, #c5a059 80%, transparent 100%);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+}
+
+.awards-hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px;
+  max-width: 90vw;
+  opacity: 0.035;
+  pointer-events: none;
+  filter: drop-shadow(0 0 30px var(--temple-gold));
+}
+
+.awards-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Breadcrumbs */
+.awards-breadcrumbs {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--temple-gold);
+  margin-bottom: 24px;
+}
+
+.awards-breadcrumbs a {
+  color: var(--color-ivory-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.awards-breadcrumbs a:hover {
+  color: var(--temple-gold-light);
+}
+
+.awards-breadcrumbs .crumb-sep {
+  opacity: 0.4;
+  color: var(--temple-gold);
+}
+
+.awards-breadcrumbs .crumb-current {
+  color: var(--temple-gold-light);
+  font-weight: 600;
+}
+
+/* Badge */
+.awards-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: rgba(97, 21, 27, 0.5);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--temple-gold-light);
+  margin-bottom: 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(197, 160, 89, 0.3);
+}
+
+.awards-kicker-badge .lamp-icon {
+  display: inline-block;
+  color: #ffb834;
+  filter: drop-shadow(0 0 6px rgba(255, 184, 52, 0.8));
+}
+
+/* Title & Lead */
+.awards-hero-title {
+  margin: 0 auto 16px;
+  max-width: 980px;
+  font-family: var(--font-temple-heading);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--temple-ivory);
+  letter-spacing: 0.02em;
+}
+
+.awards-hero-title .title-primary {
+  display: block;
+  background: linear-gradient(180deg, #ffffff 0%, #f4ecdc 60%, #dec07e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.awards-hero-title .title-ml {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-temple-ml-heading);
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 500;
+  color: var(--temple-gold);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.awards-hero-lead {
+  max-width: 840px;
+  margin: 0 auto 36px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-ivory-muted);
+}
+
+.awards-hero-lead-ml {
+  font-family: var(--font-temple-ml-body);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--temple-parchment);
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   2. KPI DASHBOARD STATS BAR (TEMPLE KASAVU EMBOSS)
+   ========================================================================== */
+.awards-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(37, 5, 8, 0.8) 0%, rgba(20, 17, 16, 0.95) 100%);
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(197, 160, 89, 0.25);
+  position: relative;
+}
+
+.awards-stats-strip::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed rgba(197, 160, 89, 0.15);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.stat-item {
+  position: relative;
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(197, 160, 89, 0.3), transparent);
+}
+
+.stat-number {
+  font-family: var(--font-temple-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--temple-gold-light);
+  line-height: 1;
+  margin-bottom: 6px;
+  text-shadow: 0 0 16px rgba(197, 160, 89, 0.35);
+}
+
+.stat-label-en {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--temple-ivory);
+  font-weight: 600;
+  display: block;
+}
+
+.stat-label-ml {
+  font-family: var(--font-temple-ml-body);
+  font-size: 0.82rem;
+  color: var(--color-ivory-dim);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   3. STICKY QUICK-JUMP YEAR SELECTOR & TIMELINE RAIL
+   ========================================================================== */
+.awards-sticky-nav {
+  position: sticky;
+  top: 84px; /* below site header */
+  z-index: 40;
+  background: rgba(14, 11, 10, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--temple-dark-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+}
+
+.awards-sticky-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Decade Jump Pills */
+.decade-jump-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.decade-btn {
+  background: rgba(97, 21, 27, 0.25);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  color: var(--temple-gold-light);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.decade-btn:hover {
+  background: rgba(97, 21, 27, 0.6);
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+}
+
+.decade-btn.is-active {
+  background: var(--temple-maroon);
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
+}
+
+/* Horizontal Scrollable Year Stream */
+.year-scroll-stream {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.35) transparent;
+  flex: 1;
+}
+
+.year-scroll-stream::-webkit-scrollbar {
+  height: 4px;
+}
+
+.year-scroll-stream::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.year-scroll-stream::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.35);
+  border-radius: 2px;
+}
+
+.year-pill-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-ivory-muted);
+  font-family: var(--font-temple-heading);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.year-pill-btn:hover {
+  color: var(--temple-gold-light);
+  background: rgba(197, 160, 89, 0.1);
+  border-color: rgba(197, 160, 89, 0.25);
+}
+
+.year-pill-btn.is-active {
+  color: #090908;
+  background: linear-gradient(135deg, #f3d699 0%, #c5a059 100%);
+  border-color: var(--temple-gold);
+  box-shadow: 0 2px 8px rgba(197, 160, 89, 0.4);
+  font-weight: 700;
+}
+
+/* Quick Dropdown on small screens */
+.year-dropdown-wrap {
+  display: none;
+}
+
+.year-select-dropdown {
+  background: #181412;
+  border: 1px solid var(--temple-gold);
+  color: var(--temple-gold-light);
+  font-family: var(--font-temple-heading);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   4. SEARCH & MULTI-DIMENSIONAL FILTER CONTROLS CONSOLE
+   ========================================================================== */
+.awards-control-panel {
+  max-width: 1240px;
+  margin: 36px auto 28px;
+  padding: 0 24px;
+}
+
+.controls-card {
+  background: linear-gradient(180deg, #181412 0%, #120e0d 100%);
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.controls-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+/* Search Bar */
+.search-input-wrap {
+  position: relative;
+  flex: 1 1 360px;
+  max-width: 540px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--temple-gold);
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+.awards-search-input {
+  width: 100%;
+  background: #0d0a09;
+  border: 1px solid var(--temple-dark-border);
+  color: var(--temple-ivory);
+  font-size: 0.92rem;
+  padding: 12px 42px 12px 40px;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.25s ease;
+  font-family: var(--font-temple-body);
+}
+
+.awards-search-input:focus {
+  border-color: var(--temple-gold);
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+  background: #14100e;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--color-ivory-muted);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.search-clear-btn.is-visible {
+  display: flex;
+}
+
+.search-clear-btn:hover {
+  background: var(--temple-maroon);
+  color: #fff;
+}
+
+/* View & Sort Tools */
+.tools-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Sort Toggle */
+.sort-toggle-btn {
+  background: rgba(97, 21, 27, 0.3);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--temple-gold-light);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.sort-toggle-btn:hover {
+  background: var(--temple-maroon);
+  border-color: var(--temple-gold);
+  color: #fff;
+}
+
+/* View Mode Switcher */
+.view-mode-group {
+  display: inline-flex;
+  background: #0c0908;
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-ivory-muted);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  color: var(--temple-ivory);
+}
+
+.view-btn.is-active {
+  background: var(--temple-maroon);
+  color: var(--temple-gold-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Filter Pills */
+.filter-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(197, 160, 89, 0.12);
+}
+
+.filter-row-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--temple-gold);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.category-chip-btn {
+  background: #110e0d;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  color: var(--color-ivory-muted);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.category-chip-btn:hover {
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+  background: rgba(97, 21, 27, 0.25);
+}
+
+.category-chip-btn.is-active {
+  background: linear-gradient(135deg, rgba(97, 21, 27, 0.9) 0%, rgba(58, 10, 15, 0.95) 100%);
+  border-color: var(--temple-gold);
+  color: var(--temple-ivory);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.25);
+}
+
+.chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Category specific dots */
+.dot-natya { background: #e09297; }
+.dot-kochu { background: #4eb693; }
+.dot-sangeetha { background: #8ba2ff; }
+.dot-oms { background: #e09f58; }
+
+/* Filter status summary */
+.filter-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--color-ivory-dim);
+}
+
+.results-count-text {
+  color: var(--temple-gold-light);
+  font-weight: 600;
+}
+
+.reset-filters-btn {
+  background: none;
+  border: none;
+  color: var(--temple-gold);
+  font-size: 0.78rem;
+  text-decoration: underline;
+  cursor: pointer;
+  display: none;
+}
+
+.reset-filters-btn.is-visible {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   5. ARCHIVE VIEW 1: YEAR-WISE GROUPED CARD GRID
+   ========================================================================== */
+.awards-archive-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+/* Year Section Group */
+.year-group-section {
+  margin-bottom: 50px;
+  scroll-margin-top: 150px;
+}
+
+/* Year Milestone Banner */
+.year-milestone-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(97, 21, 27, 0.85) 0%, rgba(37, 5, 8, 0.95) 50%, rgba(20, 17, 16, 0.9) 100%);
+  border: 1px solid var(--temple-gold);
+  border-left: 6px solid var(--temple-gold);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.year-banner-left {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.year-banner-num {
+  font-family: var(--font-temple-heading);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--temple-ivory);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+}
+
+.year-banner-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.15rem;
+  color: var(--temple-gold-light);
+  font-weight: 500;
+}
+
+.year-banner-edition {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--temple-parchment);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+
+.year-banner-count {
+  font-size: 0.78rem;
+  color: var(--temple-gold-bright);
+  font-weight: 600;
+  background: rgba(97, 21, 27, 0.5);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+}
+
+/* Cards Grid for the Year */
+.year-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
+}
+
+/* ==========================================================================
+   LAUREATE CARD ARCHITECTURE (TEMPLE SANCTUM WITH KASAVU EMBOSS)
+   ========================================================================== */
+.laureate-card {
+  background: linear-gradient(180deg, #181412 0%, #120f0e 100%);
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.laureate-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--temple-gold), transparent);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.laureate-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--temple-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 160, 89, 0.2);
+}
+
+.laureate-card:hover::before {
+  opacity: 1;
+}
+
+/* Badges Header on Card */
+.card-badges-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Bilingual Award Badge */
+.award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.award-badge-natyabharathi {
+  background: linear-gradient(135deg, rgba(97, 21, 27, 0.85), rgba(45, 8, 12, 0.95));
+  border-color: var(--temple-gold);
+  color: var(--temple-gold-bright);
+}
+
+.award-badge-kochupillai {
+  background: linear-gradient(135deg, rgba(19, 51, 42, 0.85), rgba(8, 26, 21, 0.95));
+  border-color: var(--award-kochu-border);
+  color: #7ce4be;
+}
+
+.award-badge-sangeetharatnam {
+  background: linear-gradient(135deg, rgba(28, 37, 72, 0.85), rgba(12, 17, 36, 0.95));
+  border-color: var(--award-sangeetha-border);
+  color: #a6b8ff;
+}
+
+.award-badge-gopalakrishnan {
+  background: linear-gradient(135deg, rgba(66, 41, 21, 0.85), rgba(30, 18, 9, 0.95));
+  border-color: var(--award-oms-border);
+  color: #f7be88;
+}
+
+/* Discipline Badge */
+.discipline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+}
+
+.discipline-badge .disc-icon {
+  color: var(--temple-gold);
+}
+
+/* Recipient Typography */
+.card-recipient-wrap {
+  margin-bottom: 16px;
+}
+
+.card-recipient-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--temple-ivory);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.card-recipient-en {
+  font-family: var(--font-temple-heading);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--temple-gold-light);
+  line-height: 1.3;
+}
+
+/* Card Citation Excerpt */
+.card-citation-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--color-ivory-muted);
+  margin-bottom: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card Action Footer */
+.card-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(197, 160, 89, 0.12);
+  margin-top: auto;
+}
+
+.card-year-stamp {
+  font-family: var(--font-temple-heading);
+  font-size: 0.78rem;
+  color: var(--color-ivory-dim);
+  font-weight: 600;
+}
+
+.card-view-citation-btn {
+  background: transparent;
+  border: none;
+  color: var(--temple-gold-light);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.card-view-citation-btn:hover {
+  color: #fff;
+  background: var(--temple-maroon);
+}
+
+.card-view-citation-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.laureate-card:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   6. ARCHIVE VIEW 2: CHRONOLOGICAL TIMELINE VIEW
+   ========================================================================== */
+.timeline-view-wrap {
+  position: relative;
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px 0 60px;
+}
+
+/* Central Temple Brass Spine */
+.timeline-view-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: linear-gradient(180deg, var(--temple-gold) 0%, rgba(197, 160, 89, 0.3) 50%, var(--temple-maroon) 100%);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item.timeline-left {
+  left: 0;
+  padding-right: 48px;
+}
+
+.timeline-item.timeline-right {
+  left: 50%;
+  padding-left: 48px;
+}
+
+/* Central Node with Glowing Lamp */
+.timeline-node-dot {
+  position: absolute;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  background: #141110;
+  border: 2px solid var(--temple-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(197, 160, 89, 0.6);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: #ffb834;
+}
+
+.timeline-item.timeline-left .timeline-node-dot {
+  right: -12px;
+}
+
+.timeline-item.timeline-right .timeline-node-dot {
+  left: -12px;
+}
+
+/* Year Badge on Timeline Node */
+.timeline-year-node-badge {
+  position: absolute;
+  top: 24px;
+  font-family: var(--font-temple-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--temple-gold-bright);
+  background: var(--temple-maroon-dark);
+  border: 1px solid var(--temple-gold);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.timeline-item.timeline-left .timeline-year-node-badge {
+  right: -95px;
+}
+
+.timeline-item.timeline-right .timeline-year-node-badge {
+  left: -95px;
+}
+
+/* ==========================================================================
+   7. ARCHIVE VIEW 3: COMPACT ARCHIVAL LEDGER VIEW
+   ========================================================================== */
+.table-view-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: #141110;
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.archival-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.archival-table th {
+  background: linear-gradient(180deg, #250508 0%, #170709 100%);
+  color: var(--temple-gold-light);
+  font-family: var(--font-temple-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  border-bottom: 2px solid var(--temple-gold);
+}
+
+.archival-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+  color: var(--temple-ivory);
+}
+
+.archival-table tr:hover td {
+  background: rgba(97, 21, 27, 0.15);
+}
+
+.table-year-cell {
+  font-family: var(--font-temple-heading);
+  font-weight: 700;
+  color: var(--temple-gold);
+}
+
+.table-recipient-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+}
+
+.table-recipient-en {
+  font-size: 0.8rem;
+  color: var(--color-ivory-muted);
+}
+
+/* ==========================================================================
+   8. CITATION MODAL (ROYAL KERALA PONNADA & CERTIFICATE STYLING)
+   ========================================================================== */
+.citation-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 3, 2, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.citation-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.citation-modal-box {
+  background: radial-gradient(circle at 50% 10%, #30080b 0%, #150507 70%, #0d0304 100%);
+  border: 2px solid var(--temple-gold);
+  border-radius: 16px;
+  max-width: 760px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(197, 160, 89, 0.35);
+  position: relative;
+  padding: 40px 36px;
+}
+
+/* Ornate Double Border & Kasavu Corner Accents */
+.citation-modal-box::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(197, 160, 89, 0.4);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.citation-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--temple-dark-border);
+  color: var(--temple-gold-light);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.citation-modal-close-btn:hover {
+  background: var(--temple-maroon);
+  color: #fff;
+  border-color: var(--temple-gold);
+}
+
+/* Certificate Header */
+.cert-header {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.cert-emblem {
+  width: 64px;
+  height: auto;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5));
+}
+
+.cert-club-title-en {
+  font-family: var(--font-temple-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--temple-gold-light);
+  text-transform: uppercase;
+}
+
+.cert-club-title-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.15rem;
+  color: var(--temple-ivory);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.cert-sub-location {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--color-ivory-dim);
+  text-transform: uppercase;
+}
+
+/* Certificate Citation Title */
+.cert-award-kicker {
+  text-align: center;
+  margin: 20px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cert-gold-rule {
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--temple-gold), transparent);
+}
+
+.cert-award-title-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--temple-gold-bright);
+  text-align: center;
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+}
+
+.cert-award-title-en {
+  font-family: var(--font-temple-heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--temple-ivory);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Recipient Certificate Showcase */
+.cert-recipient-box {
+  background: rgba(14, 11, 10, 0.8);
+  border: 1px solid var(--temple-gold);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin: 24px 0;
+  position: relative;
+}
+
+.cert-conferred-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--temple-gold);
+  margin-bottom: 8px;
+}
+
+.cert-recipient-name-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--temple-ivory);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.cert-recipient-name-en {
+  font-family: var(--font-temple-heading);
+  font-size: 1.15rem;
+  color: var(--temple-gold-light);
+  letter-spacing: 0.04em;
+}
+
+.cert-discipline-pill {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 14px;
+  background: var(--temple-maroon);
+  border: 1px solid var(--temple-gold);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+}
+
+/* Citation Body Paragraphs */
+.cert-citation-body {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--temple-parchment);
+  text-align: justify;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+.cert-citation-body-ml {
+  font-family: var(--font-temple-ml-body);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+
+/* Certificate Footer Seal & Meta */
+.cert-footer-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(197, 160, 89, 0.25);
+  font-size: 0.78rem;
+  color: var(--color-ivory-dim);
+}
+
+.cert-seal-symbol {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px dashed var(--temple-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--temple-gold);
+  font-family: var(--font-temple-heading);
+  font-size: 0.65rem;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  padding: 4px;
+}
+
+/* ==========================================================================
+   9. HISTORICAL ARCHIVAL OVERVIEW SECTION (ABOUT DISTRICT KATHAKALI CLUB)
+   ========================================================================== */
+.awards-history-section {
+  max-width: 1240px;
+  margin: 40px auto 70px;
+  padding: 0 24px;
+}
+
+.history-card-box {
+  background: linear-gradient(135deg, rgba(37, 5, 8, 0.9) 0%, rgba(20, 17, 16, 0.95) 100%);
+  border: 1px solid var(--temple-dark-border);
+  border-radius: 14px;
+  padding: 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.history-card-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--temple-maroon), var(--temple-gold), var(--temple-maroon));
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.history-award-pillar {
+  background: rgba(14, 11, 10, 0.65);
+  border: 1px solid rgba(197, 160, 89, 0.18);
+  border-radius: 8px;
+  padding: 22px;
+  transition: all 0.2s ease;
+}
+
+.history-award-pillar:hover {
+  border-color: var(--temple-gold);
+  background: rgba(97, 21, 27, 0.2);
+}
+
+.pillar-icon-seal {
+  font-size: 1.4rem;
+  color: var(--temple-gold);
+  margin-bottom: 12px;
+}
+
+.pillar-title-en {
+  font-family: var(--font-temple-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--temple-gold-light);
+  margin-bottom: 4px;
+}
+
+.pillar-title-ml {
+  font-family: var(--font-temple-ml-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--temple-ivory);
+  margin-bottom: 10px;
+}
+
+.pillar-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-ivory-muted);
+}
+
+/* Empty State / No Results */
+.awards-no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(20, 17, 16, 0.6);
+  border: 1px dashed var(--temple-dark-border);
+  border-radius: 12px;
+  display: none;
+}
+
+.awards-no-results.is-visible {
+  display: block;
+}
+
+.no-results-lamp {
+  font-size: 2.2rem;
+  color: var(--temple-gold);
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .awards-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  /* Timeline adapts to left spine on tablets */
+  .timeline-view-wrap::before {
+    left: 24px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 64px !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-node-dot {
+    left: 12px !important;
+    right: auto !important;
+  }
+
+  .timeline-year-node-badge {
+    left: 48px !important;
+    right: auto !important;
+    top: -8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .awards-hero {
+    padding: 100px 16px 40px;
+  }
+
+  .year-scroll-stream {
+    display: none; /* Switch to dropdown on mobile */
+  }
+
+  .year-dropdown-wrap {
+    display: block;
+    width: 100%;
+  }
+
+  .year-select-dropdown {
+    width: 100%;
+  }
+
+  .decade-jump-wrap {
+    display: none;
+  }
+
+  .controls-top-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-wrap {
+    max-width: 100%;
+  }
+
+  .tools-group {
+    justify-content: space-between;
+  }
+
+  .year-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .citation-modal-box {
+    padding: 28px 20px;
+  }
+
+  .history-card-box {
+    padding: 24px 18px;
+  }
+}
