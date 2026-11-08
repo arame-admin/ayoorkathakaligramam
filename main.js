@@ -1406,6 +1406,24 @@
       iframe.src = normalizeYouTubeEmbedUrl(iframe.src);
     }
 
+    function updatePlayerMeta(card) {
+      if (!card) return;
+      const curLang = (typeof window !== 'undefined' && window.AyroorI18n && typeof window.AyroorI18n.getLanguage === 'function')
+        ? window.AyroorI18n.getLanguage()
+        : (document.documentElement.lang || 'en');
+      const isMl = curLang === 'ml';
+
+      const label = isMl 
+        ? (card.getAttribute('data-feed-label-ml') || card.getAttribute('data-feed-label'))
+        : card.getAttribute('data-feed-label');
+      const title = isMl 
+        ? (card.getAttribute('data-feed-title-ml') || card.getAttribute('data-feed-title'))
+        : card.getAttribute('data-feed-title');
+
+      if (feedLabelEl && label) feedLabelEl.textContent = label;
+      if (feedTitleEl && title) feedTitleEl.textContent = title;
+    }
+
     feedCards.forEach((card) => {
       card.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1425,11 +1443,14 @@
         }
 
         // Update labels
-        const label = card.getAttribute('data-feed-label');
-        const title = card.getAttribute('data-feed-title');
-        if (feedLabelEl && label) feedLabelEl.textContent = label;
-        if (feedTitleEl && title) feedTitleEl.textContent = title;
+        updatePlayerMeta(card);
       });
+    });
+
+    // Re-sync player meta on language toggle
+    window.addEventListener('ayroor:languageChanged', () => {
+      const activeCard = section.querySelector('.live-feed-card.active') || feedCards[0];
+      updatePlayerMeta(activeCard);
     });
   }
 

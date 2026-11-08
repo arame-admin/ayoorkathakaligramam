@@ -187,7 +187,7 @@
             labelMl: 'ചിത്രശാല',
             href: 'gallery.html',
             descEn: 'Curated visual journey through Ayroor Kathakali Gramam',
-            descMl: 'അയിരൂരിന്റെ വർണ്ണാഭമായ ദൃശ്യങ്ങൾ',
+            descMl: 'അയ്രൂരിന്റെ വർണ്ണാഭമായ ദൃശ്യങ്ങൾ',
             hasChildren: true,
             children: [
               {

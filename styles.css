@@ -2837,59 +2837,98 @@ button {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   position: relative;
+  margin-top: 1.25rem;
 }
 
 .live-schedule-timeline::before {
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: 20px;
-  right: 20px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(197, 160, 89, 0.4), rgba(197, 160, 89, 0.1));
-  z-index: 1;
+  display: none !important;
 }
 
 .live-timeline-slot {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
   position: relative;
   z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.live-timeline-slot:hover {
+  transform: translateY(-2px);
 }
 
 .slot-time {
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--color-gold-light);
+  min-height: 26px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.slot-marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 0.25rem 0 0.65rem 0;
+}
+
+.slot-marker::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  width: calc(100% + 1.5rem);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.65), rgba(197, 160, 89, 0.25));
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.live-timeline-slot:last-child .slot-marker::before {
+  display: none;
 }
 
 .slot-bullet {
-  width: 10px;
-  height: 10px;
+  position: relative;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--color-bg);
-  border: 2px solid var(--color-gold);
-  box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
-  margin-bottom: 0.2rem;
+  background: var(--color-surface, #151310);
+  border: 2px solid var(--color-gold, #c5a059);
+  box-shadow: 0 0 8px rgba(197, 160, 89, 0.55), inset 0 0 3px rgba(197, 160, 89, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.live-timeline-slot:hover .slot-bullet {
+  transform: scale(1.35);
+  background: var(--color-gold, #c5a059);
+  box-shadow: 0 0 14px rgba(222, 192, 126, 0.85);
 }
 
 .slot-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
 }
 
 .slot-name {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--color-ivory);
   line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 .slot-sub {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.5;
   color: var(--color-ivory-dim);
 }
@@ -2900,16 +2939,36 @@ button {
   }
 
   .live-schedule-timeline {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem 1.5rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.75rem;
+    padding-bottom: 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(197, 160, 89, 0.3) transparent;
   }
 
-  .live-schedule-timeline::before {
-    display: none;
+  .live-schedule-timeline::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .live-schedule-timeline::-webkit-scrollbar-thumb {
+    background: rgba(197, 160, 89, 0.4);
+    border-radius: 2px;
+  }
+
+  .live-timeline-slot {
+    flex: 0 0 210px;
+    min-width: 210px;
+    scroll-snap-align: start;
+  }
+
+  .slot-marker::before {
+    width: calc(100% + 1.75rem);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .live-stream-header {
     flex-direction: column;
     gap: 1.5rem;
@@ -2933,13 +2992,61 @@ button {
     align-items: flex-start;
   }
 
+  .live-schedule-strip {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Mobile: Clean Vertical Spine Timeline */
   .live-schedule-timeline {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
     gap: 1.5rem;
   }
 
-  .live-schedule-strip {
-    padding: 1.5rem 1.25rem;
+  .live-timeline-slot {
+    flex: none;
+    min-width: unset;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 1.1rem;
+    row-gap: 0.25rem;
+  }
+
+  .slot-marker {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 5px;
+  }
+
+  .slot-marker::before {
+    top: 5px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% + 1.5rem);
+    transform: translateX(-50%);
+  }
+
+  .live-timeline-slot:last-child .slot-marker::before {
+    display: none;
+  }
+
+  .slot-time {
+    grid-column: 2;
+    grid-row: 1;
+    min-height: unset;
+    margin-bottom: 0;
+    align-items: center;
+  }
+
+  .slot-info {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
 
