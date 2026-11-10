@@ -37,11 +37,17 @@
   --border-subtle: rgba(245, 237, 225, 0.08);
   --border-hairline: rgba(245, 237, 225, 0.04);
 
-  /* Typography Fonts */
-  --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  /* Typography Fonts - Traditional Classical Heritage Stack */
+  --font-display: 'Cormorant Garamond', Garamond, Georgia, serif;
   --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-malayalam: 'Noto Serif Malayalam', Georgia, serif;
+
+  /* Universal Semantic Aliases */
+  --font-primary: var(--font-display);
+  --font-secondary: var(--font-body);
+  --font-accent: var(--font-serif);
 
   /* Universal Easing */
   --ease-primary: cubic-bezier(0.16, 1, 0.3, 1);

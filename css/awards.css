@@ -38,12 +38,12 @@
   --award-oms-bg: #422915;
   --award-oms-border: #e09f58;
 
-  /* Fonts */
-  --font-temple-heading: 'Cinzel', Georgia, serif;
+  /* Fonts - Traditional Classical Heritage Stack */
+  --font-temple-heading: 'Cormorant Garamond', Garamond, Georgia, serif;
   --font-temple-serif: 'Cormorant Garamond', serif;
   --font-temple-ml-heading: 'Noto Serif Malayalam', Georgia, serif;
-  --font-temple-ml-body: 'Manjari', 'Noto Sans Malayalam', sans-serif;
-  --font-temple-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-temple-ml-body: 'Noto Serif Malayalam', 'Manjari', serif;
+  --font-temple-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Kasavu (Kerala Zari Border) effect */
   --kasavu-border: 1px solid rgba(197, 160, 89, 0.35);
